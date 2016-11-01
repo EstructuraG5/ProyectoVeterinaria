@@ -16,6 +16,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -27,21 +28,75 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        Patitas = new javax.swing.JLabel();
+        Titulo = new javax.swing.JLabel();
+        Patita2 = new javax.swing.JLabel();
+        Constraseña = new javax.swing.JLabel();
+        Usuario = new javax.swing.JLabel();
+        textUsuario = new javax.swing.JTextField();
+        textContraseña = new javax.swing.JPasswordField();
+        iniciarSesion = new javax.swing.JButton();
+        salir = new javax.swing.JButton();
+        Fondo = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Patitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/black-paws-walking-hi.png"))); // NOI18N
+        getContentPane().add(Patitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 460, -1));
+
+        Titulo.setFont(new java.awt.Font("Eras Medium ITC", 3, 36)); // NOI18N
+        Titulo.setText("PROYECTO VET");
+        getContentPane().add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
+
+        Patita2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Pata_opt.png"))); // NOI18N
+        getContentPane().add(Patita2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, -1, -1));
+
+        Constraseña.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/key-icon-13_opt.png"))); // NOI18N
+        getContentPane().add(Constraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, -1, -1));
+
+        Usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/User_opt.png"))); // NOI18N
+        getContentPane().add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
+
+        textUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        textUsuario.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        getContentPane().add(textUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 240, 30));
+
+        textContraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textContraseñaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(textContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 240, 30));
+
+        iniciarSesion.setText("INICIAR SESION");
+        iniciarSesion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(iniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, 130, 40));
+
+        salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/unnamed_opt.png"))); // NOI18N
+        salir.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 550, 60, 50));
+
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/login2.png"))); // NOI18N
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -8, 460, 620));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_salirActionPerformed
+
+    private void textContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textContraseñaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textContraseñaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +134,15 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Constraseña;
+    private javax.swing.JLabel Fondo;
+    private javax.swing.JLabel Patita2;
+    private javax.swing.JLabel Patitas;
+    private javax.swing.JLabel Titulo;
+    private javax.swing.JLabel Usuario;
+    private javax.swing.JButton iniciarSesion;
+    private javax.swing.JButton salir;
+    private javax.swing.JPasswordField textContraseña;
+    private javax.swing.JTextField textUsuario;
     // End of variables declaration//GEN-END:variables
 }
