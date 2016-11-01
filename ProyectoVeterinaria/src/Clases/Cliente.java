@@ -7,7 +7,7 @@ package Clases;
 
 /**
  *
- * @author Victor Manuel
+ * @author Juan Eneque
  */
 public class Cliente {
     String DNI;
