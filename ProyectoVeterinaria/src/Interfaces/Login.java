@@ -59,8 +59,13 @@ public class Login extends javax.swing.JFrame {
         Usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/User_opt.png"))); // NOI18N
         getContentPane().add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
 
-        textUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        textUsuario.setForeground(new java.awt.Color(0, 0, 0));
         textUsuario.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        textUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textUsuarioActionPerformed(evt);
+            }
+        });
         getContentPane().add(textUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 240, 30));
 
         textContraseña.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +88,7 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 550, 60, 50));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/login2.png"))); // NOI18N
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/277126-fondo_Clínica_Veterinaria_Trabazosaa.png"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -8, 460, 620));
 
         pack();
@@ -97,6 +102,10 @@ public class Login extends javax.swing.JFrame {
     private void textContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textContraseñaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textContraseñaActionPerformed
+
+    private void textUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
