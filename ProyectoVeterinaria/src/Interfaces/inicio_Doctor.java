@@ -7,14 +7,14 @@ package Interfaces;
 
 /**
  *
- * @author GerAr
+ * @author usuario
  */
-public class Inicio_Secretaria extends javax.swing.JFrame {
+public class inicio_Doctor extends javax.swing.JFrame {
 
     /**
-     * Creates new form Inicio_Secretaria
+     * Creates new form inicio_Doctor
      */
-    public Inicio_Secretaria() {
+    public inicio_Doctor() {
         initComponents();
     }
 
@@ -30,43 +30,39 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
         Fondo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         Btn_cerrar_sesion = new javax.swing.JMenu();
-        Btn_registro = new javax.swing.JMenu();
-        Btn_buscar = new javax.swing.JMenu();
         Btn_cola = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        Btn_administrador = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(800, 600));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Inicio_secretaria.png"))); // NOI18N
-        Fondo.setAlignmentY(0.0F);
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Inicio_administrador.png"))); // NOI18N
+        Fondo.setPreferredSize(new java.awt.Dimension(780, 580));
         getContentPane().add(Fondo, java.awt.BorderLayout.CENTER);
 
-        jMenuBar1.setBackground(new java.awt.Color(255, 255, 102));
-        jMenuBar1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
         Btn_cerrar_sesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_Salir.png"))); // NOI18N
-        Btn_cerrar_sesion.setText("CERRAR SESIÓN");
+        Btn_cerrar_sesion.setText("CERRAR SESION");
         Btn_cerrar_sesion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Btn_cerrar_sesion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jMenuBar1.add(Btn_cerrar_sesion);
 
-        Btn_registro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_Registrar.png"))); // NOI18N
-        Btn_registro.setText("REGISTRO");
-        Btn_registro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Btn_registro.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jMenuBar1.add(Btn_registro);
-
-        Btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_Buscar.png"))); // NOI18N
-        Btn_buscar.setText("BUSCAR");
-        Btn_buscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Btn_buscar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jMenuBar1.add(Btn_buscar);
-
         Btn_cola.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_Cola.png"))); // NOI18N
-        Btn_cola.setText("COLA");
+        Btn_cola.setText("MOSTRAR COLA");
         Btn_cola.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Btn_cola.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jMenuBar1.add(Btn_cola);
+
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_diagnostico.png"))); // NOI18N
+        jMenu2.setText("DIAGNOSTICO");
+        jMenu2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jMenu2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jMenuBar1.add(jMenu2);
+
+        Btn_administrador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_admin.png"))); // NOI18N
+        Btn_administrador.setText("ADMINISTRADOR");
+        Btn_administrador.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Btn_administrador.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jMenuBar1.add(Btn_administrador);
 
         setJMenuBar(jMenuBar1);
 
@@ -90,30 +86,30 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Inicio_Secretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(inicio_Doctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Inicio_Secretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(inicio_Doctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Inicio_Secretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(inicio_Doctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Inicio_Secretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(inicio_Doctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Inicio_Secretaria().setVisible(true);
+                new inicio_Doctor().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu Btn_buscar;
+    private javax.swing.JMenu Btn_administrador;
     private javax.swing.JMenu Btn_cerrar_sesion;
     private javax.swing.JMenu Btn_cola;
-    private javax.swing.JMenu Btn_registro;
     private javax.swing.JLabel Fondo;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
