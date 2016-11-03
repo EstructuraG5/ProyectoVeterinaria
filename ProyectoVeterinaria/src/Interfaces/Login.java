@@ -59,8 +59,7 @@ public class Login extends javax.swing.JFrame {
         Usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/User_opt.png"))); // NOI18N
         getContentPane().add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
 
-        textUsuario.setForeground(new java.awt.Color(0, 0, 0));
-        textUsuario.setCaretColor(new java.awt.Color(0, 0, 0));
+        textUsuario.setForeground(new java.awt.Color(255, 255, 255));
         textUsuario.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         getContentPane().add(textUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 240, 30));
 
