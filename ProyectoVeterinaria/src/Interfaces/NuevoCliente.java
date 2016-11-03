@@ -44,7 +44,7 @@ public class NuevoCliente extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<String>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -125,7 +125,7 @@ public class NuevoCliente extends javax.swing.JFrame {
         getContentPane().add(jLabel7);
         jLabel7.setBounds(555, 225, 30, 14);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "MACHO", "HEMBRA" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MACHO", "HEMBRA" }));
         getContentPane().add(jComboBox1);
         jComboBox1.setBounds(589, 220, 66, 20);
 
@@ -156,7 +156,7 @@ public class NuevoCliente extends javax.swing.JFrame {
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo.png"))); // NOI18N
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(0, 0, 750, 450);
+        jLabel11.setBounds(0, 0, 680, 410);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
