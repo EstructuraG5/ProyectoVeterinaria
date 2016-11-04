@@ -44,7 +44,7 @@ public class NuevoCliente extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<String>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -57,6 +57,7 @@ public class NuevoCliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(750, 450));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         lbPropietario.setText("PROPIETARIO:");
@@ -125,7 +126,7 @@ public class NuevoCliente extends javax.swing.JFrame {
         getContentPane().add(jLabel7);
         jLabel7.setBounds(555, 225, 30, 14);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "MACHO", "HEMBRA" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MACHO", "HEMBRA" }));
         getContentPane().add(jComboBox1);
         jComboBox1.setBounds(589, 220, 66, 20);
 

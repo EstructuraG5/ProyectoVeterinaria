@@ -36,6 +36,7 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(800, 600));
+        setResizable(false);
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Inicio_secretaria.png"))); // NOI18N
         Fondo.setAlignmentY(0.0F);
