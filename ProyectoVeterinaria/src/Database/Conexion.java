@@ -17,11 +17,11 @@ import javax.swing.JOptionPane;
  * @author GerAr
  */
 public class Conexion {
-    Connection conexion;  
+    private Connection conexion;  
     public void conectar() throws Exception {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","");
+            setConexion((Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","1234"));
             JOptionPane.showMessageDialog(null, "Se ha iniciado la conexión con el servidor de forma exitosa");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
@@ -32,8 +32,22 @@ public class Conexion {
     
     public void cerrarConexion(){
         try{
-            conexion.close();
+            getConexion().close();
         }catch(SQLException ex){
         }
+    }
+
+    /**
+     * @return the conexion
+     */
+    public Connection getConexion() {
+        return conexion;
+    }
+
+    /**
+     * @param conexion the conexion to set
+     */
+    public void setConexion(Connection conexion) {
+        this.conexion = conexion;
     }
 }
