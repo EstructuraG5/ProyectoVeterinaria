@@ -152,7 +152,7 @@ public class Login extends javax.swing.JFrame {
                     int altura = tampantalla.height, ancho = tampantalla.width;
                     secretaria.setLocation(ancho/4, altura/4);
                     secretaria.setVisible(true);
-                }else{
+                }else{ 
                     if(tipo.equals("Veterinario")){
                         this.dispose();
                         inicio_Doctor doctor=new inicio_Doctor();
