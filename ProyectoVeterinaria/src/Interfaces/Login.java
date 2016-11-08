@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,10 +28,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-        Toolkit mipantalla = Toolkit.getDefaultToolkit(); // nos dice el medio donde esta compilando el programa
-        Dimension tampantalla = mipantalla.getScreenSize(); // devuelve la dimension de la pantalla
-        int altura = tampantalla.height, ancho = tampantalla.width;
-        setLocation(ancho/4, altura/4);
+
         this.setLocationRelativeTo(null);
     }
 
@@ -63,7 +62,7 @@ public class Login extends javax.swing.JFrame {
 
         Titulo.setFont(new java.awt.Font("Eras Medium ITC", 3, 36)); // NOI18N
         Titulo.setText("PROYECTO VET");
-        getContentPane().add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
+        getContentPane().add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 290, -1));
 
         Patita2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Pata_opt.png"))); // NOI18N
         getContentPane().add(Patita2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, -1, -1));
@@ -95,15 +94,16 @@ public class Login extends javax.swing.JFrame {
 
         salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/unnamed_opt.png"))); // NOI18N
         salir.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        salir.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/hjhjh.jpg"))); // NOI18N
         salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 salirActionPerformed(evt);
             }
         });
-        getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 550, 60, 50));
+        getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 540, 80, 60));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/login2.png"))); // NOI18N
-        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -8, 460, 620));
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/277126-fondo_Clínica_Veterinaria_Trabazosaa.png"))); // NOI18N
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 620));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -123,18 +123,23 @@ public class Login extends javax.swing.JFrame {
         char[] pass=textContraseña.getPassword();
         String password=new String(pass);
         boolean respuesta;
-        
+       
         
         try {
             Db_Usuarios consulta=new Db_Usuarios();
-            
+             Icon icono_varon = new ImageIcon(getClass().getResource("/Recursos/varon.png"));
+               Icon icono_mujer = new ImageIcon(getClass().getResource("/Recursos/mujer.png"));
             respuesta=consulta.buscar_Usuarios_login(usuario, password);
             if(respuesta==true){
                 String tipo=consulta.tipo_Usuario(usuario, password);
-                JOptionPane.showMessageDialog(null,tipo);
-                
+                if(tipo.equals("Secretaria"))
+                     JOptionPane.showMessageDialog(null,"Bienvenido "+tipo,"Tipo de Usuario",JOptionPane.INFORMATION_MESSAGE, icono_mujer);
+                else
+                     if(tipo.equals("Veterinario"))
+                                 JOptionPane.showMessageDialog(null,"Bienvenido "+tipo,"Tipo de Usuario",JOptionPane.INFORMATION_MESSAGE,icono_varon);
                 //2 tipos de usuario : Secretaria y Veterinario , Administrador
                 if(tipo.equals("Secretaria")){
+                   
                     this.dispose();
                     Inicio_Secretaria secretaria=new Inicio_Secretaria();
                     

@@ -5,10 +5,12 @@
  */
 package Database;
 
-import com.mysql.jdbc.Connection;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,10 +18,9 @@ import javax.swing.JOptionPane;
  * @author GerAr
  */
 public class Db_Usuarios {
+    Icon icono = new ImageIcon(getClass().getResource("/Recursos/descarga_opt.png"));
     
-    
-    public void insertar_Usuarios(String usuario, String password , String Nombres,
-        String ApPaterno,String ApMaterno , String TipoUsuario) throws Exception{
+    public void insertar_Usuarios(String usuario, String password , String Nombres, String ApPaterno,String ApMaterno , String TipoUsuario) throws Exception{
         
         Conexion con=new Conexion();
         
@@ -49,11 +50,11 @@ public class Db_Usuarios {
             
             ResultSet result=st.executeQuery(sql);
             if(result.next()){
-                JOptionPane.showMessageDialog(null,"EL USUARIO Y PASSWORD EXISTE");
+                JOptionPane.showMessageDialog(null," Has ingresado satisfactoriamente al sistema","Bienvenido",JOptionPane.INFORMATION_MESSAGE,icono);
                 //Dependiendo del tipo de usuario , ver que tipo de 
                 respuesta=true;
             }else{
-                JOptionPane.showMessageDialog(null,"Usuario y contraseña incorrecto");
+                JOptionPane.showMessageDialog(null,"Por favor ingrese un usuario y/o contraseña correctos","Acceso denegado",JOptionPane.ERROR_MESSAGE);
                 respuesta=false;
             }
         }catch(SQLException ex){

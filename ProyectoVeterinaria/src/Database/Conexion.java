@@ -5,11 +5,14 @@
  */
 package Database;
 
-import com.mysql.jdbc.Connection;
+
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,15 +20,19 @@ import javax.swing.JOptionPane;
  * @author GerAr
  */
 public class Conexion {
-    private Connection conexion;  
+    private Connection conexion; 
+Icon icono = new ImageIcon(getClass().getResource("/Recursos/like.png"));
     public void conectar() throws Exception {
         try {
+            
             Class.forName("com.mysql.jdbc.Driver");
             setConexion((Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","1234"));
-            JOptionPane.showMessageDialog(null, "Se ha iniciado la conexión con el servidor de forma exitosa");
+            JOptionPane.showMessageDialog(null, "Se ha iniciado la conexión con el servidor de forma exitosa","CONEXION",JOptionPane.PLAIN_MESSAGE,icono);
         } catch (ClassNotFoundException ex) {
+             JOptionPane.showMessageDialog(null, "No se ha iniciado la conexión con el servidor de forma exitosa","SIN CONEXION",JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, "No se ha iniciado la conexión con el servidor de forma exitosa","SIN CONEXION",JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

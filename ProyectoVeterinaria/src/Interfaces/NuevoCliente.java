@@ -56,23 +56,22 @@ public class NuevoCliente extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(750, 450));
         setResizable(false);
         getContentPane().setLayout(null);
 
         lbPropietario.setText("PROPIETARIO:");
         getContentPane().add(lbPropietario);
-        lbPropietario.setBounds(29, 12, 73, 14);
+        lbPropietario.setBounds(29, 12, 69, 15);
 
         lbNombre.setText("NOMBRES:");
         getContentPane().add(lbNombre);
-        lbNombre.setBounds(29, 41, 52, 14);
+        lbNombre.setBounds(29, 41, 53, 15);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(124, 39, 536, 20);
+        jTextField1.setBounds(124, 39, 536, 19);
 
         lbApellidos.setText("APELLIDOS:");
         getContentPane().add(lbApellidos);
-        lbApellidos.setBounds(29, 78, 58, 14);
+        lbApellidos.setBounds(29, 78, 59, 15);
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,39 +79,39 @@ public class NuevoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(124, 76, 536, 20);
+        jTextField2.setBounds(124, 76, 536, 19);
 
         jLabel1.setText("DNI:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(29, 115, 22, 14);
+        jLabel1.setBounds(29, 115, 19, 15);
         getContentPane().add(jTextField3);
-        jTextField3.setBounds(124, 113, 210, 20);
+        jTextField3.setBounds(124, 113, 210, 19);
 
         jLabel2.setText("TELEFONO/CELULAR:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(352, 115, 104, 14);
+        jLabel2.setBounds(352, 115, 106, 15);
         getContentPane().add(jTextField4);
-        jTextField4.setBounds(476, 113, 184, 20);
+        jTextField4.setBounds(476, 113, 184, 19);
 
         jLabel3.setText("DIRECCION:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(29, 152, 61, 14);
+        jLabel3.setBounds(29, 152, 56, 15);
         getContentPane().add(jTextField5);
-        jTextField5.setBounds(124, 150, 536, 20);
+        jTextField5.setBounds(124, 150, 536, 19);
 
         jLabel4.setText("MASCOTA:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(30, 187, 53, 14);
+        jLabel4.setBounds(30, 187, 55, 15);
 
         jLabel5.setText("ESPECIE:");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(29, 225, 45, 14);
+        jLabel5.setBounds(29, 225, 43, 15);
         getContentPane().add(jTextField6);
-        jTextField6.setBounds(124, 223, 175, 20);
+        jTextField6.setBounds(124, 223, 175, 19);
 
         jLabel6.setText("RAZA:");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(317, 225, 31, 14);
+        jLabel6.setBounds(317, 225, 33, 15);
 
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,38 +119,38 @@ public class NuevoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField7);
-        jTextField7.setBounds(362, 223, 175, 20);
+        jTextField7.setBounds(362, 223, 175, 19);
 
         jLabel7.setText("SEXO:");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(555, 225, 30, 14);
+        jLabel7.setBounds(555, 225, 31, 15);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MACHO", "HEMBRA" }));
         getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(589, 220, 66, 20);
+        jComboBox1.setBounds(589, 220, 71, 24);
 
         jLabel8.setText("NOMBRE:");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(29, 264, 46, 14);
+        jLabel8.setBounds(29, 264, 46, 15);
         getContentPane().add(jTextField8);
-        jTextField8.setBounds(124, 262, 211, 20);
+        jTextField8.setBounds(124, 262, 211, 19);
 
         jLabel9.setText("COLOR:");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(353, 264, 39, 14);
+        jLabel9.setBounds(353, 264, 39, 15);
         getContentPane().add(jTextField9);
-        jTextField9.setBounds(410, 262, 250, 20);
+        jTextField9.setBounds(410, 262, 250, 19);
 
         jLabel10.setText("FECHA DE NACIMIENTO:");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(29, 301, 120, 14);
+        jLabel10.setBounds(29, 301, 117, 15);
         getContentPane().add(jTextField10);
-        jTextField10.setBounds(164, 299, 215, 20);
+        jTextField10.setBounds(164, 299, 215, 19);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/registro_opt.png"))); // NOI18N
         jButton1.setText("REGISTRAR");
         getContentPane().add(jButton1);
-        jButton1.setBounds(519, 336, 139, 53);
+        jButton1.setBounds(519, 336, 141, 55);
         getContentPane().add(jLabel12);
         jLabel12.setBounds(0, 391, 0, 0);
 
