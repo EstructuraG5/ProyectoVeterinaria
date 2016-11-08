@@ -7,6 +7,8 @@ package Interfaces;
 
 import Database.Conexion;
 import Database.Db_Usuarios;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -24,6 +26,10 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        Toolkit mipantalla = Toolkit.getDefaultToolkit(); // nos dice el medio donde esta compilando el programa
+        Dimension tampantalla = mipantalla.getScreenSize(); // devuelve la dimension de la pantalla
+        int altura = tampantalla.height, ancho = tampantalla.width;
+        setLocation(ancho/4, altura/4);
         this.setLocationRelativeTo(null);
     }
 
@@ -131,21 +137,26 @@ public class Login extends javax.swing.JFrame {
                 if(tipo.equals("Secretaria")){
                     this.dispose();
                     Inicio_Secretaria secretaria=new Inicio_Secretaria();
+                    
+                    Toolkit mipantalla = Toolkit.getDefaultToolkit(); // nos dice el medio donde esta compilando el programa
+                    Dimension tampantalla = mipantalla.getScreenSize(); // devuelve la dimension de la pantalla
+                    int altura = tampantalla.height, ancho = tampantalla.width;
+                    secretaria.setLocation(ancho/4, altura/4);
                     secretaria.setVisible(true);
                 }else{
                     if(tipo.equals("Veterinario")){
                         this.dispose();
                         inicio_Doctor doctor=new inicio_Doctor();
+                        
+                        Toolkit mipantalla = Toolkit.getDefaultToolkit(); // nos dice el medio donde esta compilando el programa
+                        Dimension tampantalla = mipantalla.getScreenSize(); // devuelve la dimension de la pantalla
+                        int altura = tampantalla.height, ancho = tampantalla.width;
+                        doctor.setLocation(ancho/4, altura/4);
                         doctor.setVisible(true);
                     }
                 }
                 
             }
-            
-            
-           
-            
-            
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {

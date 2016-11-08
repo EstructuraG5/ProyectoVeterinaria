@@ -19,7 +19,7 @@ public class Db_Usuarios {
     
     
     public void insertar_Usuarios(String usuario, String password , String Nombres,
-            String ApPaterno,String ApMaterno , String TipoUsuario) throws Exception{
+        String ApPaterno,String ApMaterno , String TipoUsuario) throws Exception{
         
         Conexion con=new Conexion();
         
@@ -78,7 +78,7 @@ public class Db_Usuarios {
             
         }
         
-    return tipo;
+        return tipo;
     }
     
 }
