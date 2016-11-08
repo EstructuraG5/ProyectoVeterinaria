@@ -29,7 +29,6 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
 
-        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -94,7 +93,6 @@ public class Login extends javax.swing.JFrame {
 
         salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/unnamed_opt.png"))); // NOI18N
         salir.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        salir.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/hjhjh.jpg"))); // NOI18N
         salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 salirActionPerformed(evt);
@@ -127,20 +125,16 @@ public class Login extends javax.swing.JFrame {
         
         try {
             Db_Usuarios consulta=new Db_Usuarios();
-             Icon icono_varon = new ImageIcon(getClass().getResource("/Recursos/varon.png"));
-               Icon icono_mujer = new ImageIcon(getClass().getResource("/Recursos/mujer.png"));
             respuesta=consulta.buscar_Usuarios_login(usuario, password);
             if(respuesta==true){
                 String tipo=consulta.tipo_Usuario(usuario, password);
-<<<<<<< HEAD
                 if(tipo.equals("Secretaria"))
-                     JOptionPane.showMessageDialog(null,"Bienvenido "+tipo,"Tipo de Usuario",JOptionPane.INFORMATION_MESSAGE, icono_mujer);
+                     JOptionPane.showMessageDialog(null,"Bienvenido "+tipo,"Tipo de Usuario",JOptionPane.INFORMATION_MESSAGE);
                 else
                      if(tipo.equals("Veterinario"))
-                                 JOptionPane.showMessageDialog(null,"Bienvenido "+tipo,"Tipo de Usuario",JOptionPane.INFORMATION_MESSAGE,icono_varon);
-=======
-                
->>>>>>> origin/master
+                                 JOptionPane.showMessageDialog(null,"Bienvenido "+tipo,"Tipo de Usuario",JOptionPane.INFORMATION_MESSAGE);
+
+               
                 //2 tipos de usuario : Secretaria y Veterinario , Administrador
                 if(tipo.equals("Secretaria")){
                    

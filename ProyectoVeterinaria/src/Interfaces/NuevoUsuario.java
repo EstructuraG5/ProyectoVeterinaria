@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -58,28 +59,28 @@ public class NuevoUsuario extends javax.swing.JFrame {
         getContentPane().add(lbNombre);
         lbNombre.setBounds(12, 48, 60, 17);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(204, 47, 225, 19);
+        jTextField1.setBounds(204, 47, 225, 20);
 
         lbApPaterno.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         lbApPaterno.setText("APELLIDO PATERNO:");
         getContentPane().add(lbApPaterno);
         lbApPaterno.setBounds(12, 85, 115, 17);
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(204, 84, 225, 19);
+        jTextField2.setBounds(204, 84, 225, 20);
 
         lbApMaterno.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         lbApMaterno.setText("APELLIDO MATERNO:");
         getContentPane().add(lbApMaterno);
         lbApMaterno.setBounds(12, 122, 119, 17);
         getContentPane().add(jTextField3);
-        jTextField3.setBounds(204, 121, 225, 19);
+        jTextField3.setBounds(204, 121, 225, 20);
 
         lbUsuario.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         lbUsuario.setText("USUARIO:");
         getContentPane().add(lbUsuario);
         lbUsuario.setBounds(12, 159, 57, 17);
         getContentPane().add(jTextField4);
-        jTextField4.setBounds(204, 158, 225, 19);
+        jTextField4.setBounds(204, 158, 225, 20);
 
         lbClave.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         lbClave.setText("PASSWORD:");
@@ -91,25 +92,17 @@ public class NuevoUsuario extends javax.swing.JFrame {
         getContentPane().add(lbTipo);
         lbTipo.setBounds(12, 237, 31, 17);
         getContentPane().add(jTextField5);
-        jTextField5.setBounds(204, 195, 225, 19);
+        jTextField5.setBounds(204, 195, 225, 20);
 
         jComboBox1.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Veterinario(a)", "Secretaria(o)" }));
         getContentPane().add(jComboBox1);
-<<<<<<< HEAD
-        jComboBox1.setBounds(210, 240, 101, 26);
-=======
-        jComboBox1.setBounds(204, 232, 101, 23);
->>>>>>> origin/master
+        jComboBox1.setBounds(210, 240, 101, 23);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/registro_opt.png"))); // NOI18N
         jButton1.setText("REGISTRAR");
         getContentPane().add(jButton1);
-<<<<<<< HEAD
-        jButton1.setBounds(305, 309, 141, 55);
-=======
         jButton1.setBounds(305, 309, 139, 53);
->>>>>>> origin/master
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo.png"))); // NOI18N
         getContentPane().add(jLabel1);
