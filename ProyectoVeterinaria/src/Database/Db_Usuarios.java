@@ -5,7 +5,7 @@
  */
 package Database;
 
-import com.mysql.jdbc.Connection;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -49,11 +49,10 @@ public class Db_Usuarios {
             
             ResultSet result=st.executeQuery(sql);
             if(result.next()){
-                JOptionPane.showMessageDialog(null,"EL USUARIO Y PASSWORD EXISTE");
                 //Dependiendo del tipo de usuario , ver que tipo de 
                 respuesta=true;
             }else{
-                JOptionPane.showMessageDialog(null,"Usuario y contraseña incorrecto");
+                JOptionPane.showMessageDialog(null,"USUARIO Y/O CONTRASEÑA INCORRECTO","ERROR",JOptionPane.ERROR_MESSAGE);
                 respuesta=false;
             }
         }catch(SQLException ex){

@@ -96,12 +96,12 @@ public class NuevoUsuario extends javax.swing.JFrame {
         jComboBox1.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Veterinario(a)", "Secretaria(o)" }));
         getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(204, 232, 101, 26);
+        jComboBox1.setBounds(204, 232, 101, 23);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/registro_opt.png"))); // NOI18N
         jButton1.setText("REGISTRAR");
         getContentPane().add(jButton1);
-        jButton1.setBounds(305, 309, 148, 55);
+        jButton1.setBounds(305, 309, 139, 53);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo.png"))); // NOI18N
         getContentPane().add(jLabel1);
