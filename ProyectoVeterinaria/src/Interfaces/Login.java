@@ -132,11 +132,15 @@ public class Login extends javax.swing.JFrame {
             respuesta=consulta.buscar_Usuarios_login(usuario, password);
             if(respuesta==true){
                 String tipo=consulta.tipo_Usuario(usuario, password);
+<<<<<<< HEAD
                 if(tipo.equals("Secretaria"))
                      JOptionPane.showMessageDialog(null,"Bienvenido "+tipo,"Tipo de Usuario",JOptionPane.INFORMATION_MESSAGE, icono_mujer);
                 else
                      if(tipo.equals("Veterinario"))
                                  JOptionPane.showMessageDialog(null,"Bienvenido "+tipo,"Tipo de Usuario",JOptionPane.INFORMATION_MESSAGE,icono_varon);
+=======
+                
+>>>>>>> origin/master
                 //2 tipos de usuario : Secretaria y Veterinario , Administrador
                 if(tipo.equals("Secretaria")){
                    
@@ -161,6 +165,11 @@ public class Login extends javax.swing.JFrame {
                     }
                 }
                 
+            }else{
+                if(respuesta==false){
+                    textUsuario.setText("");
+                    textContraseña.setText("");
+                }
             }
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);

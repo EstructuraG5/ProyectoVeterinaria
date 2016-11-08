@@ -5,7 +5,11 @@
  */
 package Database;
 
+<<<<<<< HEAD
 
+=======
+import java.sql.Connection;
+>>>>>>> origin/master
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -50,11 +54,18 @@ public class Db_Usuarios {
             
             ResultSet result=st.executeQuery(sql);
             if(result.next()){
+<<<<<<< HEAD
                 JOptionPane.showMessageDialog(null," Has ingresado satisfactoriamente al sistema","Bienvenido",JOptionPane.INFORMATION_MESSAGE,icono);
                 //Dependiendo del tipo de usuario , ver que tipo de 
                 respuesta=true;
             }else{
                 JOptionPane.showMessageDialog(null,"Por favor ingrese un usuario y/o contraseña correctos","Acceso denegado",JOptionPane.ERROR_MESSAGE);
+=======
+                //Dependiendo del tipo de usuario , ver que tipo de 
+                respuesta=true;
+            }else{
+                JOptionPane.showMessageDialog(null,"USUARIO Y/O CONTRASEÑA INCORRECTO","ERROR",JOptionPane.ERROR_MESSAGE);
+>>>>>>> origin/master
                 respuesta=false;
             }
         }catch(SQLException ex){
