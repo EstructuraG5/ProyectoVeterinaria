@@ -6,6 +6,12 @@
 package Interfaces;
 
 import Database.Conexion;
+import Database.Db_Usuarios;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -62,7 +68,6 @@ public class Login extends javax.swing.JFrame {
         Usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/User_opt.png"))); // NOI18N
         getContentPane().add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
 
-        textUsuario.setForeground(new java.awt.Color(255, 255, 255));
         textUsuario.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         getContentPane().add(textUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 240, 30));
 
@@ -75,6 +80,11 @@ public class Login extends javax.swing.JFrame {
 
         iniciarSesion.setText("INICIAR SESION");
         iniciarSesion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        iniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iniciarSesionActionPerformed(evt);
+            }
+        });
         getContentPane().add(iniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, 130, 40));
 
         salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/unnamed_opt.png"))); // NOI18N
@@ -100,6 +110,49 @@ public class Login extends javax.swing.JFrame {
     private void textContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textContraseñaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textContraseñaActionPerformed
+
+    private void iniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarSesionActionPerformed
+        // TODO add your handling code here:
+        String usuario=textUsuario.getText();
+        char[] pass=textContraseña.getPassword();
+        String password=new String(pass);
+        boolean respuesta;
+        
+        
+        try {
+            Db_Usuarios consulta=new Db_Usuarios();
+            
+            respuesta=consulta.buscar_Usuarios_login(usuario, password);
+            if(respuesta==true){
+                String tipo=consulta.tipo_Usuario(usuario, password);
+                JOptionPane.showMessageDialog(null,tipo);
+                
+                //2 tipos de usuario : Secretaria y Veterinario , Administrador
+                if(tipo.equals("Secretaria")){
+                    this.dispose();
+                    Inicio_Secretaria secretaria=new Inicio_Secretaria();
+                    secretaria.setVisible(true);
+                }else{
+                    if(tipo.equals("Veterinario")){
+                        this.dispose();
+                        inicio_Doctor doctor=new inicio_Doctor();
+                        doctor.setVisible(true);
+                    }
+                }
+                
+            }
+            
+            
+           
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_iniciarSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,7 +199,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel Usuario;
     private javax.swing.JButton iniciarSesion;
     private javax.swing.JButton salir;
-    private javax.swing.JPasswordField textContraseña;
-    private javax.swing.JTextField textUsuario;
+    public static javax.swing.JPasswordField textContraseña;
+    public static javax.swing.JTextField textUsuario;
     // End of variables declaration//GEN-END:variables
 }

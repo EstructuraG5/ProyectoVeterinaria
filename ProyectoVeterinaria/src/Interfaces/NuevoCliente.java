@@ -62,17 +62,17 @@ public class NuevoCliente extends javax.swing.JFrame {
 
         lbPropietario.setText("PROPIETARIO:");
         getContentPane().add(lbPropietario);
-        lbPropietario.setBounds(29, 12, 81, 16);
+        lbPropietario.setBounds(29, 12, 73, 14);
 
         lbNombre.setText("NOMBRES:");
         getContentPane().add(lbNombre);
-        lbNombre.setBounds(29, 41, 61, 16);
+        lbNombre.setBounds(29, 41, 52, 14);
         getContentPane().add(jTextField1);
         jTextField1.setBounds(124, 39, 536, 20);
 
         lbApellidos.setText("APELLIDOS:");
         getContentPane().add(lbApellidos);
-        lbApellidos.setBounds(29, 78, 68, 16);
+        lbApellidos.setBounds(29, 78, 58, 14);
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,35 +84,35 @@ public class NuevoCliente extends javax.swing.JFrame {
 
         jLabel1.setText("DNI:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(29, 115, 22, 16);
+        jLabel1.setBounds(29, 115, 22, 14);
         getContentPane().add(jTextField3);
         jTextField3.setBounds(124, 113, 210, 20);
 
         jLabel2.setText("TELEFONO/CELULAR:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(352, 115, 119, 16);
+        jLabel2.setBounds(352, 115, 104, 14);
         getContentPane().add(jTextField4);
         jTextField4.setBounds(476, 113, 184, 20);
 
         jLabel3.setText("DIRECCION:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(29, 152, 65, 16);
+        jLabel3.setBounds(29, 152, 61, 14);
         getContentPane().add(jTextField5);
         jTextField5.setBounds(124, 150, 536, 20);
 
         jLabel4.setText("MASCOTA:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(30, 187, 61, 16);
+        jLabel4.setBounds(30, 187, 53, 14);
 
         jLabel5.setText("ESPECIE:");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(29, 225, 51, 16);
+        jLabel5.setBounds(29, 225, 45, 14);
         getContentPane().add(jTextField6);
         jTextField6.setBounds(124, 223, 175, 20);
 
         jLabel6.setText("RAZA:");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(317, 225, 34, 16);
+        jLabel6.setBounds(317, 225, 31, 14);
 
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,34 +124,34 @@ public class NuevoCliente extends javax.swing.JFrame {
 
         jLabel7.setText("SEXO:");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(555, 225, 35, 16);
+        jLabel7.setBounds(555, 225, 30, 14);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MACHO", "HEMBRA" }));
         getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(589, 220, 77, 25);
+        jComboBox1.setBounds(589, 220, 66, 20);
 
         jLabel8.setText("NOMBRE:");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(29, 264, 53, 16);
+        jLabel8.setBounds(29, 264, 46, 14);
         getContentPane().add(jTextField8);
         jTextField8.setBounds(124, 262, 211, 20);
 
         jLabel9.setText("COLOR:");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(353, 264, 44, 16);
+        jLabel9.setBounds(353, 264, 39, 14);
         getContentPane().add(jTextField9);
         jTextField9.setBounds(410, 262, 250, 20);
 
         jLabel10.setText("FECHA DE NACIMIENTO:");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(29, 301, 132, 16);
+        jLabel10.setBounds(29, 301, 120, 14);
         getContentPane().add(jTextField10);
         jTextField10.setBounds(164, 299, 215, 20);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/registro_opt.png"))); // NOI18N
         jButton1.setText("REGISTRAR");
         getContentPane().add(jButton1);
-        jButton1.setBounds(519, 336, 148, 55);
+        jButton1.setBounds(519, 336, 139, 53);
         getContentPane().add(jLabel12);
         jLabel12.setBounds(0, 391, 0, 0);
 
