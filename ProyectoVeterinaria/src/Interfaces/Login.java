@@ -28,7 +28,10 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-
+        Toolkit mipantalla = Toolkit.getDefaultToolkit(); // nos dice el medio donde esta compilando el programa
+        Dimension tampantalla = mipantalla.getScreenSize(); // devuelve la dimension de la pantalla
+        int altura = tampantalla.height, ancho = tampantalla.width;
+        setLocation(ancho/4, altura/8);
     }
 
     /**
