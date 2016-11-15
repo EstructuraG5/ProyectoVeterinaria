@@ -5,6 +5,9 @@
  */
 package Interfaces;
 
+import Clases.Cliente;
+import Clases.Mascota;
+
 /**
  *
  * @author User
@@ -29,7 +32,7 @@ public class NuevoCliente extends javax.swing.JFrame {
 
         lbPropietario = new javax.swing.JLabel();
         lbNombre = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        JNombreCliente = new javax.swing.JTextField();
         lbApellidos = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -61,17 +64,17 @@ public class NuevoCliente extends javax.swing.JFrame {
 
         lbPropietario.setText("PROPIETARIO:");
         getContentPane().add(lbPropietario);
-        lbPropietario.setBounds(29, 12, 69, 15);
+        lbPropietario.setBounds(29, 12, 81, 16);
 
         lbNombre.setText("NOMBRES:");
         getContentPane().add(lbNombre);
-        lbNombre.setBounds(29, 41, 53, 15);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(124, 39, 536, 19);
+        lbNombre.setBounds(29, 41, 61, 16);
+        getContentPane().add(JNombreCliente);
+        JNombreCliente.setBounds(124, 39, 536, 20);
 
         lbApellidos.setText("APELLIDOS:");
         getContentPane().add(lbApellidos);
-        lbApellidos.setBounds(29, 78, 59, 15);
+        lbApellidos.setBounds(29, 78, 68, 16);
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,39 +82,39 @@ public class NuevoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(124, 76, 536, 19);
+        jTextField2.setBounds(124, 76, 536, 20);
 
         jLabel1.setText("DNI:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(29, 115, 19, 15);
+        jLabel1.setBounds(29, 115, 22, 16);
         getContentPane().add(jTextField3);
-        jTextField3.setBounds(124, 113, 210, 19);
+        jTextField3.setBounds(124, 113, 210, 20);
 
         jLabel2.setText("TELEFONO/CELULAR:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(352, 115, 106, 15);
+        jLabel2.setBounds(352, 115, 119, 16);
         getContentPane().add(jTextField4);
-        jTextField4.setBounds(476, 113, 184, 19);
+        jTextField4.setBounds(476, 113, 184, 20);
 
         jLabel3.setText("DIRECCION:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(29, 152, 56, 15);
+        jLabel3.setBounds(29, 152, 65, 16);
         getContentPane().add(jTextField5);
-        jTextField5.setBounds(124, 150, 536, 19);
+        jTextField5.setBounds(124, 150, 536, 20);
 
         jLabel4.setText("MASCOTA:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(30, 187, 55, 15);
+        jLabel4.setBounds(30, 187, 61, 16);
 
         jLabel5.setText("ESPECIE:");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(29, 225, 43, 15);
+        jLabel5.setBounds(29, 225, 51, 16);
         getContentPane().add(jTextField6);
-        jTextField6.setBounds(124, 223, 175, 19);
+        jTextField6.setBounds(124, 223, 175, 20);
 
         jLabel6.setText("RAZA:");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(317, 225, 33, 15);
+        jLabel6.setBounds(317, 225, 34, 16);
 
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,38 +122,48 @@ public class NuevoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField7);
-        jTextField7.setBounds(362, 223, 175, 19);
+        jTextField7.setBounds(362, 223, 175, 20);
 
         jLabel7.setText("SEXO:");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(555, 225, 31, 15);
+        jLabel7.setBounds(555, 225, 35, 16);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MACHO", "HEMBRA" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(589, 220, 71, 24);
+        jComboBox1.setBounds(589, 220, 77, 25);
 
         jLabel8.setText("NOMBRE:");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(29, 264, 46, 15);
+        jLabel8.setBounds(29, 264, 53, 16);
         getContentPane().add(jTextField8);
-        jTextField8.setBounds(124, 262, 211, 19);
+        jTextField8.setBounds(124, 262, 211, 20);
 
         jLabel9.setText("COLOR:");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(353, 264, 39, 15);
+        jLabel9.setBounds(353, 264, 44, 16);
         getContentPane().add(jTextField9);
-        jTextField9.setBounds(410, 262, 250, 19);
+        jTextField9.setBounds(410, 262, 250, 20);
 
         jLabel10.setText("FECHA DE NACIMIENTO:");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(29, 301, 117, 15);
+        jLabel10.setBounds(29, 301, 132, 16);
         getContentPane().add(jTextField10);
-        jTextField10.setBounds(164, 299, 215, 19);
+        jTextField10.setBounds(164, 299, 215, 20);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/registro_opt.png"))); // NOI18N
         jButton1.setText("REGISTRAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1);
-        jButton1.setBounds(519, 336, 141, 55);
+        jButton1.setBounds(519, 336, 148, 55);
         getContentPane().add(jLabel12);
         jLabel12.setBounds(0, 391, 0, 0);
 
@@ -168,6 +181,15 @@ public class NuevoCliente extends javax.swing.JFrame {
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,6 +227,7 @@ public class NuevoCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField JNombreCliente;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -219,7 +242,6 @@ public class NuevoCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
