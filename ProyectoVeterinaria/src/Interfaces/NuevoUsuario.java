@@ -8,6 +8,7 @@ package Interfaces;
 
 import Clases.Usuario;
 import Database.Db_Usuarios;
+import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -50,9 +51,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(500, 450));
         setMinimumSize(new java.awt.Dimension(500, 450));
-        setPreferredSize(new java.awt.Dimension(500, 440));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -66,9 +65,15 @@ public class NuevoUsuario extends javax.swing.JFrame {
         getContentPane().add(lbNombre);
         lbNombre.setBounds(12, 48, 60, 17);
 
+        JNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         JNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JNombreActionPerformed(evt);
+            }
+        });
+        JNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JNombreKeyTyped(evt);
             }
         });
         getContentPane().add(JNombre);
@@ -135,6 +140,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
     private void JRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRegistrarActionPerformed
         // TODO add your handling code here:
+        
         Usuario user= new Usuario();
         Db_Usuarios Insert=new Db_Usuarios();
         char[] pass = JPassword.getPassword();
@@ -158,6 +164,10 @@ public class NuevoUsuario extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_JRegistrarActionPerformed
+
+    private void JNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JNombreKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JNombreKeyTyped
 
     /**
      * @param args the command line arguments
