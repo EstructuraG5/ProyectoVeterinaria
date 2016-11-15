@@ -6,6 +6,11 @@
  */
 package Interfaces;
 
+import Clases.Usuario;
+import Database.Db_Usuarios;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author User
@@ -30,23 +35,25 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
         lbRegistro = new javax.swing.JLabel();
         lbNombre = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        JNombre = new javax.swing.JTextField();
         lbApPaterno = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        JApPaterno = new javax.swing.JTextField();
         lbApMaterno = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        JApMaterno = new javax.swing.JTextField();
         lbUsuario = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        JUsuario = new javax.swing.JTextField();
         lbClave = new javax.swing.JLabel();
         lbTipo = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        JTipoUsuario = new javax.swing.JComboBox<>();
+        JRegistrar = new javax.swing.JButton();
+        JPassword = new javax.swing.JPasswordField();
+        Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(550, 450));
+        setMaximumSize(new java.awt.Dimension(500, 450));
+        setMinimumSize(new java.awt.Dimension(500, 450));
         setPreferredSize(new java.awt.Dimension(500, 440));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         lbRegistro.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
@@ -58,29 +65,35 @@ public class NuevoUsuario extends javax.swing.JFrame {
         lbNombre.setText("NOMBRES:");
         getContentPane().add(lbNombre);
         lbNombre.setBounds(12, 48, 60, 17);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(204, 47, 225, 20);
+
+        JNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JNombreActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JNombre);
+        JNombre.setBounds(204, 47, 225, 20);
 
         lbApPaterno.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         lbApPaterno.setText("APELLIDO PATERNO:");
         getContentPane().add(lbApPaterno);
         lbApPaterno.setBounds(12, 85, 115, 17);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(204, 84, 225, 20);
+        getContentPane().add(JApPaterno);
+        JApPaterno.setBounds(204, 84, 225, 20);
 
         lbApMaterno.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         lbApMaterno.setText("APELLIDO MATERNO:");
         getContentPane().add(lbApMaterno);
         lbApMaterno.setBounds(12, 122, 119, 17);
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(204, 121, 225, 20);
+        getContentPane().add(JApMaterno);
+        JApMaterno.setBounds(204, 121, 225, 20);
 
         lbUsuario.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         lbUsuario.setText("USUARIO:");
         getContentPane().add(lbUsuario);
         lbUsuario.setBounds(12, 159, 57, 17);
-        getContentPane().add(jTextField4);
-        jTextField4.setBounds(204, 158, 225, 20);
+        getContentPane().add(JUsuario);
+        JUsuario.setBounds(204, 158, 225, 20);
 
         lbClave.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         lbClave.setText("PASSWORD:");
@@ -91,25 +104,60 @@ public class NuevoUsuario extends javax.swing.JFrame {
         lbTipo.setText("TIPO:");
         getContentPane().add(lbTipo);
         lbTipo.setBounds(12, 237, 31, 17);
-        getContentPane().add(jTextField5);
-        jTextField5.setBounds(204, 195, 225, 20);
 
-        jComboBox1.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Veterinario(a)", "Secretaria(o)" }));
-        getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(210, 240, 101, 23);
+        JTipoUsuario.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
+        JTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Veterinario(a)", "Secretaria(o)" }));
+        getContentPane().add(JTipoUsuario);
+        JTipoUsuario.setBounds(210, 240, 101, 26);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/registro_opt.png"))); // NOI18N
-        jButton1.setText("REGISTRAR");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(305, 309, 139, 53);
+        JRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/registro_opt.png"))); // NOI18N
+        JRegistrar.setText("REGISTRAR");
+        JRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JRegistrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JRegistrar);
+        JRegistrar.setBounds(305, 309, 148, 55);
+        getContentPane().add(JPassword);
+        JPassword.setBounds(210, 200, 220, 20);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo.png"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, -5, 500, 440);
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo.png"))); // NOI18N
+        getContentPane().add(Fondo);
+        Fondo.setBounds(0, -5, 500, 440);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void JNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JNombreActionPerformed
+
+    private void JRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRegistrarActionPerformed
+        // TODO add your handling code here:
+        Usuario user= new Usuario();
+        Db_Usuarios Insert=new Db_Usuarios();
+        char[] pass = JPassword.getPassword();
+        String password  = new String(pass);
+        
+        user.setNombre(JNombre.getText());
+        user.setApMaterno(JApMaterno.getText());
+        user.setApPaterno(JApPaterno.getText());
+        user.setUsuario(JUsuario.getText());
+        user.setPassword(password);
+        user.setTipoUsuario((String) JTipoUsuario.getSelectedItem());
+        System.out.println(user.getUsuario()+" "+user.getPassword()+" "+
+                user.getNombre()+" "+user.getApMaterno()+" "+user.getApPaterno()+" "+
+                user.getTipoUsuario());
+        
+        try {
+            Insert.insertar_Usuarios(user.getUsuario(),user.getPassword(),user.getNombre(),user.getApPaterno()
+                    , user.getApMaterno(),user.getTipoUsuario());
+        } catch (Exception ex) {
+            Logger.getLogger(NuevoUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_JRegistrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,14 +195,14 @@ public class NuevoUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JLabel Fondo;
+    private javax.swing.JTextField JApMaterno;
+    private javax.swing.JTextField JApPaterno;
+    private javax.swing.JTextField JNombre;
+    private javax.swing.JPasswordField JPassword;
+    private javax.swing.JButton JRegistrar;
+    private javax.swing.JComboBox<String> JTipoUsuario;
+    private javax.swing.JTextField JUsuario;
     private javax.swing.JLabel lbApMaterno;
     private javax.swing.JLabel lbApPaterno;
     private javax.swing.JLabel lbClave;

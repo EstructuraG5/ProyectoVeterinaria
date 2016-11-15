@@ -25,12 +25,11 @@ public class Db_Usuarios {
         
         Conexion con=new Conexion();
         
-        Conexion connect=new Conexion();
-        connect.conectar();
+        con.conectar();
         try{
             Statement st=con.getConexion().createStatement();
-            String sql = "INSERT INTO usuarios (NombreUsuario,PasswordUsuario,Nombres,ApPaterno,ApMaterno,TipoUsuario)"
-                + " VALUES ("+usuario+","+password+","+Nombres+","+ApPaterno+","+ApMaterno+","+TipoUsuario+")";
+            String sql = "INSERT INTO vet.usuarios (NombreUsuario,PasswordUsuario,Nombres,ApPaterno,ApMaterno,TipoUsuario)"
+                + " VALUES ('"+usuario+"','"+password+"','"+Nombres+"','"+ApPaterno+"','"+ApMaterno+"','"+TipoUsuario+"')";
         
             st.executeUpdate(sql);
             JOptionPane.showMessageDialog(null,"Los datos se registraron correctamente");

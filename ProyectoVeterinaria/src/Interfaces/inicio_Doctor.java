@@ -33,6 +33,7 @@ public class inicio_Doctor extends javax.swing.JFrame {
         Btn_cola = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         Btn_administrador = new javax.swing.JMenu();
+        Registrar_Usuario = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -63,12 +64,26 @@ public class inicio_Doctor extends javax.swing.JFrame {
         Btn_administrador.setText("ADMINISTRADOR");
         Btn_administrador.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Btn_administrador.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        Registrar_Usuario.setText("Registrar Usuario");
+        Registrar_Usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Registrar_UsuarioActionPerformed(evt);
+            }
+        });
+        Btn_administrador.add(Registrar_Usuario);
+
         jMenuBar1.add(Btn_administrador);
 
         setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Registrar_UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Registrar_UsuarioActionPerformed
+        // TODO add your handling code here:
+        new NuevoUsuario().setVisible(true);
+    }//GEN-LAST:event_Registrar_UsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -110,6 +125,7 @@ public class inicio_Doctor extends javax.swing.JFrame {
     private javax.swing.JMenu Btn_cerrar_sesion;
     private javax.swing.JMenu Btn_cola;
     private javax.swing.JLabel Fondo;
+    private javax.swing.JMenuItem Registrar_Usuario;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
