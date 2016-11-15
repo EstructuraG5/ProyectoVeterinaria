@@ -8,7 +8,6 @@ package Interfaces;
 
 import Clases.Usuario;
 import Database.Db_Usuarios;
-import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -66,11 +65,6 @@ public class NuevoUsuario extends javax.swing.JFrame {
         lbNombre.setBounds(12, 48, 60, 17);
 
         JNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        JNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JNombreActionPerformed(evt);
-            }
-        });
         JNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 JNombreKeyTyped(evt);
@@ -133,14 +127,10 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void JNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JNombreActionPerformed
-
+ 
+    
     private void JRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRegistrarActionPerformed
         // TODO add your handling code here:
-        
         Usuario user= new Usuario();
         Db_Usuarios Insert=new Db_Usuarios();
         char[] pass = JPassword.getPassword();
