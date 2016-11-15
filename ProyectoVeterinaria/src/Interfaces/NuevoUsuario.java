@@ -8,6 +8,8 @@ package Interfaces;
 
 import Clases.Usuario;
 import Database.Db_Usuarios;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,6 +24,10 @@ public class NuevoUsuario extends javax.swing.JFrame {
      */
     public NuevoUsuario() {
         initComponents();
+        Toolkit mipantalla = Toolkit.getDefaultToolkit(); // nos dice el medio donde esta compilando el programa
+        Dimension tampantalla = mipantalla.getScreenSize(); // devuelve la dimension de la pantalla
+        int altura = tampantalla.height, ancho = tampantalla.width;
+        setLocation(ancho/4, altura/8);
     }
 
     /**
@@ -65,12 +71,6 @@ public class NuevoUsuario extends javax.swing.JFrame {
         lbNombre.setText("NOMBRES:");
         getContentPane().add(lbNombre);
         lbNombre.setBounds(12, 48, 60, 17);
-
-        JNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JNombreActionPerformed(evt);
-            }
-        });
         getContentPane().add(JNombre);
         JNombre.setBounds(204, 47, 225, 20);
 
@@ -108,17 +108,20 @@ public class NuevoUsuario extends javax.swing.JFrame {
         JTipoUsuario.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         JTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Veterinario(a)", "Secretaria(o)" }));
         getContentPane().add(JTipoUsuario);
-        JTipoUsuario.setBounds(210, 240, 101, 26);
+        JTipoUsuario.setBounds(210, 240, 101, 23);
 
         JRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/registro_opt.png"))); // NOI18N
         JRegistrar.setText("REGISTRAR");
+        JRegistrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        JRegistrar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        JRegistrar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         JRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JRegistrarActionPerformed(evt);
             }
         });
         getContentPane().add(JRegistrar);
-        JRegistrar.setBounds(305, 309, 148, 55);
+        JRegistrar.setBounds(340, 300, 110, 80);
         getContentPane().add(JPassword);
         JPassword.setBounds(210, 200, 220, 20);
 
@@ -128,10 +131,6 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void JNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JNombreActionPerformed
 
     private void JRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRegistrarActionPerformed
         // TODO add your handling code here:
