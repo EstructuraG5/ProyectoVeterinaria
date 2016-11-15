@@ -89,7 +89,7 @@ public class inicio_Doctor extends javax.swing.JFrame {
 
     private void Registrar_UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Registrar_UsuarioActionPerformed
         // TODO add your handling code here:
-        new NuevoUsuario().setVisible(true);
+        
     }//GEN-LAST:event_Registrar_UsuarioActionPerformed
 
     /**

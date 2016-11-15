@@ -8,6 +8,21 @@ package Interfaces;
 
 import Clases.Usuario;
 import Database.Db_Usuarios;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
+import java.awt.event.KeyEvent;
+
+=======
+>>>>>>> parent of 0423b5b... InterfazNuevoUsuario
+=======
+>>>>>>> parent of 0423b5b... InterfazNuevoUsuario
+>>>>>>> 33c373575dd8133901dac1419b5cf18d05d4ab26
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -63,13 +78,38 @@ public class NuevoUsuario extends javax.swing.JFrame {
         lbNombre.setText("NOMBRES:");
         getContentPane().add(lbNombre);
         lbNombre.setBounds(12, 48, 60, 17);
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 
         JNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+<<<<<<< HEAD
+=======
+=======
+
+>>>>>>> parent of 0423b5b... InterfazNuevoUsuario
+=======
+
+>>>>>>> parent of 0423b5b... InterfazNuevoUsuario
+        JNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JNombreActionPerformed(evt);
+            }
+        });
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 33c373575dd8133901dac1419b5cf18d05d4ab26
         JNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 JNombreKeyTyped(evt);
             }
         });
+>>>>>>> origin/master
+=======
+>>>>>>> parent of 0423b5b... InterfazNuevoUsuario
+=======
+>>>>>>> parent of 0423b5b... InterfazNuevoUsuario
         getContentPane().add(JNombre);
         JNombre.setBounds(204, 47, 225, 20);
 

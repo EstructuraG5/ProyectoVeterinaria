@@ -56,6 +56,10 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="JNombre">
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
       <Properties>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Cursor de Texto"/>
@@ -64,6 +68,17 @@
       <Events>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JNombreKeyTyped"/>
       </Events>
+>>>>>>> origin/master
+=======
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JNombreActionPerformed"/>
+      </Events>
+>>>>>>> parent of 0423b5b... InterfazNuevoUsuario
+=======
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JNombreActionPerformed"/>
+      </Events>
+>>>>>>> parent of 0423b5b... InterfazNuevoUsuario
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="204" y="47" width="225" height="-1"/>
