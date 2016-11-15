@@ -9,12 +9,15 @@ package Interfaces;
 import Clases.Usuario;
 import Database.Db_Usuarios;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import java.awt.event.KeyEvent;
 
+=======
+>>>>>>> parent of 0423b5b... InterfazNuevoUsuario
 =======
 >>>>>>> parent of 0423b5b... InterfazNuevoUsuario
 import java.util.logging.Level;
@@ -74,9 +77,13 @@ public class NuevoUsuario extends javax.swing.JFrame {
         lbNombre.setBounds(12, 48, 60, 17);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
         JNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+=======
+
+>>>>>>> parent of 0423b5b... InterfazNuevoUsuario
 =======
 
 >>>>>>> parent of 0423b5b... InterfazNuevoUsuario
@@ -86,12 +93,15 @@ public class NuevoUsuario extends javax.swing.JFrame {
             }
         });
 <<<<<<< HEAD
+<<<<<<< HEAD
         JNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 JNombreKeyTyped(evt);
             }
         });
 >>>>>>> origin/master
+=======
+>>>>>>> parent of 0423b5b... InterfazNuevoUsuario
 =======
 >>>>>>> parent of 0423b5b... InterfazNuevoUsuario
         getContentPane().add(JNombre);
