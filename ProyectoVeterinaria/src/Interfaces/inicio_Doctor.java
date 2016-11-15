@@ -5,6 +5,9 @@
  */
 package Interfaces;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 /**
  *
  * @author usuario
@@ -16,6 +19,10 @@ public class inicio_Doctor extends javax.swing.JFrame {
      */
     public inicio_Doctor() {
         initComponents();
+        Toolkit mipantalla = Toolkit.getDefaultToolkit(); // nos dice el medio donde esta compilando el programa
+        Dimension tampantalla = mipantalla.getScreenSize(); // devuelve la dimension de la pantalla
+        int altura = tampantalla.height, ancho = tampantalla.width;
+        setLocation(ancho/4, altura/8);
     }
 
     /**

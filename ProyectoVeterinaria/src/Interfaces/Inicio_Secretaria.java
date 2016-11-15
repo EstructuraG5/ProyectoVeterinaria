@@ -5,6 +5,9 @@
  */
 package Interfaces;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 /**
  *
  * @author GerAr
@@ -16,6 +19,10 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
      */
     public Inicio_Secretaria() {
         initComponents();
+        Toolkit mipantalla = Toolkit.getDefaultToolkit(); // nos dice el medio donde esta compilando el programa
+        Dimension tampantalla = mipantalla.getScreenSize(); // devuelve la dimension de la pantalla
+        int altura = tampantalla.height, ancho = tampantalla.width;
+        setLocation(ancho/4, altura/8);
     }
 
     /**

@@ -143,21 +143,11 @@ public class Login extends javax.swing.JFrame {
                    
                     this.dispose();
                     Inicio_Secretaria secretaria=new Inicio_Secretaria();
-                    
-                    Toolkit mipantalla = Toolkit.getDefaultToolkit(); // nos dice el medio donde esta compilando el programa
-                    Dimension tampantalla = mipantalla.getScreenSize(); // devuelve la dimension de la pantalla
-                    int altura = tampantalla.height, ancho = tampantalla.width;
-                    secretaria.setLocation(ancho/4, altura/4);
                     secretaria.setVisible(true);
                 }else{ 
                     if(tipo.equals("Veterinario")){
                         this.dispose();
                         inicio_Doctor doctor=new inicio_Doctor();
-                        
-                        Toolkit mipantalla = Toolkit.getDefaultToolkit(); // nos dice el medio donde esta compilando el programa
-                        Dimension tampantalla = mipantalla.getScreenSize(); // devuelve la dimension de la pantalla
-                        int altura = tampantalla.height, ancho = tampantalla.width;
-                        doctor.setLocation(ancho/4, altura/4);
                         doctor.setVisible(true);
                     }
                 }
