@@ -44,51 +44,58 @@ public class NuevoUsuario extends javax.swing.JFrame {
         FondoLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(400, 350));
+        setPreferredSize(new java.awt.Dimension(410, 360));
         setResizable(false);
         getContentPane().setLayout(null);
 
-        NuevoUsuarioLbl.setText("REGISTRO NUEVO USUARIO:");
+        NuevoUsuarioLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        NuevoUsuarioLbl.setText("REGISTRO NUEVO USUARIO");
         getContentPane().add(NuevoUsuarioLbl);
-        NuevoUsuarioLbl.setBounds(12, 22, 141, 14);
+        NuevoUsuarioLbl.setBounds(12, 22, 170, 15);
 
+        NombreLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         NombreLbl.setText("NOMBRE:");
         getContentPane().add(NombreLbl);
-        NombreLbl.setBounds(12, 52, 46, 14);
+        NombreLbl.setBounds(12, 52, 100, 15);
         getContentPane().add(NombreTxt);
-        NombreTxt.setBounds(142, 50, 247, 20);
+        NombreTxt.setBounds(150, 50, 230, 30);
 
+        ApPaternoLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         ApPaternoLbl.setText("APELLIDO PATERNO:");
         getContentPane().add(ApPaternoLbl);
-        ApPaternoLbl.setBounds(12, 84, 102, 14);
+        ApPaternoLbl.setBounds(12, 84, 130, 15);
         getContentPane().add(ApPaternoTxt);
-        ApPaternoTxt.setBounds(142, 82, 247, 20);
+        ApPaternoTxt.setBounds(150, 80, 230, 30);
 
+        ApMaternoLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         ApMaternoLbl.setText("APELLIDO MATERNO:");
         getContentPane().add(ApMaternoLbl);
-        ApMaternoLbl.setBounds(12, 116, 104, 14);
+        ApMaternoLbl.setBounds(12, 116, 130, 15);
         getContentPane().add(ApMaternoTxt);
-        ApMaternoTxt.setBounds(144, 114, 245, 20);
+        ApMaternoTxt.setBounds(150, 110, 230, 30);
 
+        UsuarioLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         UsuarioLbl.setText("USUARIO:");
         getContentPane().add(UsuarioLbl);
-        UsuarioLbl.setBounds(12, 148, 50, 14);
+        UsuarioLbl.setBounds(12, 148, 110, 15);
         getContentPane().add(UsuarioTxt);
-        UsuarioTxt.setBounds(144, 146, 245, 20);
+        UsuarioTxt.setBounds(150, 140, 230, 30);
 
+        PasswordLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         PasswordLbl.setText("PASSWORD:");
         getContentPane().add(PasswordLbl);
-        PasswordLbl.setBounds(12, 180, 61, 14);
+        PasswordLbl.setBounds(12, 180, 110, 15);
         getContentPane().add(PasswordTxt);
-        PasswordTxt.setBounds(144, 178, 245, 20);
+        PasswordTxt.setBounds(150, 170, 230, 30);
 
+        TipoLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         TipoLbl.setText("TIPO:");
         getContentPane().add(TipoLbl);
-        TipoLbl.setBounds(12, 214, 28, 14);
+        TipoLbl.setBounds(12, 214, 50, 15);
 
         TipoComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Veterinario(a)", "Secretaria(o)" }));
         getContentPane().add(TipoComBox);
-        TipoComBox.setBounds(144, 210, 91, 20);
+        TipoComBox.setBounds(150, 210, 100, 30);
 
         RegistrarBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/registro_opt.png"))); // NOI18N
         RegistrarBtn.setText("REGISTRAR");
@@ -96,11 +103,12 @@ public class NuevoUsuario extends javax.swing.JFrame {
         RegistrarBtn.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         RegistrarBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(RegistrarBtn);
-        RegistrarBtn.setBounds(270, 250, 89, 70);
+        RegistrarBtn.setBounds(270, 250, 100, 80);
 
         FondoLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo.png"))); // NOI18N
+        FondoLbl.setText("Nuevo Usuario");
         getContentPane().add(FondoLbl);
-        FondoLbl.setBounds(0, 0, 400, 330);
+        FondoLbl.setBounds(0, 0, 420, 380);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
