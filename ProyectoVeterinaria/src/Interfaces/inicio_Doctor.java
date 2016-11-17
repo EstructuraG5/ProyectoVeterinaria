@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interfaces;
 
 import java.awt.Dimension;
@@ -59,6 +54,11 @@ public class inicio_Doctor extends javax.swing.JFrame {
         Btn_cola.setText("MOSTRAR COLA");
         Btn_cola.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Btn_cola.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Btn_cola.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_colaMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(Btn_cola);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_diagnostico.png"))); // NOI18N
@@ -92,6 +92,13 @@ public class inicio_Doctor extends javax.swing.JFrame {
         NuevoUsuario nuevo = new NuevoUsuario();
         nuevo.setVisible(true);
     }//GEN-LAST:event_Registrar_UsuarioActionPerformed
+
+    private void Btn_colaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_colaMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        SistemaAtencion cola = new SistemaAtencion();
+        cola.setVisible(true);
+    }//GEN-LAST:event_Btn_colaMouseClicked
 
     /**
      * @param args the command line arguments
