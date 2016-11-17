@@ -17,16 +17,6 @@ public class Cliente {
     private int telefono;
     private String direccion;
     
-    public Cliente (int DNI, String nom, String apPat, String apMat,
-            int telefono, String direccion){
-        this.DNI = DNI;
-        this.nombre = nom;
-        this.apellidoPaterno = apPat;
-        this.apellidoMaterno = apMat;
-        this.telefono = telefono;
-        this.direccion = direccion;
-    }
-
     /**
      * @return the DNI
      */

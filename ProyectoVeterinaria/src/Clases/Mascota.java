@@ -14,18 +14,9 @@ public class Mascota {
     private String especie;
     private String raza;
     private String color;
-    private int edad;
+    private String fecha;
     private String sexo;
     
-    public Mascota(String nom, String esp, String raza, String color, 
-            int edad, String sexo){
-        this.nombre = nom;
-        this.especie = esp;
-        this.raza = raza;
-        this.color = color;
-        this.edad = edad;
-        this.sexo = sexo;
-    }
 
     /**
      * @return the nombre
@@ -83,20 +74,7 @@ public class Mascota {
         this.color = color;
     }
 
-    /**
-     * @return the edad
-     */
-    public int getEdad() {
-        return edad;
-    }
-
-    /**
-     * @param edad the edad to set
-     */
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
+    
     /**
      * @return the sexo
      */
@@ -109,5 +87,19 @@ public class Mascota {
      */
     public void setSexo(String sexo) {
         this.sexo = sexo;
+    }
+
+    /**
+     * @return the fecha
+     */
+    public String getFecha() {
+        return fecha;
+    }
+
+    /**
+     * @param fecha the fecha to set
+     */
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 }
