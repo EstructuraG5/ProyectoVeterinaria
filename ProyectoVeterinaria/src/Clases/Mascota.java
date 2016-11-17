@@ -13,7 +13,6 @@ public class Mascota {
     private String nombre;
     private String especie;
     private String raza;
-    private String color;
     private String fecha;
     private String sexo;
     
@@ -59,21 +58,6 @@ public class Mascota {
     public void setRaza(String raza) {
         this.raza = raza;
     }
-
-    /**
-     * @return the color
-     */
-    public String getColor() {
-        return color;
-    }
-
-    /**
-     * @param color the color to set
-     */
-    public void setColor(String color) {
-        this.color = color;
-    }
-
     
     /**
      * @return the sexo
