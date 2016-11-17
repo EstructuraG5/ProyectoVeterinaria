@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class Db_Mascota {
      public void insertar_Mascota(String nombre, String especie , String raza, String fecha_nacimiento,String sexo ,
-             String Cliente_DNI,String codigo_identificador ,String codigo_IdCliente) throws Exception{
+             int Cliente_DNI,String codigo_identificador ,int codigo_IdCliente) throws Exception{
         
         Conexion con=new Conexion();
         

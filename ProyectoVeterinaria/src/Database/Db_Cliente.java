@@ -5,6 +5,7 @@
  */
 package Database;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -32,5 +33,23 @@ public class Db_Cliente {
         }
         
     }
+     
+     public int buscar_idCliente(String nombre,String ApPaterno, String ApMaterno) throws Exception{
+        Conexion connect=new Conexion();
+        connect.conectar();
+        int id_cliente=0;
+       
+            Statement st=connect.getConexion().createStatement();
+            String sql="SELECT nombre,ApPaterno,ApMaterno FROM vet.cliente WHERE "
+                    + "nombre='"+nombre+"',ApPaterno='"+ApPaterno+"' AND ApMaterno='"+ApMaterno;
+            
+            ResultSet result=st.executeQuery(sql);
+            if(result.next()){
+                JOptionPane.showMessageDialog(null,"Se encontro un cliente");
+                    //Dependiendo del tipo de usuario , ver que tipo de 
+                id_cliente=result.getInt("id_Cliente");
+            }
+        return id_cliente;
+     }
     
 }
