@@ -48,7 +48,6 @@ public class NuevoCliente extends javax.swing.JFrame {
         Separador = new javax.swing.JSeparator();
         DatosMascotaLbl = new javax.swing.JLabel();
         EspecieLbl = new javax.swing.JLabel();
-        EspecieTxt = new javax.swing.JTextField();
         RazaLbl = new javax.swing.JLabel();
         RazaTxt = new javax.swing.JTextField();
         NombreMascotaLbl = new javax.swing.JLabel();
@@ -58,7 +57,8 @@ public class NuevoCliente extends javax.swing.JFrame {
         FechaNacimientoLbl = new javax.swing.JLabel();
         FechNaciDataChooser = new com.toedter.calendar.JDateChooser();
         RegistrarBtn = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        EspecieComBox = new javax.swing.JComboBox<>();
+        Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(420, 500));
@@ -67,41 +67,41 @@ public class NuevoCliente extends javax.swing.JFrame {
 
         DatosPropietarioLbl.setText("DATOS DEL PROPIETARIO:");
         getContentPane().add(DatosPropietarioLbl);
-        DatosPropietarioLbl.setBounds(12, 12, 131, 14);
+        DatosPropietarioLbl.setBounds(12, 12, 149, 16);
 
         NombrePropLbl.setText("NOMBRES:");
         getContentPane().add(NombrePropLbl);
-        NombrePropLbl.setBounds(12, 42, 52, 14);
+        NombrePropLbl.setBounds(12, 42, 61, 16);
         getContentPane().add(NombrePropTxt);
         NombrePropTxt.setBounds(142, 40, 266, 20);
 
         ApPaternoLbl.setText("APELLIDO PATERNO:");
         getContentPane().add(ApPaternoLbl);
-        ApPaternoLbl.setBounds(12, 74, 102, 14);
+        ApPaternoLbl.setBounds(12, 74, 118, 16);
         getContentPane().add(ApPaternoTxt);
         ApPaternoTxt.setBounds(142, 72, 266, 20);
 
         ApMaternoLbl.setText("APELLIDO MATERNO:");
         getContentPane().add(ApMaternoLbl);
-        ApMaternoLbl.setBounds(12, 106, 104, 14);
+        ApMaternoLbl.setBounds(12, 106, 120, 16);
         getContentPane().add(ApMaternoTxt);
         ApMaternoTxt.setBounds(144, 104, 264, 20);
 
         DniLbl.setText("DNI:");
         getContentPane().add(DniLbl);
-        DniLbl.setBounds(12, 136, 22, 14);
+        DniLbl.setBounds(12, 136, 22, 16);
         getContentPane().add(DniTxt);
         DniTxt.setBounds(144, 136, 264, 20);
 
         TelCelLbl.setText("TELEFONO/CELULAR:");
         getContentPane().add(TelCelLbl);
-        TelCelLbl.setBounds(12, 170, 104, 14);
+        TelCelLbl.setBounds(12, 170, 119, 16);
         getContentPane().add(TelCelTxt);
         TelCelTxt.setBounds(143, 168, 265, 20);
 
         DireccionLbl.setText("DIRECCION:");
         getContentPane().add(DireccionLbl);
-        DireccionLbl.setBounds(12, 202, 61, 14);
+        DireccionLbl.setBounds(12, 202, 65, 16);
         getContentPane().add(DireccionTxt);
         DireccionTxt.setBounds(143, 200, 265, 20);
         getContentPane().add(Separador);
@@ -109,39 +109,37 @@ public class NuevoCliente extends javax.swing.JFrame {
 
         DatosMascotaLbl.setText("DATOS DE LA MASCOTA:");
         getContentPane().add(DatosMascotaLbl);
-        DatosMascotaLbl.setBounds(12, 248, 121, 14);
+        DatosMascotaLbl.setBounds(12, 248, 140, 16);
 
         EspecieLbl.setText("ESPECIE:");
         getContentPane().add(EspecieLbl);
-        EspecieLbl.setBounds(12, 278, 45, 14);
-        getContentPane().add(EspecieTxt);
-        EspecieTxt.setBounds(83, 276, 120, 20);
+        EspecieLbl.setBounds(12, 278, 51, 16);
 
         RazaLbl.setText("RAZA:");
         getContentPane().add(RazaLbl);
-        RazaLbl.setBounds(221, 278, 31, 14);
+        RazaLbl.setBounds(221, 278, 34, 16);
         getContentPane().add(RazaTxt);
         RazaTxt.setBounds(273, 276, 135, 20);
 
         NombreMascotaLbl.setText("NOMBRE:");
         getContentPane().add(NombreMascotaLbl);
-        NombreMascotaLbl.setBounds(12, 312, 46, 14);
+        NombreMascotaLbl.setBounds(12, 312, 53, 16);
         getContentPane().add(NombreMascotaTxt);
         NombreMascotaTxt.setBounds(83, 310, 120, 20);
 
         SexoLbl.setText("SEXO:");
         getContentPane().add(SexoLbl);
-        SexoLbl.setBounds(221, 312, 30, 14);
+        SexoLbl.setBounds(221, 312, 35, 16);
 
         SexoComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HEMBRA", "MACHO" }));
         getContentPane().add(SexoComBox);
-        SexoComBox.setBounds(274, 308, 66, 20);
+        SexoComBox.setBounds(274, 308, 77, 25);
 
         FechaNacimientoLbl.setText("FECHA DE NACIMIENTO:");
         getContentPane().add(FechaNacimientoLbl);
-        FechaNacimientoLbl.setBounds(12, 345, 120, 14);
+        FechaNacimientoLbl.setBounds(12, 345, 132, 16);
         getContentPane().add(FechNaciDataChooser);
-        FechNaciDataChooser.setBounds(156, 345, 127, 20);
+        FechNaciDataChooser.setBounds(156, 345, 127, 19);
 
         RegistrarBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/registro_opt.png"))); // NOI18N
         RegistrarBtn.setText("REGISTRAR");
@@ -151,11 +149,15 @@ public class NuevoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(RegistrarBtn);
-        RegistrarBtn.setBounds(260, 388, 139, 53);
+        RegistrarBtn.setBounds(260, 388, 148, 55);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo.png"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, -4, 420, 470);
+        EspecieComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PERRO", "GATO", "CONEJO", "HAMSTER", "TORTUGA", "IGUANA" }));
+        getContentPane().add(EspecieComBox);
+        EspecieComBox.setBounds(80, 270, 120, 25);
+
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo.png"))); // NOI18N
+        getContentPane().add(Fondo);
+        Fondo.setBounds(0, -4, 440, 510);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -232,10 +234,11 @@ public class NuevoCliente extends javax.swing.JFrame {
     private javax.swing.JTextField DireccionTxt;
     private javax.swing.JLabel DniLbl;
     private javax.swing.JTextField DniTxt;
+    private javax.swing.JComboBox<String> EspecieComBox;
     private javax.swing.JLabel EspecieLbl;
-    private javax.swing.JTextField EspecieTxt;
     private com.toedter.calendar.JDateChooser FechNaciDataChooser;
     private javax.swing.JLabel FechaNacimientoLbl;
+    private javax.swing.JLabel Fondo;
     private javax.swing.JLabel NombreMascotaLbl;
     private javax.swing.JTextField NombreMascotaTxt;
     private javax.swing.JLabel NombrePropLbl;
@@ -248,6 +251,5 @@ public class NuevoCliente extends javax.swing.JFrame {
     private javax.swing.JLabel SexoLbl;
     private javax.swing.JLabel TelCelLbl;
     private javax.swing.JTextField TelCelTxt;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
