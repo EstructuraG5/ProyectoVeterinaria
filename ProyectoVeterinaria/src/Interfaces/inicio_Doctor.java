@@ -48,6 +48,11 @@ public class inicio_Doctor extends javax.swing.JFrame {
         Btn_cerrar_sesion.setText("CERRAR SESION");
         Btn_cerrar_sesion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Btn_cerrar_sesion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Btn_cerrar_sesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_cerrar_sesionMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(Btn_cerrar_sesion);
 
         Btn_cola.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_Cola.png"))); // NOI18N
@@ -99,6 +104,12 @@ public class inicio_Doctor extends javax.swing.JFrame {
         SistemaAtencion cola = new SistemaAtencion();
         cola.setVisible(true);
     }//GEN-LAST:event_Btn_colaMouseClicked
+
+    private void Btn_cerrar_sesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_cerrar_sesionMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        new Login().setVisible(true);
+    }//GEN-LAST:event_Btn_cerrar_sesionMouseClicked
 
     /**
      * @param args the command line arguments

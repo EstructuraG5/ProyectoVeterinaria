@@ -5,9 +5,14 @@
  */
 package Interfaces;
 
+import Clases.Usuario;
+import Database.Db_Usuarios;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
- * @author Seven
+ * @author GerAr
  */
 public class NuevoUsuario extends javax.swing.JFrame {
 
@@ -28,91 +33,143 @@ public class NuevoUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        ApMaternoTxt = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        UsuarioTxt = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         NombreTxt = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         ApPaternoTxt = new javax.swing.JTextField();
+        ApMaternoTxt = new javax.swing.JTextField();
+        UsuarioTxt = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        PasswordTxt = new javax.swing.JTextField();
+        PasswordTxt = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel7 = new javax.swing.JLabel();
         btnRegistrar = new javax.swing.JButton();
-        Fondo = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(450, 400));
-        setResizable(false);
-        getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("NUEVO USUARIO");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(160, 20, 100, 15);
-        getContentPane().add(ApMaternoTxt);
-        ApMaternoTxt.setBounds(160, 110, 240, 30);
 
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("NOMBRE");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 50, 90, 14);
-        getContentPane().add(UsuarioTxt);
-        UsuarioTxt.setBounds(160, 140, 240, 30);
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("APELLIDO PATERNO");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 80, 120, 14);
-        getContentPane().add(NombreTxt);
-        NombreTxt.setBounds(160, 50, 240, 30);
 
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("APELLIDO MATERNO");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(20, 110, 120, 14);
-        getContentPane().add(ApPaternoTxt);
-        ApPaternoTxt.setBounds(160, 80, 240, 30);
 
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("USUARIO");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(20, 140, 110, 14);
-        getContentPane().add(PasswordTxt);
-        PasswordTxt.setBounds(160, 170, 240, 30);
 
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("PASSWORD");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(20, 170, 110, 14);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Veterinario(a)", "Secretaria(o)" }));
-        getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(160, 200, 110, 30);
+        btnRegistrar.setText("REGISTRAR");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
 
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("TIPO");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(20, 200, 60, 14);
+        jLabel7.setText("TIPOUSUARIO");
 
-        btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/registro_opt.png"))); // NOI18N
-        btnRegistrar.setText("Registrar");
-        btnRegistrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnRegistrar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(btnRegistrar);
-        btnRegistrar.setBounds(263, 260, 100, 90);
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Veterinario", "Secretaria" }));
 
-        Fondo.setForeground(new java.awt.Color(255, 255, 255));
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/277126-fondo_Clínica_Veterinaria_Trabazosaa.png"))); // NOI18N
-        Fondo.setText("jLabel1");
-        getContentPane().add(Fondo);
-        Fondo.setBounds(0, 0, 450, 400);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(151, 151, 151))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel4)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel3)))
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel7))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(UsuarioTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                    .addComponent(PasswordTxt)
+                                    .addComponent(ApMaternoTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                    .addComponent(ApPaternoTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                    .addComponent(NombreTxt)
+                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NombreTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ApPaternoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ApMaternoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6)
+                        .addGap(25, 25, 25))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(UsuarioTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(PasswordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 3, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        // TODO add your handling code here:
+        Usuario user=new Usuario();
+        Db_Usuarios db_usuario = new Db_Usuarios();
+        
+        user.setNombre(UsuarioTxt.getText());
+        user.setApMaterno(ApMaternoTxt.getText());
+        user.setApPaterno(ApPaternoTxt.getText());
+        user.setUsuario(UsuarioTxt.getText());
+        char[] pass=PasswordTxt.getPassword();
+        String password = new String(pass);
+        user.setPassword(password);
+        user.setUsuario(jComboBox1.getSelectedItem().toString());
+        
+        try {
+            db_usuario.insertar_Usuarios(user.getUsuario(),user.getPassword(),user.getNombre(),
+                    user.getApPaterno(),user.getApMaterno(),user.getTipoUsuario());
+        } catch (Exception ex) {
+            Logger.getLogger(NuevoUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,9 +209,8 @@ public class NuevoUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ApMaternoTxt;
     private javax.swing.JTextField ApPaternoTxt;
-    private javax.swing.JLabel Fondo;
     private javax.swing.JTextField NombreTxt;
-    private javax.swing.JTextField PasswordTxt;
+    private javax.swing.JPasswordField PasswordTxt;
     private javax.swing.JTextField UsuarioTxt;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JComboBox<String> jComboBox1;
