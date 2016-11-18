@@ -6,9 +6,14 @@
 package Interfaces;
 
 import Clases.Cliente;
+import Clases.Identificador;
 import Clases.Mascota;
+import Database.Db_Cliente;
+import Database.Db_Mascota;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -166,6 +171,9 @@ public class NuevoCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
         Cliente cliente = new Cliente();
         Mascota mascota = new Mascota();
+        Db_Cliente db_cliente = new Db_Cliente();
+        Db_Mascota db_mascota = new Db_Mascota();
+        Identificador id=new Identificador();
         
         //Cliente
         cliente.setNombre(NombrePropTxt.getText());
@@ -177,7 +185,7 @@ public class NuevoCliente extends javax.swing.JFrame {
         
         //Mascota
         mascota.setNombre(NombreMascotaTxt.getText());
-        mascota.setEspecie(EspecieTxt.getText());
+        mascota.setEspecie((String) EspecieComBox.getSelectedItem());
         mascota.setRaza(RazaTxt.getText());
         String formato = FechNaciDataChooser.getDateFormatString();
         SimpleDateFormat sdf = new SimpleDateFormat(formato);
@@ -186,6 +194,23 @@ public class NuevoCliente extends javax.swing.JFrame {
         int anio = sdf.getCalendar().get(Calendar.YEAR);
         String fecha = dia+"-"+mes+""+anio;
         mascota.setFecha(fecha);
+      
+        int id_cliente;
+        
+        try {
+            db_cliente.insertar_Cliente(cliente.getNombre(),cliente.getApellidoPaterno(),
+                    cliente.getApellidoMaterno(),cliente.getDNI(),cliente.getDireccion(),cliente.getTelefono());
+            id_cliente = db_cliente.buscar_idCliente(cliente.getNombre(),cliente.getApellidoPaterno(),cliente.getApellidoMaterno());
+            String id_mascota=id.Generar(mascota.getEspecie(), id_cliente);
+            
+            db_mascota.insertar_Mascota(id_mascota,id_cliente, mascota.getNombre(),mascota.getEspecie(),
+                mascota.getRaza(),mascota.getSexo(),mascota.getFecha());
+            
+        } catch (Exception ex) {
+            Logger.getLogger(NuevoCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }//GEN-LAST:event_RegistrarBtnActionPerformed
 
     /**

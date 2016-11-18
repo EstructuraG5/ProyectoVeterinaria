@@ -10,30 +10,36 @@ package Clases;
  * @author Juan Eneque
  */
 public class Identificador {
-    String codigo[];
+    String codigo;
     
-    public void Generar(String especie){
-        String esp = especie.toLowerCase();
-        switch(especie){
-            case "perro": codigo[0]="P";
-                          codigo[1]="R";break;
+    public String Generar(String codigo,int id_Cliente){
+        String id = codigo.toLowerCase();
+        switch(id){
+            case "perro": this.codigo = "PR" + Aumentar(id_Cliente);break;
                           
-            case "gato": codigo[0]="G";
-                         codigo[1]="T";break;
+            case "gato": this.codigo="GT" + Aumentar(id_Cliente);break;
                          
-            case "conejo": codigo[0]="C";
-                           codigo[1]="J";break;
+            case "conejo": this.codigo="CJ" + Aumentar(id_Cliente);break;
                            
-            case "tortuga": codigo[0]="T";
-                            codigo[1]="G";break;
+            case "tortuga": this.codigo="TG" + Aumentar(id_Cliente);break;
                             
-            case "hamster": codigo[0]="H";
-                            codigo[1]="M";break;
+            case "hamster": this.codigo="HM" + Aumentar(id_Cliente);break;
                             
-            case "iguana": codigo[0]="I";
-                           codigo[1]="G";break;
+            case "iguana": this.codigo="IG" + Aumentar(id_Cliente);break;
         }
+        return this.codigo;
+    }
+    
+    public String Aumentar(int id_Cliente){
+        String num;
         
-        
+        if(id_Cliente<10)
+            num = "00" + String.valueOf(id_Cliente);
+        else
+            if(id_Cliente<100)
+                num = "0" + String.valueOf(id_Cliente);
+            else
+                num = String.valueOf(id_Cliente);
+        return num;
     }
 }

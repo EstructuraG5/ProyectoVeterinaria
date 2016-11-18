@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  */
 public class Db_Cliente {
      public void insertar_Cliente(String nombre,String apellidoPaterno,String apellidoMaterno,int DNI,
-             String direccion,String telefono) throws Exception{
+             String direccion,int telefono) throws Exception{
         
         Conexion con=new Conexion();
         

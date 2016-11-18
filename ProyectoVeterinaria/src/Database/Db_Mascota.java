@@ -14,17 +14,17 @@ import javax.swing.JOptionPane;
  * @author GerAr
  */
 public class Db_Mascota {
-     public void insertar_Mascota(String nombre, String especie , String raza, String fecha_nacimiento,String sexo ,
-             int Cliente_DNI,String codigo_identificador ,int codigo_IdCliente) throws Exception{
+     public void insertar_Mascota(String id_mascota,int Cliente_idCliente, String nombre, String especie,String raza ,
+             String sexo,String fechaNacimiento) throws Exception{
         
         Conexion con=new Conexion();
         
         con.conectar();
         try{
             Statement st=con.getConexion().createStatement();
-            String sql = "INSERT INTO vet.mascota (nombre,especie,raza,edad,sexo,Cliente_DNI)"
-                + " VALUES ('"+nombre+"','"+especie+"','"+raza+"','"+fecha_nacimiento+"','"+sexo+"','"+Cliente_DNI+"','"+
-                    codigo_identificador+"','"+codigo_IdCliente+")";
+            String sql = "INSERT INTO vet.mascota (id_mascota,cliente_idCliente,nombre,especie,raza,sexo,fechaNacimiento)"
+                + " VALUES ('"+id_mascota+"','"+Cliente_idCliente+"','"+nombre+"','"+especie+"','"+raza+"','"+sexo+"','"+
+                    fechaNacimiento+"')";
         
             st.executeUpdate(sql);
             JOptionPane.showMessageDialog(null,"Los datos se registraron correctamente");
