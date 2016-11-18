@@ -42,7 +42,6 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
         Btn_cola = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Inicio_secretaria.png"))); // NOI18N
@@ -56,6 +55,11 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
         Btn_cerrar_sesion.setText("CERRAR SESIÓN");
         Btn_cerrar_sesion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Btn_cerrar_sesion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Btn_cerrar_sesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_cerrar_sesionMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(Btn_cerrar_sesion);
 
         Btn_registro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_Registrar.png"))); // NOI18N
@@ -80,6 +84,12 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Btn_cerrar_sesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_cerrar_sesionMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        new Login().setVisible(true);
+    }//GEN-LAST:event_Btn_cerrar_sesionMouseClicked
 
     /**
      * @param args the command line arguments
