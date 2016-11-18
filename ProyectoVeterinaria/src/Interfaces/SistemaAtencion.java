@@ -1,5 +1,6 @@
 package Interfaces;
 
+import Clases.ColaLista;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -8,7 +9,9 @@ import java.awt.Toolkit;
  * @author Seven
  */
 public class SistemaAtencion extends javax.swing.JFrame {
-
+    
+    ColaLista pacientes = new ColaLista();
+    
     /**
      * Creates new form SistemaAtencion
      */
@@ -43,6 +46,7 @@ public class SistemaAtencion extends javax.swing.JFrame {
         btnTerminar = new javax.swing.JButton();
         btnAbrir = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        btnAtender = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(500, 400));
@@ -125,11 +129,21 @@ public class SistemaAtencion extends javax.swing.JFrame {
         getContentPane().add(btnSalir);
         btnSalir.setBounds(330, 330, 100, 40);
 
+        btnAtender.setText("ATENDER");
+        btnAtender.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAtenderMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnAtender);
+        btnAtender.setBounds(160, 60, 120, 23);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminarActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnTerminarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -142,6 +156,16 @@ public class SistemaAtencion extends javax.swing.JFrame {
     private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAbrirActionPerformed
+
+    private void btnAtenderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtenderMouseClicked
+        // TODO add your handling code here:
+        pacientes.insertar(ColaPacientes.getListSelectionListeners());
+        pacientes.toString();
+        /*String p_actual = new String();
+        p_actual = (String) ColaPacientes.getSelectedValue();
+        ClienteTxt.setText(p_actual);
+        ColaPacientes.remove(1);*/
+    }//GEN-LAST:event_btnAtenderMouseClicked
 
     /**
      * @param args the command line arguments
@@ -185,6 +209,7 @@ public class SistemaAtencion extends javax.swing.JFrame {
     private javax.swing.JTextField PacienteTxt;
     private javax.swing.JLabel Titulo;
     private javax.swing.JButton btnAbrir;
+    private javax.swing.JButton btnAtender;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnTerminar;
     private javax.swing.JLabel jLabel1;
