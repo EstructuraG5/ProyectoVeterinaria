@@ -15,16 +15,16 @@ import javax.swing.JOptionPane;
  * @author GerAr
  */
 public class Db_Cliente {
-     public void insertar_Cliente(int DNI,String nombre ,String ApellidoPaterno,String ApellidoMaterno,
-             int telefono , String direccion) throws Exception{
+     public void insertar_Cliente(String nombre,String apellidoPaterno,String apellidoMaterno,int DNI,
+             String direccion,String telefono) throws Exception{
         
         Conexion con=new Conexion();
         
         con.conectar();
         try{
             Statement st=con.getConexion().createStatement();
-            String sql = "INSERT INTO vet.cliente (DNI,nombre,ApellidoPaterno,ApellidoMaterno,telefono,direccion)"
-                + " VALUES ('"+DNI+"','"+nombre+"','"+ApellidoPaterno+"','"+ApellidoMaterno+"','"+telefono+"','"+direccion+"'";
+            String sql = "INSERT INTO vet.cliente (nombre,apellidoPaterno,apellidoMaterno,DNI,direccion,telefono)"
+                + " VALUES ('"+nombre+"','"+apellidoPaterno+"','"+apellidoMaterno+"','"+DNI+"','"+direccion+"','"+telefono+"'";
         
             st.executeUpdate(sql);
             JOptionPane.showMessageDialog(null,"Los datos se registraron correctamente");
