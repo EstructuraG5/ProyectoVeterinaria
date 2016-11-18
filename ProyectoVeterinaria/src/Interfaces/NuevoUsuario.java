@@ -70,7 +70,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
         jLabel7.setText("TIPOUSUARIO");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Veterinario(a)", "Secretario(a)" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Veterinario", "Secretaria" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
