@@ -24,7 +24,7 @@ public class Db_Cliente {
         try{
             Statement st=con.getConexion().createStatement();
             String sql = "INSERT INTO vet.cliente (nombre,apellidoPaterno,apellidoMaterno,DNI,direccion,telefono)"
-                + " VALUES ('"+nombre+"','"+apellidoPaterno+"','"+apellidoMaterno+"','"+DNI+"','"+direccion+"','"+telefono+"'";
+                + " VALUES ('"+nombre+"','"+apellidoPaterno+"','"+apellidoMaterno+"','"+DNI+"','"+direccion+"','"+telefono+"')";
         
             st.executeUpdate(sql);
             JOptionPane.showMessageDialog(null,"Los datos se registraron correctamente");
@@ -40,14 +40,14 @@ public class Db_Cliente {
         int id_cliente=0;
        
             Statement st=connect.getConexion().createStatement();
-            String sql="SELECT nombre,ApPaterno,ApMaterno FROM vet.cliente WHERE "
-                    + "nombre='"+nombre+"',ApPaterno='"+ApPaterno+"' AND ApMaterno='"+ApMaterno;
+            String sql="SELECT * FROM vet.cliente WHERE "
+                    + "nombre='"+nombre+"' AND apellidoPaterno='"+ApPaterno+"' AND apellidoMaterno='"+ApMaterno+"'";
             
             ResultSet result=st.executeQuery(sql);
             if(result.next()){
                 JOptionPane.showMessageDialog(null,"Se encontro un cliente");
                     //Dependiendo del tipo de usuario , ver que tipo de 
-                id_cliente=result.getInt("id_Cliente");
+                id_cliente=result.getInt("idCliente");
             }
         return id_cliente;
      }

@@ -66,6 +66,11 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
         Btn_registro.setText("REGISTRO");
         Btn_registro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Btn_registro.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Btn_registro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_registroMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(Btn_registro);
 
         Btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_Buscar.png"))); // NOI18N
@@ -90,6 +95,11 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
         this.dispose();
         new Login().setVisible(true);
     }//GEN-LAST:event_Btn_cerrar_sesionMouseClicked
+
+    private void Btn_registroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_registroMouseClicked
+        // TODO add your handling code here:
+        new NuevoCliente().setVisible(true);
+    }//GEN-LAST:event_Btn_registroMouseClicked
 
     /**
      * @param args the command line arguments
