@@ -48,7 +48,6 @@ public class SistemaAtencion extends javax.swing.JFrame {
         btnSalir = new javax.swing.JButton();
         btnAtender = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(500, 400));
         setResizable(false);
         getContentPane().setLayout(null);

@@ -83,6 +83,11 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
         Btn_cola.setText("COLA");
         Btn_cola.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Btn_cola.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Btn_cola.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_colaMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(Btn_cola);
 
         setJMenuBar(jMenuBar1);
@@ -100,6 +105,11 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
         // TODO add your handling code here:
         new NuevoCliente().setVisible(true);
     }//GEN-LAST:event_Btn_registroMouseClicked
+
+    private void Btn_colaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_colaMouseClicked
+        // TODO add your handling code here:
+        new SistemaAtencion().setVisible(true);
+    }//GEN-LAST:event_Btn_colaMouseClicked
 
     /**
      * @param args the command line arguments

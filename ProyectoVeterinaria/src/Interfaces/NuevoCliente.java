@@ -65,48 +65,47 @@ public class NuevoCliente extends javax.swing.JFrame {
         EspecieComBox = new javax.swing.JComboBox<>();
         Fondo = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(420, 500));
         setResizable(false);
         getContentPane().setLayout(null);
 
         DatosPropietarioLbl.setText("DATOS DEL PROPIETARIO:");
         getContentPane().add(DatosPropietarioLbl);
-        DatosPropietarioLbl.setBounds(12, 12, 149, 16);
+        DatosPropietarioLbl.setBounds(12, 12, 131, 14);
 
         NombrePropLbl.setText("NOMBRES:");
         getContentPane().add(NombrePropLbl);
-        NombrePropLbl.setBounds(12, 42, 61, 16);
+        NombrePropLbl.setBounds(12, 42, 52, 14);
         getContentPane().add(NombrePropTxt);
         NombrePropTxt.setBounds(142, 40, 266, 20);
 
         ApPaternoLbl.setText("APELLIDO PATERNO:");
         getContentPane().add(ApPaternoLbl);
-        ApPaternoLbl.setBounds(12, 74, 118, 16);
+        ApPaternoLbl.setBounds(12, 74, 102, 14);
         getContentPane().add(ApPaternoTxt);
         ApPaternoTxt.setBounds(142, 72, 266, 20);
 
         ApMaternoLbl.setText("APELLIDO MATERNO:");
         getContentPane().add(ApMaternoLbl);
-        ApMaternoLbl.setBounds(12, 106, 120, 16);
+        ApMaternoLbl.setBounds(12, 106, 104, 14);
         getContentPane().add(ApMaternoTxt);
         ApMaternoTxt.setBounds(144, 104, 264, 20);
 
         DniLbl.setText("DNI:");
         getContentPane().add(DniLbl);
-        DniLbl.setBounds(12, 136, 22, 16);
+        DniLbl.setBounds(12, 136, 22, 14);
         getContentPane().add(DniTxt);
         DniTxt.setBounds(144, 136, 264, 20);
 
         TelCelLbl.setText("TELEFONO/CELULAR:");
         getContentPane().add(TelCelLbl);
-        TelCelLbl.setBounds(12, 170, 119, 16);
+        TelCelLbl.setBounds(12, 170, 104, 14);
         getContentPane().add(TelCelTxt);
         TelCelTxt.setBounds(143, 168, 265, 20);
 
         DireccionLbl.setText("DIRECCION:");
         getContentPane().add(DireccionLbl);
-        DireccionLbl.setBounds(12, 202, 65, 16);
+        DireccionLbl.setBounds(12, 202, 61, 14);
         getContentPane().add(DireccionTxt);
         DireccionTxt.setBounds(143, 200, 265, 20);
         getContentPane().add(Separador);
@@ -114,37 +113,37 @@ public class NuevoCliente extends javax.swing.JFrame {
 
         DatosMascotaLbl.setText("DATOS DE LA MASCOTA:");
         getContentPane().add(DatosMascotaLbl);
-        DatosMascotaLbl.setBounds(12, 248, 140, 16);
+        DatosMascotaLbl.setBounds(12, 248, 121, 14);
 
         EspecieLbl.setText("ESPECIE:");
         getContentPane().add(EspecieLbl);
-        EspecieLbl.setBounds(12, 278, 51, 16);
+        EspecieLbl.setBounds(12, 278, 45, 14);
 
         RazaLbl.setText("RAZA:");
         getContentPane().add(RazaLbl);
-        RazaLbl.setBounds(221, 278, 34, 16);
+        RazaLbl.setBounds(221, 278, 31, 14);
         getContentPane().add(RazaTxt);
         RazaTxt.setBounds(273, 276, 135, 20);
 
         NombreMascotaLbl.setText("NOMBRE:");
         getContentPane().add(NombreMascotaLbl);
-        NombreMascotaLbl.setBounds(12, 312, 53, 16);
+        NombreMascotaLbl.setBounds(12, 312, 46, 14);
         getContentPane().add(NombreMascotaTxt);
         NombreMascotaTxt.setBounds(83, 310, 120, 20);
 
         SexoLbl.setText("SEXO:");
         getContentPane().add(SexoLbl);
-        SexoLbl.setBounds(221, 312, 35, 16);
+        SexoLbl.setBounds(221, 312, 30, 14);
 
         SexoComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HEMBRA", "MACHO" }));
         getContentPane().add(SexoComBox);
-        SexoComBox.setBounds(274, 308, 77, 25);
+        SexoComBox.setBounds(274, 308, 66, 20);
 
         FechaNacimientoLbl.setText("FECHA DE NACIMIENTO:");
         getContentPane().add(FechaNacimientoLbl);
-        FechaNacimientoLbl.setBounds(12, 345, 132, 16);
+        FechaNacimientoLbl.setBounds(12, 345, 120, 14);
         getContentPane().add(FechNaciDataChooser);
-        FechNaciDataChooser.setBounds(156, 345, 127, 19);
+        FechNaciDataChooser.setBounds(156, 345, 127, 20);
 
         RegistrarBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/registro_opt.png"))); // NOI18N
         RegistrarBtn.setText("REGISTRAR");
@@ -154,11 +153,11 @@ public class NuevoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(RegistrarBtn);
-        RegistrarBtn.setBounds(260, 388, 148, 55);
+        RegistrarBtn.setBounds(260, 388, 139, 53);
 
         EspecieComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PERRO", "GATO", "CONEJO", "HAMSTER", "TORTUGA", "IGUANA" }));
         getContentPane().add(EspecieComBox);
-        EspecieComBox.setBounds(80, 270, 120, 25);
+        EspecieComBox.setBounds(80, 270, 120, 20);
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo.png"))); // NOI18N
         getContentPane().add(Fondo);

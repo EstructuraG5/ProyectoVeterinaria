@@ -100,7 +100,6 @@ public class inicio_Doctor extends javax.swing.JFrame {
 
     private void Btn_colaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_colaMouseClicked
         // TODO add your handling code here:
-        this.dispose();
         SistemaAtencion cola = new SistemaAtencion();
         cola.setVisible(true);
     }//GEN-LAST:event_Btn_colaMouseClicked
