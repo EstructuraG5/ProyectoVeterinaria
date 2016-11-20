@@ -1,8 +1,14 @@
 package Interfaces;
 
-import Clases.ColaLista;
+import Database.Db_ColaDoctor;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -10,17 +16,19 @@ import java.awt.Toolkit;
  */
 public class SistemaAtencion extends javax.swing.JFrame {
     
-    ColaLista pacientes = new ColaLista();
+    Db_ColaDoctor cola = new Db_ColaDoctor();
     
-    /**
-     * Creates new form SistemaAtencion
-     */
-    public SistemaAtencion() {
-        initComponents();
-        Toolkit mipantalla = Toolkit.getDefaultToolkit(); // nos dice el medio donde esta compilando el programa
-        Dimension tampantalla = mipantalla.getScreenSize(); // devuelve la dimension de la pantalla
-        int altura = tampantalla.height, ancho = tampantalla.width;
-        setLocation(ancho/4, altura/8);
+    public SistemaAtencion(){
+            initComponents();
+            Toolkit mipantalla = Toolkit.getDefaultToolkit(); // nos dice el medio donde esta compilando el programa
+            Dimension tampantalla = mipantalla.getScreenSize(); // devuelve la dimension de la pantalla
+            int altura = tampantalla.height, ancho = tampantalla.width;
+            setLocation(ancho/4, altura/8);
+        try {
+            cola.llenarTabla(tablaPacientes);
+        } catch (Exception ex) {
+            Logger.getLogger(SistemaAtencion.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -34,8 +42,6 @@ public class SistemaAtencion extends javax.swing.JFrame {
 
         Titulo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        ColaPacientes = new javax.swing.JList<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -47,6 +53,8 @@ public class SistemaAtencion extends javax.swing.JFrame {
         btnAbrir = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         btnAtender = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tablaPacientes = new javax.swing.JTable();
 
         setPreferredSize(new java.awt.Dimension(500, 400));
         setResizable(false);
@@ -58,19 +66,9 @@ public class SistemaAtencion extends javax.swing.JFrame {
         Titulo.setBounds(170, 10, 150, 15);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setText("LISTA DE PACIENTES");
+        jLabel1.setText("LISTA DE ESPERA");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(20, 40, 130, 14);
-
-        ColaPacientes.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(ColaPacientes);
-
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 60, 110, 120);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("PACIENTE EN ATENCION");
@@ -135,37 +133,54 @@ public class SistemaAtencion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAtender);
-        btnAtender.setBounds(160, 60, 120, 23);
+        btnAtender.setBounds(360, 80, 120, 23);
+
+        tablaPacientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(tablaPacientes);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(20, 60, 330, 120);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminarActionPerformed
-        // TODO add your handling code here:
-        
+        ClienteTxt.setText(null);
+        PacienteTxt.setText(null);
+        HistorialTxt.setText(null);
+        //Eliminar de la base de datos
     }//GEN-LAST:event_btnTerminarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        // TODO add your handling code here:
         inicio_Doctor doctor = new inicio_Doctor();
         doctor.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
-        // TODO add your handling code here:
+        try {
+            File ruta = new File(HistorialTxt.getText());
+            Desktop.getDesktop().open(ruta);
+        } catch (IOException ex) {
+            Logger.getLogger(SistemaAtencion.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnAbrirActionPerformed
 
     private void btnAtenderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtenderMouseClicked
-        // TODO add your handling code here:
-        pacientes.insertar(ColaPacientes.getListSelectionListeners());
-        pacientes.toString();
-        /*String p_actual = new String();
-        p_actual = (String) ColaPacientes.getSelectedValue();
-        ClienteTxt.setText(p_actual);
-        ColaPacientes.remove(1);*/
+        ClienteTxt.setText((String) tablaPacientes.getValueAt(0, 0));
+        PacienteTxt.setText((String) tablaPacientes.getValueAt(0, 1));
+        HistorialTxt.setText((String) tablaPacientes.getValueAt(0, 2));
+        DefaultTableModel modelo = (DefaultTableModel)tablaPacientes.getModel(); 
+        modelo.removeRow(0);
     }//GEN-LAST:event_btnAtenderMouseClicked
-
+    
     /**
      * @param args the command line arguments
      */
@@ -196,14 +211,12 @@ public class SistemaAtencion extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SistemaAtencion().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ClienteTxt;
-    private javax.swing.JList<String> ColaPacientes;
     private javax.swing.JTextField HistorialTxt;
     private javax.swing.JTextField PacienteTxt;
     private javax.swing.JLabel Titulo;
@@ -216,6 +229,7 @@ public class SistemaAtencion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tablaPacientes;
     // End of variables declaration//GEN-END:variables
 }

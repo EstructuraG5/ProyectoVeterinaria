@@ -107,8 +107,8 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_registroMouseClicked
 
     private void Btn_colaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_colaMouseClicked
-        // TODO add your handling code here:
-        new SistemaAtencion().setVisible(true);
+        ColaAtencion cola = new ColaAtencion();
+        cola.setVisible(true);
     }//GEN-LAST:event_Btn_colaMouseClicked
 
     /**
