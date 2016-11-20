@@ -40,6 +40,7 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
         Btn_registro = new javax.swing.JMenu();
         Btn_buscar = new javax.swing.JMenu();
         Btn_cola = new javax.swing.JMenu();
+        Btn_factura = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -90,6 +91,17 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
         });
         jMenuBar1.add(Btn_cola);
 
+        Btn_factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Factura.png"))); // NOI18N
+        Btn_factura.setText("FACTURA");
+        Btn_factura.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Btn_factura.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Btn_factura.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_facturaMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(Btn_factura);
+
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -110,6 +122,11 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
         ColaAtencion cola = new ColaAtencion();
         cola.setVisible(true);
     }//GEN-LAST:event_Btn_colaMouseClicked
+
+    private void Btn_facturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_facturaMouseClicked
+        // TODO add your handling code here:
+        new Factura().setVisible(true);
+    }//GEN-LAST:event_Btn_facturaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -151,6 +168,7 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
     private javax.swing.JMenu Btn_buscar;
     private javax.swing.JMenu Btn_cerrar_sesion;
     private javax.swing.JMenu Btn_cola;
+    private javax.swing.JMenu Btn_factura;
     private javax.swing.JMenu Btn_registro;
     private javax.swing.JLabel Fondo;
     private javax.swing.JMenuBar jMenuBar1;
