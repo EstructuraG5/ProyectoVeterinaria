@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interfaces;
 
 import java.awt.Dimension;
@@ -53,12 +48,22 @@ public class inicio_Doctor extends javax.swing.JFrame {
         Btn_cerrar_sesion.setText("CERRAR SESION");
         Btn_cerrar_sesion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Btn_cerrar_sesion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Btn_cerrar_sesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_cerrar_sesionMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(Btn_cerrar_sesion);
 
         Btn_cola.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_Cola.png"))); // NOI18N
         Btn_cola.setText("MOSTRAR COLA");
         Btn_cola.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Btn_cola.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Btn_cola.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_colaMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(Btn_cola);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_diagnostico.png"))); // NOI18N
@@ -92,6 +97,18 @@ public class inicio_Doctor extends javax.swing.JFrame {
         NuevoUsuario nuevo = new NuevoUsuario();
         nuevo.setVisible(true);
     }//GEN-LAST:event_Registrar_UsuarioActionPerformed
+
+    private void Btn_colaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_colaMouseClicked
+        // TODO add your handling code here:
+        SistemaAtencion cola = new SistemaAtencion();
+        cola.setVisible(true);
+    }//GEN-LAST:event_Btn_colaMouseClicked
+
+    private void Btn_cerrar_sesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_cerrar_sesionMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        new Login().setVisible(true);
+    }//GEN-LAST:event_Btn_cerrar_sesionMouseClicked
 
     /**
      * @param args the command line arguments

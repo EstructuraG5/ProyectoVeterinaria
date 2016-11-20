@@ -6,7 +6,14 @@
 package Interfaces;
 
 import Clases.Cliente;
+import Clases.Identificador;
 import Clases.Mascota;
+import Database.Db_Cliente;
+import Database.Db_Mascota;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -30,166 +37,180 @@ public class NuevoCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbPropietario = new javax.swing.JLabel();
-        lbNombre = new javax.swing.JLabel();
-        JNombreCliente = new javax.swing.JTextField();
-        lbApellidos = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        DatosPropietarioLbl = new javax.swing.JLabel();
+        NombrePropLbl = new javax.swing.JLabel();
+        NombrePropTxt = new javax.swing.JTextField();
+        ApPaternoLbl = new javax.swing.JLabel();
+        ApPaternoTxt = new javax.swing.JTextField();
+        ApMaternoLbl = new javax.swing.JLabel();
+        ApMaternoTxt = new javax.swing.JTextField();
+        DniLbl = new javax.swing.JLabel();
+        DniTxt = new javax.swing.JTextField();
+        TelCelLbl = new javax.swing.JLabel();
+        TelCelTxt = new javax.swing.JTextField();
+        DireccionLbl = new javax.swing.JLabel();
+        DireccionTxt = new javax.swing.JTextField();
+        Separador = new javax.swing.JSeparator();
+        DatosMascotaLbl = new javax.swing.JLabel();
+        EspecieLbl = new javax.swing.JLabel();
+        RazaLbl = new javax.swing.JLabel();
+        RazaTxt = new javax.swing.JTextField();
+        NombreMascotaLbl = new javax.swing.JLabel();
+        NombreMascotaTxt = new javax.swing.JTextField();
+        SexoLbl = new javax.swing.JLabel();
+        SexoComBox = new javax.swing.JComboBox<>();
+        FechaNacimientoLbl = new javax.swing.JLabel();
+        FechNaciDataChooser = new com.toedter.calendar.JDateChooser();
+        RegistrarBtn = new javax.swing.JButton();
+        EspecieComBox = new javax.swing.JComboBox<>();
+        Fondo = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(420, 500));
         setResizable(false);
         getContentPane().setLayout(null);
 
-        lbPropietario.setText("PROPIETARIO:");
-        getContentPane().add(lbPropietario);
-        lbPropietario.setBounds(29, 12, 81, 16);
+        DatosPropietarioLbl.setText("DATOS DEL PROPIETARIO:");
+        getContentPane().add(DatosPropietarioLbl);
+        DatosPropietarioLbl.setBounds(12, 12, 131, 14);
 
-        lbNombre.setText("NOMBRES:");
-        getContentPane().add(lbNombre);
-        lbNombre.setBounds(29, 41, 61, 16);
-        getContentPane().add(JNombreCliente);
-        JNombreCliente.setBounds(124, 39, 536, 20);
+        NombrePropLbl.setText("NOMBRES:");
+        getContentPane().add(NombrePropLbl);
+        NombrePropLbl.setBounds(12, 42, 52, 14);
+        getContentPane().add(NombrePropTxt);
+        NombrePropTxt.setBounds(142, 40, 266, 20);
 
-        lbApellidos.setText("APELLIDOS:");
-        getContentPane().add(lbApellidos);
-        lbApellidos.setBounds(29, 78, 68, 16);
+        ApPaternoLbl.setText("APELLIDO PATERNO:");
+        getContentPane().add(ApPaternoLbl);
+        ApPaternoLbl.setBounds(12, 74, 102, 14);
+        getContentPane().add(ApPaternoTxt);
+        ApPaternoTxt.setBounds(142, 72, 266, 20);
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        ApMaternoLbl.setText("APELLIDO MATERNO:");
+        getContentPane().add(ApMaternoLbl);
+        ApMaternoLbl.setBounds(12, 106, 104, 14);
+        getContentPane().add(ApMaternoTxt);
+        ApMaternoTxt.setBounds(144, 104, 264, 20);
+
+        DniLbl.setText("DNI:");
+        getContentPane().add(DniLbl);
+        DniLbl.setBounds(12, 136, 22, 14);
+        getContentPane().add(DniTxt);
+        DniTxt.setBounds(144, 136, 264, 20);
+
+        TelCelLbl.setText("TELEFONO/CELULAR:");
+        getContentPane().add(TelCelLbl);
+        TelCelLbl.setBounds(12, 170, 104, 14);
+        getContentPane().add(TelCelTxt);
+        TelCelTxt.setBounds(143, 168, 265, 20);
+
+        DireccionLbl.setText("DIRECCION:");
+        getContentPane().add(DireccionLbl);
+        DireccionLbl.setBounds(12, 202, 61, 14);
+        getContentPane().add(DireccionTxt);
+        DireccionTxt.setBounds(143, 200, 265, 20);
+        getContentPane().add(Separador);
+        Separador.setBounds(12, 232, 396, 10);
+
+        DatosMascotaLbl.setText("DATOS DE LA MASCOTA:");
+        getContentPane().add(DatosMascotaLbl);
+        DatosMascotaLbl.setBounds(12, 248, 121, 14);
+
+        EspecieLbl.setText("ESPECIE:");
+        getContentPane().add(EspecieLbl);
+        EspecieLbl.setBounds(12, 278, 45, 14);
+
+        RazaLbl.setText("RAZA:");
+        getContentPane().add(RazaLbl);
+        RazaLbl.setBounds(221, 278, 31, 14);
+        getContentPane().add(RazaTxt);
+        RazaTxt.setBounds(273, 276, 135, 20);
+
+        NombreMascotaLbl.setText("NOMBRE:");
+        getContentPane().add(NombreMascotaLbl);
+        NombreMascotaLbl.setBounds(12, 312, 46, 14);
+        getContentPane().add(NombreMascotaTxt);
+        NombreMascotaTxt.setBounds(83, 310, 120, 20);
+
+        SexoLbl.setText("SEXO:");
+        getContentPane().add(SexoLbl);
+        SexoLbl.setBounds(221, 312, 30, 14);
+
+        SexoComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HEMBRA", "MACHO" }));
+        getContentPane().add(SexoComBox);
+        SexoComBox.setBounds(274, 308, 66, 20);
+
+        FechaNacimientoLbl.setText("FECHA DE NACIMIENTO:");
+        getContentPane().add(FechaNacimientoLbl);
+        FechaNacimientoLbl.setBounds(12, 345, 120, 14);
+        getContentPane().add(FechNaciDataChooser);
+        FechNaciDataChooser.setBounds(156, 345, 127, 20);
+
+        RegistrarBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/registro_opt.png"))); // NOI18N
+        RegistrarBtn.setText("REGISTRAR");
+        RegistrarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                RegistrarBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(124, 76, 536, 20);
+        getContentPane().add(RegistrarBtn);
+        RegistrarBtn.setBounds(260, 388, 139, 53);
 
-        jLabel1.setText("DNI:");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(29, 115, 22, 16);
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(124, 113, 210, 20);
+        EspecieComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PERRO", "GATO", "CONEJO", "HAMSTER", "TORTUGA", "IGUANA" }));
+        getContentPane().add(EspecieComBox);
+        EspecieComBox.setBounds(80, 270, 120, 20);
 
-        jLabel2.setText("TELEFONO/CELULAR:");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(352, 115, 119, 16);
-        getContentPane().add(jTextField4);
-        jTextField4.setBounds(476, 113, 184, 20);
-
-        jLabel3.setText("DIRECCION:");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(29, 152, 65, 16);
-        getContentPane().add(jTextField5);
-        jTextField5.setBounds(124, 150, 536, 20);
-
-        jLabel4.setText("MASCOTA:");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(30, 187, 61, 16);
-
-        jLabel5.setText("ESPECIE:");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(29, 225, 51, 16);
-        getContentPane().add(jTextField6);
-        jTextField6.setBounds(124, 223, 175, 20);
-
-        jLabel6.setText("RAZA:");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(317, 225, 34, 16);
-
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField7);
-        jTextField7.setBounds(362, 223, 175, 20);
-
-        jLabel7.setText("SEXO:");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(555, 225, 35, 16);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MACHO", "HEMBRA" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(589, 220, 77, 25);
-
-        jLabel8.setText("NOMBRE:");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(29, 264, 53, 16);
-        getContentPane().add(jTextField8);
-        jTextField8.setBounds(124, 262, 211, 20);
-
-        jLabel9.setText("COLOR:");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(353, 264, 44, 16);
-        getContentPane().add(jTextField9);
-        jTextField9.setBounds(410, 262, 250, 20);
-
-        jLabel10.setText("FECHA DE NACIMIENTO:");
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(29, 301, 132, 16);
-        getContentPane().add(jTextField10);
-        jTextField10.setBounds(164, 299, 215, 20);
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/registro_opt.png"))); // NOI18N
-        jButton1.setText("REGISTRAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(519, 336, 148, 55);
-        getContentPane().add(jLabel12);
-        jLabel12.setBounds(0, 391, 0, 0);
-
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo.png"))); // NOI18N
-        getContentPane().add(jLabel11);
-        jLabel11.setBounds(0, 0, 750, 450);
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo.png"))); // NOI18N
+        getContentPane().add(Fondo);
+        Fondo.setBounds(0, -4, 440, 510);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void RegistrarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        Cliente cliente = new Cliente();
+        Mascota mascota = new Mascota();
+        Db_Cliente db_cliente = new Db_Cliente();
+        Db_Mascota db_mascota = new Db_Mascota();
+        Identificador id=new Identificador();
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+        //Cliente
+        cliente.setNombre(NombrePropTxt.getText());
+        cliente.setApellidoPaterno(ApPaternoTxt.getText());
+        cliente.setApellidoMaterno(ApMaternoTxt.getText());
+        cliente.setDNI(Integer.parseInt(DniTxt.getText()));
+        cliente.setDireccion(DireccionTxt.getText());
+        cliente.setTelefono(Integer.parseInt(TelCelTxt.getText()));
+        
+        //Mascota
+        mascota.setNombre(NombreMascotaTxt.getText());
+        mascota.setEspecie((String) EspecieComBox.getSelectedItem());
+        mascota.setRaza(RazaTxt.getText());
+        String formato = FechNaciDataChooser.getDateFormatString();
+        SimpleDateFormat sdf = new SimpleDateFormat(formato);
+        int dia = sdf.getCalendar().get(Calendar.DAY_OF_MONTH);
+        int mes = sdf.getCalendar().get(Calendar.MONTH);
+        int anio = sdf.getCalendar().get(Calendar.YEAR);
+        String fecha = dia+"-"+mes+""+anio;
+        mascota.setFecha(fecha);
+      
+        int id_cliente;
+        
+        try {
+            db_cliente.insertar_Cliente(cliente.getNombre(),cliente.getApellidoPaterno(),
+                    cliente.getApellidoMaterno(),cliente.getDNI(),cliente.getDireccion(),cliente.getTelefono());
+            id_cliente = db_cliente.buscar_idCliente(cliente.getNombre(),cliente.getApellidoPaterno(),cliente.getApellidoMaterno());
+            String id_mascota=id.Generar(mascota.getEspecie(), id_cliente);
+            
+            db_mascota.insertar_Mascota(id_mascota,id_cliente, mascota.getNombre(),mascota.getEspecie(),
+                mascota.getRaza(),mascota.getSexo(),mascota.getFecha());
+            
+        } catch (Exception ex) {
+            Logger.getLogger(NuevoCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }//GEN-LAST:event_RegistrarBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,32 +248,32 @@ public class NuevoCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField JNombreCliente;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
-    private javax.swing.JLabel lbApellidos;
-    private javax.swing.JLabel lbNombre;
-    private javax.swing.JLabel lbPropietario;
+    private javax.swing.JLabel ApMaternoLbl;
+    private javax.swing.JTextField ApMaternoTxt;
+    private javax.swing.JLabel ApPaternoLbl;
+    private javax.swing.JTextField ApPaternoTxt;
+    private javax.swing.JLabel DatosMascotaLbl;
+    private javax.swing.JLabel DatosPropietarioLbl;
+    private javax.swing.JLabel DireccionLbl;
+    private javax.swing.JTextField DireccionTxt;
+    private javax.swing.JLabel DniLbl;
+    private javax.swing.JTextField DniTxt;
+    private javax.swing.JComboBox<String> EspecieComBox;
+    private javax.swing.JLabel EspecieLbl;
+    private com.toedter.calendar.JDateChooser FechNaciDataChooser;
+    private javax.swing.JLabel FechaNacimientoLbl;
+    private javax.swing.JLabel Fondo;
+    private javax.swing.JLabel NombreMascotaLbl;
+    private javax.swing.JTextField NombreMascotaTxt;
+    private javax.swing.JLabel NombrePropLbl;
+    private javax.swing.JTextField NombrePropTxt;
+    private javax.swing.JLabel RazaLbl;
+    private javax.swing.JTextField RazaTxt;
+    private javax.swing.JButton RegistrarBtn;
+    private javax.swing.JSeparator Separador;
+    private javax.swing.JComboBox<String> SexoComBox;
+    private javax.swing.JLabel SexoLbl;
+    private javax.swing.JLabel TelCelLbl;
+    private javax.swing.JTextField TelCelTxt;
     // End of variables declaration//GEN-END:variables
 }
