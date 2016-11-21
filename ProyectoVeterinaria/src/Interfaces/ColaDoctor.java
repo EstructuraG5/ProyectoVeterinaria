@@ -168,12 +168,7 @@ public class ColaDoctor extends javax.swing.JFrame {
         String ApMaterno=palabrasSeparadas[2];
         
         try {
-<<<<<<< HEAD:ProyectoVeterinaria/src/Interfaces/ColaDoctor.java
-            File ruta = new File(HistorialTxt.getText());
-            Desktop.getDesktop().open(ruta);
-        } catch (IOException ex) {
-            Logger.getLogger(ColaDoctor.class.getName()).log(Level.SEVERE, null, ex);
-=======
+
             int id=db_cliente.buscar_idCliente(nombre, ApPaterno, ApMaterno);
             String ruta="D:/Historiales/DOC"+id+".txt";
             String texto;
@@ -186,8 +181,8 @@ public class ColaDoctor extends javax.swing.JFrame {
             br.close();
             fr.close();
         } catch (Exception ex) {
-            Logger.getLogger(SistemaAtencion.class.getName()).log(Level.SEVERE, null, ex);
->>>>>>> gerson:ProyectoVeterinaria/src/Interfaces/SistemaAtencion.java
+            Logger.getLogger(ColaDoctor.class.getName()).log(Level.SEVERE, null, ex);
+
         }
        
         historial_medico_ventana.setNombre(nombre);
