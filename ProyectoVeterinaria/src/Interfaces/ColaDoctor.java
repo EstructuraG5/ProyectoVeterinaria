@@ -14,11 +14,11 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Seven
  */
-public class SistemaAtencion extends javax.swing.JFrame {
+public class ColaDoctor extends javax.swing.JFrame {
     
     Db_ColaDoctor cola = new Db_ColaDoctor();
     
-    public SistemaAtencion(){
+    public ColaDoctor(){
             initComponents();
             Toolkit mipantalla = Toolkit.getDefaultToolkit(); // nos dice el medio donde esta compilando el programa
             Dimension tampantalla = mipantalla.getScreenSize(); // devuelve la dimension de la pantalla
@@ -27,7 +27,7 @@ public class SistemaAtencion extends javax.swing.JFrame {
         try {
             cola.llenarTabla(tablaPacientes);
         } catch (Exception ex) {
-            Logger.getLogger(SistemaAtencion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ColaDoctor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -169,7 +169,7 @@ public class SistemaAtencion extends javax.swing.JFrame {
             File ruta = new File(HistorialTxt.getText());
             Desktop.getDesktop().open(ruta);
         } catch (IOException ex) {
-            Logger.getLogger(SistemaAtencion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ColaDoctor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAbrirActionPerformed
 
@@ -198,14 +198,15 @@ public class SistemaAtencion extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SistemaAtencion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ColaDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SistemaAtencion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ColaDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SistemaAtencion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ColaDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SistemaAtencion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ColaDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

@@ -5,7 +5,7 @@
  */
 package Interfaces;
 
-import Database.DB_ColaAtencion;
+import Database.DB_ColaSecretaria;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.logging.Level;
@@ -15,11 +15,11 @@ import java.util.logging.Logger;
  *
  * @author Seven
  */
-public class ColaAtencion extends javax.swing.JFrame {
+public class ColaSecretaria extends javax.swing.JFrame {
 
-    DB_ColaAtencion colaEspera = new DB_ColaAtencion();
+    DB_ColaSecretaria colaEspera = new DB_ColaSecretaria();
     
-    public ColaAtencion() {
+    public ColaSecretaria() {
         initComponents();
         Toolkit mipantalla = Toolkit.getDefaultToolkit(); // nos dice el medio donde esta compilando el programa
         Dimension tampantalla = mipantalla.getScreenSize(); // devuelve la dimension de la pantalla
@@ -28,7 +28,7 @@ public class ColaAtencion extends javax.swing.JFrame {
         try {
             colaEspera.llenarTabla(tablaPacientes);
         } catch (Exception ex) {
-            Logger.getLogger(SistemaAtencion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ColaDoctor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -121,20 +121,21 @@ public class ColaAtencion extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ColaAtencion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ColaSecretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ColaAtencion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ColaSecretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ColaAtencion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ColaSecretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ColaAtencion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ColaSecretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ColaAtencion().setVisible(true);
+                new ColaSecretaria().setVisible(true);
             }
         });
     }

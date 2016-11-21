@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Seven
  */
-public class DB_ColaAtencion {
+public class DB_ColaSecretaria {
     DefaultTableModel dtm;
     public DefaultTableModel llenarTabla(JTable tabla) throws Exception{
         Conexion con = new Conexion();
@@ -28,7 +28,8 @@ public class DB_ColaAtencion {
         dtm.setColumnIdentifiers(new Object[]{"Cliente","Paciente", "Historial"});
         
         while(rs.next()){
-            dtm.addRow(new Object[]{rs.getString("cliente"), rs.getString("paciente"), rs.getString("historial")});
+            dtm.addRow(new Object[]{rs.getString("nombreCliente")+" "+rs.getString("apPaternoCliente")+" "+rs.getString("apMaternoCliente")
+                    , rs.getString("paciente"), rs.getString("historial")});
         }
         con.cerrarConexion();
         return dtm;
