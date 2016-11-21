@@ -1,10 +1,13 @@
 package Interfaces;
 
+import Database.Db_Cliente;
 import Database.Db_ColaDoctor;
 import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,10 +48,8 @@ public class ColaDoctor extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         ClienteTxt = new javax.swing.JTextField();
         PacienteTxt = new javax.swing.JTextField();
-        HistorialTxt = new javax.swing.JTextField();
         btnTerminar = new javax.swing.JButton();
         btnAbrir = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
@@ -83,10 +84,6 @@ public class ColaDoctor extends javax.swing.JFrame {
         getContentPane().add(jLabel4);
         jLabel4.setBounds(20, 260, 60, 14);
 
-        jLabel5.setText("HISTORIAL MEDICO");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(20, 290, 120, 14);
-
         ClienteTxt.setEditable(false);
         getContentPane().add(ClienteTxt);
         ClienteTxt.setBounds(140, 220, 270, 30);
@@ -95,10 +92,6 @@ public class ColaDoctor extends javax.swing.JFrame {
         getContentPane().add(PacienteTxt);
         PacienteTxt.setBounds(140, 250, 270, 30);
 
-        HistorialTxt.setEditable(false);
-        getContentPane().add(HistorialTxt);
-        HistorialTxt.setBounds(140, 280, 270, 30);
-
         btnTerminar.setText("TERMINAR ATENCION");
         btnTerminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,16 +99,16 @@ public class ColaDoctor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnTerminar);
-        btnTerminar.setBounds(140, 330, 170, 40);
+        btnTerminar.setBounds(150, 330, 180, 40);
 
-        btnAbrir.setText("ABRIR");
+        btnAbrir.setText("ABRIR HISTORIAL MEDICO");
         btnAbrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAbrirActionPerformed(evt);
             }
         });
         getContentPane().add(btnAbrir);
-        btnAbrir.setBounds(420, 283, 70, 30);
+        btnAbrir.setBounds(150, 290, 180, 30);
 
         btnSalir.setText("SALIR");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +117,7 @@ public class ColaDoctor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSalir);
-        btnSalir.setBounds(330, 330, 100, 40);
+        btnSalir.setBounds(410, 350, 100, 40);
 
         btnAtender.setText("ATENDER");
         btnAtender.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -154,7 +147,6 @@ public class ColaDoctor extends javax.swing.JFrame {
     private void btnTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminarActionPerformed
         ClienteTxt.setText(null);
         PacienteTxt.setText(null);
-        HistorialTxt.setText(null);
         //Eliminar de la base de datos
     }//GEN-LAST:event_btnTerminarActionPerformed
 
@@ -165,18 +157,47 @@ public class ColaDoctor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
+        Db_Cliente db_cliente=new Db_Cliente();
+        HistorialMedico historial_medico_ventana= new HistorialMedico();
+        historial_medico_ventana.setVisible(true);
+        String cliente=ClienteTxt.getText();
+        String delimitadores= "[ .,;?!¡¿\'\"\\[\\]]+";
+        String[] palabrasSeparadas = cliente.split(delimitadores);
+        String nombre=palabrasSeparadas[0];
+        String ApPaterno=palabrasSeparadas[1];
+        String ApMaterno=palabrasSeparadas[2];
+        
         try {
+<<<<<<< HEAD:ProyectoVeterinaria/src/Interfaces/ColaDoctor.java
             File ruta = new File(HistorialTxt.getText());
             Desktop.getDesktop().open(ruta);
         } catch (IOException ex) {
             Logger.getLogger(ColaDoctor.class.getName()).log(Level.SEVERE, null, ex);
+=======
+            int id=db_cliente.buscar_idCliente(nombre, ApPaterno, ApMaterno);
+            String ruta="D:/Historiales/DOC"+id+".txt";
+            String texto;
+      
+            FileReader fr=new FileReader(ruta);
+            BufferedReader br = new BufferedReader(fr);
+            while((texto=br.readLine())!=null){
+                    historial_medico_ventana.Historial_Area.setText(texto);
+            }
+            br.close();
+            fr.close();
+        } catch (Exception ex) {
+            Logger.getLogger(SistemaAtencion.class.getName()).log(Level.SEVERE, null, ex);
+>>>>>>> gerson:ProyectoVeterinaria/src/Interfaces/SistemaAtencion.java
         }
+       
+        historial_medico_ventana.setNombre(nombre);
+        historial_medico_ventana.setApPaterno(ApPaterno);
+        historial_medico_ventana.setApMaterno(ApMaterno);
     }//GEN-LAST:event_btnAbrirActionPerformed
 
     private void btnAtenderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtenderMouseClicked
         ClienteTxt.setText((String) tablaPacientes.getValueAt(0, 0));
         PacienteTxt.setText((String) tablaPacientes.getValueAt(0, 1));
-        HistorialTxt.setText((String) tablaPacientes.getValueAt(0, 2));
         DefaultTableModel modelo = (DefaultTableModel)tablaPacientes.getModel(); 
         modelo.removeRow(0);
     }//GEN-LAST:event_btnAtenderMouseClicked
@@ -217,8 +238,7 @@ public class ColaDoctor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField ClienteTxt;
-    private javax.swing.JTextField HistorialTxt;
+    public static javax.swing.JTextField ClienteTxt;
     private javax.swing.JTextField PacienteTxt;
     private javax.swing.JLabel Titulo;
     private javax.swing.JButton btnAbrir;
@@ -229,7 +249,6 @@ public class ColaDoctor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tablaPacientes;
     // End of variables declaration//GEN-END:variables

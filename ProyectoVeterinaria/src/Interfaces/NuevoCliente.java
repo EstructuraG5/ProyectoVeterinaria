@@ -10,6 +10,9 @@ import Clases.Identificador;
 import Clases.Mascota;
 import Database.Db_Cliente;
 import Database.Db_Mascota;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.logging.Level;
@@ -205,9 +208,23 @@ public class NuevoCliente extends javax.swing.JFrame {
             db_mascota.insertar_Mascota(id_mascota,id_cliente, mascota.getNombre(),mascota.getEspecie(),
                 mascota.getRaza(),mascota.getSexo(),mascota.getFecha());
             
+            String id_fichero=String.valueOf(id_cliente);
+            String ruta = "D://Historiales/DOC"+id_fichero+".txt";
+            File historial = new File(ruta);
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(historial))) {
+                bw.write("HISTORIAL MEDICO \n"
+                        + "Cliente:"+id_cliente+"");
+                
+                bw.close();
+                
+            }
+            
+            
+            
         } catch (Exception ex) {
             Logger.getLogger(NuevoCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         
         
     }//GEN-LAST:event_RegistrarBtnActionPerformed
