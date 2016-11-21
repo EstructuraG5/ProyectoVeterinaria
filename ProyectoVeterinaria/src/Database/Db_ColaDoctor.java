@@ -23,7 +23,8 @@ public class Db_ColaDoctor {
         dtm.setColumnIdentifiers(new Object[]{"Cliente","Paciente", "Historial"});
         
         while(rs.next()){
-            dtm.addRow(new Object[]{rs.getString("cliente"), rs.getString("paciente"), rs.getString("historial")});
+            dtm.addRow(new Object[]{rs.getString("nombreCliente")+" "+rs.getString("apPaternoCliente")+" "+rs.getString("apMaternoCliente")
+                    , rs.getString("paciente"), rs.getString("historial")});
         }
         con.cerrarConexion();
         return dtm;
