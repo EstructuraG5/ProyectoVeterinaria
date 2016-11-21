@@ -78,6 +78,11 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
         Btn_buscar.setText("BUSCAR");
         Btn_buscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Btn_buscar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Btn_buscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_buscarMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(Btn_buscar);
 
         Btn_cola.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_Cola.png"))); // NOI18N
@@ -127,6 +132,11 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
         // TODO add your handling code here:
         new Factura().setVisible(true);
     }//GEN-LAST:event_Btn_facturaMouseClicked
+
+    private void Btn_buscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_buscarMouseClicked
+        // TODO add your handling code here:
+        new ConsultaCliente().setVisible(true);
+    }//GEN-LAST:event_Btn_buscarMouseClicked
 
     /**
      * @param args the command line arguments

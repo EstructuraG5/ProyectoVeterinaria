@@ -46,7 +46,6 @@ public class HistorialMedico extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -132,7 +131,7 @@ public class HistorialMedico extends javax.swing.JFrame {
         String day=String.valueOf(dia);
         String month=String.valueOf(mes);
         String year=String.valueOf(anio);
-        String fecha=""+day+""+month+""+year+"";
+        String fecha=""+day+"-"+month+"-"+year+"";
         try {
             int id=db_cliente.buscar_idCliente(nombre, ApellidoPaterno, ApellidoMaterno);
             String ruta="D:/Historiales/DOC"+id+".txt";
@@ -141,10 +140,12 @@ public class HistorialMedico extends javax.swing.JFrame {
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(fecha+":  \n"+diagnostico);
             
+            bw.close();
+            fw.close();
             } catch (Exception ex) {
             Logger.getLogger(HistorialMedico.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+ 
         
     }//GEN-LAST:event_Btn_Registrar_DiagnosticoActionPerformed
 

@@ -63,7 +63,7 @@ public class Db_Cliente {
          tabla.setModel(dtm);
          con.conectar();
          Statement st = con.getConexion().createStatement();
-         String sql="SELECT * FROM vet.cliente WHERE='"+DNI+"'";
+         String sql="SELECT * FROM vet.cliente WHERE DNI='"+DNI+"'";
          ResultSet rs = st.executeQuery(sql);
          
          dtm.setColumnIdentifiers(new Object[]{"Nombre","ApellidoPaterno","Apellido Materno","DNI","Telefono","Direccion"});

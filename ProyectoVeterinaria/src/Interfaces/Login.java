@@ -32,6 +32,8 @@ public class Login extends javax.swing.JFrame {
         Dimension tampantalla = mipantalla.getScreenSize(); // devuelve la dimension de la pantalla
         int altura = tampantalla.height, ancho = tampantalla.width;
         setLocation(ancho/4, altura/8);
+        
+        
     }
 
     /**

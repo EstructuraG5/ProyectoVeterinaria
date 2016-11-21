@@ -8,6 +8,7 @@ package Interfaces;
 import Clases.Cliente;
 import Clases.Identificador;
 import Clases.Mascota;
+import Database.Db_Atencion;
 import Database.Db_Cliente;
 import Database.Db_Mascota;
 import java.io.BufferedWriter;
@@ -17,6 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -195,18 +197,18 @@ public class NuevoCliente extends javax.swing.JFrame {
         int dia = sdf.getCalendar().get(Calendar.DAY_OF_MONTH);
         int mes = sdf.getCalendar().get(Calendar.MONTH);
         int anio = sdf.getCalendar().get(Calendar.YEAR);
-        String fecha = dia+"-"+mes+""+anio;
+        String fecha = dia+"-"+mes+"-"+anio;
         mascota.setFecha(fecha);
       
         int id_cliente;
-        
+        String ruta=null;
         try {
             db_cliente.insertar_Cliente(cliente.getNombre(),cliente.getApellidoPaterno(),
                     cliente.getApellidoMaterno(),cliente.getDNI(),cliente.getDireccion(),cliente.getTelefono());
             id_cliente = db_cliente.buscar_idCliente(cliente.getNombre(),cliente.getApellidoPaterno(),cliente.getApellidoMaterno());
             String codigo_mascota=id.Generar(mascota.getEspecie(), id_cliente);
             String id_fichero=String.valueOf(id_cliente);
-            String ruta = "D://Historiales/DOC"+id_fichero+".txt";
+            ruta = "D://Historiales/DOC"+id_fichero+".txt";
             db_mascota.insertar_Mascota(codigo_mascota,id_cliente, mascota.getNombre(),mascota.getEspecie(),
                 mascota.getRaza(),mascota.getSexo(),mascota.getFecha(),ruta);
                 
@@ -224,6 +226,19 @@ public class NuevoCliente extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(NuevoCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        Db_Atencion db_atencion=new Db_Atencion();
+        int resp=JOptionPane.showConfirmDialog(null, "¿Desea agregar al cliente registrado a la cola?");
+        if(resp==0){
+            try {
+                db_atencion.Insertar_cola(cliente.getNombre(),cliente.getApellidoPaterno(),cliente.getApellidoMaterno(),
+                        mascota.getNombre(),ruta);
+            } catch (Exception ex) {
+                Logger.getLogger(NuevoCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+
         
         
         
