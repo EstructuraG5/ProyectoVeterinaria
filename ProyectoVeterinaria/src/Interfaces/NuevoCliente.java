@@ -189,6 +189,7 @@ public class NuevoCliente extends javax.swing.JFrame {
         mascota.setNombre(NombreMascotaTxt.getText());
         mascota.setEspecie((String) EspecieComBox.getSelectedItem());
         mascota.setRaza(RazaTxt.getText());
+        mascota.setSexo((String) SexoComBox.getSelectedItem());
         String formato = FechNaciDataChooser.getDateFormatString();
         SimpleDateFormat sdf = new SimpleDateFormat(formato);
         int dia = sdf.getCalendar().get(Calendar.DAY_OF_MONTH);
@@ -203,13 +204,12 @@ public class NuevoCliente extends javax.swing.JFrame {
             db_cliente.insertar_Cliente(cliente.getNombre(),cliente.getApellidoPaterno(),
                     cliente.getApellidoMaterno(),cliente.getDNI(),cliente.getDireccion(),cliente.getTelefono());
             id_cliente = db_cliente.buscar_idCliente(cliente.getNombre(),cliente.getApellidoPaterno(),cliente.getApellidoMaterno());
-            String id_mascota=id.Generar(mascota.getEspecie(), id_cliente);
-            
-            db_mascota.insertar_Mascota(id_mascota,id_cliente, mascota.getNombre(),mascota.getEspecie(),
-                mascota.getRaza(),mascota.getSexo(),mascota.getFecha());
-            
+            String codigo_mascota=id.Generar(mascota.getEspecie(), id_cliente);
             String id_fichero=String.valueOf(id_cliente);
             String ruta = "D://Historiales/DOC"+id_fichero+".txt";
+            db_mascota.insertar_Mascota(codigo_mascota,id_cliente, mascota.getNombre(),mascota.getEspecie(),
+                mascota.getRaza(),mascota.getSexo(),mascota.getFecha(),ruta);
+                
             File historial = new File(ruta);
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(historial))) {
                 bw.write("HISTORIAL MEDICO \n"

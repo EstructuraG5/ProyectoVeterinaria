@@ -8,7 +8,10 @@ package Database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,8 +26,8 @@ public class Db_Cliente {
         con.conectar();
         try{
             Statement st=con.getConexion().createStatement();
-            String sql = "INSERT INTO vet.cliente (nombre,apellidoPaterno,apellidoMaterno,DNI,direccion,telefono)"
-                + " VALUES ('"+nombre+"','"+apellidoPaterno+"','"+apellidoMaterno+"','"+DNI+"','"+direccion+"','"+telefono+"')";
+            String sql = "INSERT INTO vet.cliente (nombreCliente,apPaterno,apMaterno,DNI,telefono,direccion)"
+                + " VALUES ('"+nombre+"','"+apellidoPaterno+"','"+apellidoMaterno+"','"+DNI+"','"+telefono+"','"+direccion+"')";
         
             st.executeUpdate(sql);
             JOptionPane.showMessageDialog(null,"Los datos se registraron correctamente");
@@ -41,7 +44,7 @@ public class Db_Cliente {
        
             Statement st=connect.getConexion().createStatement();
             String sql="SELECT * FROM vet.cliente WHERE "
-                    + "nombre='"+nombre+"' AND apellidoPaterno='"+ApPaterno+"' AND apellidoMaterno='"+ApMaterno+"'";
+                    + "nombreCliente='"+nombre+"' AND apPaterno='"+ApPaterno+"' AND apMaterno='"+ApMaterno+"'";
             
             ResultSet result=st.executeQuery(sql);
             if(result.next()){
@@ -51,5 +54,30 @@ public class Db_Cliente {
             }
         return id_cliente;
      }
-    
+
+     DefaultTableModel dtm;
+     public DefaultTableModel tabla_Clientes(int DNI,JTable tabla) throws Exception{
+         ArrayList cliente=new ArrayList();
+         Conexion con=new Conexion();
+         dtm = new DefaultTableModel();
+         tabla.setModel(dtm);
+         con.conectar();
+         Statement st = con.getConexion().createStatement();
+         String sql="SELECT * FROM vet.cliente WHERE='"+DNI+"'";
+         ResultSet rs = st.executeQuery(sql);
+         
+         dtm.setColumnIdentifiers(new Object[]{"Nombre","ApellidoPaterno","Apellido Materno","DNI","Telefono","Direccion"});
+         while(rs.next()){
+             dtm.addRow(new Object[]{
+                    rs.getString("nombreCliente"),
+                    rs.getString("apPaterno"),
+                    rs.getString("apMaterno"),
+                    rs.getInt("DNI"),
+                    rs.getInt("telefono"),
+                    rs.getString("direccion")
+         });
+         }
+         con.cerrarConexion();
+         return dtm;
+     }
 }
