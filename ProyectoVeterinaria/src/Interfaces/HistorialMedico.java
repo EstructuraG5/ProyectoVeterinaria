@@ -53,6 +53,7 @@ public class HistorialMedico extends javax.swing.JFrame {
             }
         });
 
+        Historial_Area.setEditable(false);
         Historial_Area.setColumns(20);
         Historial_Area.setRows(5);
         Historial_Txt.setViewportView(Historial_Area);
