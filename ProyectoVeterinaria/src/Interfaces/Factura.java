@@ -83,6 +83,11 @@ public class Factura extends javax.swing.JFrame implements Printable {
         ApPaterno_Lbl.setText("APELLIDO PATERNO:");
 
         ApPaterno_Txt.setEditable(false);
+        ApPaterno_Txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ApPaterno_TxtActionPerformed(evt);
+            }
+        });
 
         ApMaterno_Lbl.setText("APELLIDO MATERNO:");
 
@@ -177,7 +182,7 @@ public class Factura extends javax.swing.JFrame implements Printable {
                                             .addComponent(Id_Lbl))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(NombreMascota_Txt, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                                            .addComponent(NombreMascota_Txt, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
                                             .addComponent(Id_Txt))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,7 +240,6 @@ public class Factura extends javax.swing.JFrame implements Printable {
                                                     .addComponent(Total_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(0, 0, Short.MAX_VALUE))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(Imprimir_Btn)
                                                 .addGap(21, 21, 21))))))
                             .addGroup(layout.createSequentialGroup()
@@ -329,6 +333,10 @@ public class Factura extends javax.swing.JFrame implements Printable {
             }
         }
     }//GEN-LAST:event_Imprimir_BtnActionPerformed
+
+    private void ApPaterno_TxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApPaterno_TxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ApPaterno_TxtActionPerformed
 
     /**
      * @param args the command line arguments

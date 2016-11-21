@@ -50,7 +50,7 @@
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="NombreMascota_Txt" pref="122" max="32767" attributes="0"/>
+                                          <Component id="NombreMascota_Txt" pref="123" max="32767" attributes="0"/>
                                           <Component id="Id_Txt" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -127,7 +127,6 @@
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace max="32767" attributes="0"/>
                                               <Component id="Imprimir_Btn" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                           </Group>
@@ -250,6 +249,9 @@
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ApPaterno_TxtActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="ApMaterno_Lbl">
       <Properties>

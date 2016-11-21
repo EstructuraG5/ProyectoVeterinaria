@@ -1,5 +1,6 @@
 package Interfaces;
 
+import Clases.Cliente;
 import Database.Db_Cliente;
 import Database.Db_ColaDoctor;
 import java.awt.Desktop;
@@ -147,6 +148,19 @@ public class ColaDoctor extends javax.swing.JFrame {
     private void btnTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminarActionPerformed
         ClienteTxt.setText(null);
         PacienteTxt.setText(null);
+        
+        Cliente cliente=new Cliente();
+        Db_Cliente db_cliente = new Db_Cliente();
+        String campo_cliente=ClienteTxt.getText();
+        String delimitadores="[ .,;?!¡¿\'\"\\[\\]]+";
+        String[] palabrasSeparadas = campo_cliente.split(delimitadores);
+        String nombre=palabrasSeparadas[0];
+        String apPaterno=palabrasSeparadas[1];
+        String apMaterno=palabrasSeparadas[2];
+        
+        
+        
+        
         //Eliminar de la base de datos
     }//GEN-LAST:event_btnTerminarActionPerformed
 
