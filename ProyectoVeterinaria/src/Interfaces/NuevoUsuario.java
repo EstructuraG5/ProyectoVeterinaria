@@ -158,7 +158,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
         char[] pass=PasswordTxt.getPassword();
         String password = new String(pass);
         user.setPassword(password);
-        user.setUsuario(jComboBox1.getSelectedItem().toString());
+        user.setTipoUsuario(jComboBox1.getSelectedItem().toString());
         
         try {
             db_usuario.insertar_Usuarios(user.getUsuario(),user.getPassword(),user.getNombre(),
