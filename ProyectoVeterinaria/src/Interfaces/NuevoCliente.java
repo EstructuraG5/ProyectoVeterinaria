@@ -163,8 +163,6 @@ public class NuevoCliente extends javax.swing.JFrame {
         EspecieComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PERRO", "GATO", "CONEJO", "HAMSTER", "TORTUGA", "IGUANA" }));
         getContentPane().add(EspecieComBox);
         EspecieComBox.setBounds(80, 270, 120, 25);
-
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo.png"))); // NOI18N
         getContentPane().add(Fondo);
         Fondo.setBounds(0, -4, 440, 510);
 

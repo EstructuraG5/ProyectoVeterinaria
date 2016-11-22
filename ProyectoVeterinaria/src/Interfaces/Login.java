@@ -104,8 +104,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 540, 80, 60));
-
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/277126-fondo_Clínica_Veterinaria_Trabazosaa.png"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 620));
 
         pack();

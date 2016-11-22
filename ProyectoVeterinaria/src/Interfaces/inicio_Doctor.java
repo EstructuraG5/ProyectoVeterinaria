@@ -29,85 +29,70 @@ public class inicio_Doctor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Btn_Registrar_Usuario = new javax.swing.JButton();
+        Btn_Mostrar_Cola = new javax.swing.JButton();
+        Btn_Salir = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        Btn_cerrar_sesion = new javax.swing.JMenu();
-        Btn_cola = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        Btn_administrador = new javax.swing.JMenu();
-        Registrar_Usuario = new javax.swing.JMenuItem();
 
+        setMaximumSize(new java.awt.Dimension(800, 600));
+        setMinimumSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Inicio_administrador.png"))); // NOI18N
-        Fondo.setPreferredSize(new java.awt.Dimension(780, 580));
-        getContentPane().add(Fondo, java.awt.BorderLayout.CENTER);
-
-        Btn_cerrar_sesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_Salir.png"))); // NOI18N
-        Btn_cerrar_sesion.setText("CERRAR SESION");
-        Btn_cerrar_sesion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Btn_cerrar_sesion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        Btn_cerrar_sesion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Btn_cerrar_sesionMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(Btn_cerrar_sesion);
-
-        Btn_cola.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_Cola.png"))); // NOI18N
-        Btn_cola.setText("MOSTRAR COLA");
-        Btn_cola.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Btn_cola.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        Btn_cola.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Btn_colaMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(Btn_cola);
-
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_diagnostico.png"))); // NOI18N
-        jMenu2.setText("DIAGNOSTICO");
-        jMenu2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jMenu2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jMenuBar1.add(jMenu2);
-
-        Btn_administrador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_admin.png"))); // NOI18N
-        Btn_administrador.setText("ADMINISTRADOR");
-        Btn_administrador.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Btn_administrador.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        Registrar_Usuario.setText("Registrar Usuario");
-        Registrar_Usuario.addActionListener(new java.awt.event.ActionListener() {
+        Btn_Registrar_Usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_Registrar_usuario.png"))); // NOI18N
+        Btn_Registrar_Usuario.setMaximumSize(new java.awt.Dimension(115, 200));
+        Btn_Registrar_Usuario.setMinimumSize(new java.awt.Dimension(115, 200));
+        Btn_Registrar_Usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Registrar_UsuarioActionPerformed(evt);
+                Btn_Registrar_UsuarioActionPerformed(evt);
             }
         });
-        Btn_administrador.add(Registrar_Usuario);
+        getContentPane().add(Btn_Registrar_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 120, 110, 190));
 
-        jMenuBar1.add(Btn_administrador);
+        Btn_Mostrar_Cola.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Bt_dog.png"))); // NOI18N
+        Btn_Mostrar_Cola.setMaximumSize(new java.awt.Dimension(115, 200));
+        Btn_Mostrar_Cola.setMinimumSize(new java.awt.Dimension(115, 200));
+        Btn_Mostrar_Cola.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_Mostrar_ColaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_Mostrar_Cola, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 110, 190));
 
-        setJMenuBar(jMenuBar1);
+        Btn_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_Salir.png"))); // NOI18N
+        Btn_Salir.setMaximumSize(new java.awt.Dimension(115, 200));
+        Btn_Salir.setMinimumSize(new java.awt.Dimension(115, 200));
+        Btn_Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_SalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, 90, 90));
+
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo-Veterinario1.png"))); // NOI18N
+        Fondo.setPreferredSize(new java.awt.Dimension(780, 580));
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Registrar_UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Registrar_UsuarioActionPerformed
+    private void Btn_Registrar_UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Registrar_UsuarioActionPerformed
         // TODO add your handling code here:
-        NuevoUsuario nuevo = new NuevoUsuario();
-        nuevo.setVisible(true);
-    }//GEN-LAST:event_Registrar_UsuarioActionPerformed
+        new NuevoUsuario().setVisible(true);
+    }//GEN-LAST:event_Btn_Registrar_UsuarioActionPerformed
 
-    private void Btn_colaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_colaMouseClicked
+    private void Btn_Mostrar_ColaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Mostrar_ColaActionPerformed
         // TODO add your handling code here:
         ColaDoctor cola = new ColaDoctor();
         cola.setVisible(true);
-    }//GEN-LAST:event_Btn_colaMouseClicked
+    }//GEN-LAST:event_Btn_Mostrar_ColaActionPerformed
 
-    private void Btn_cerrar_sesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_cerrar_sesionMouseClicked
+    private void Btn_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_SalirActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        new Login().setVisible(true);
-    }//GEN-LAST:event_Btn_cerrar_sesionMouseClicked
+        new Login().setVisible(true);       
+    }//GEN-LAST:event_Btn_SalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,12 +130,9 @@ public class inicio_Doctor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu Btn_administrador;
-    private javax.swing.JMenu Btn_cerrar_sesion;
-    private javax.swing.JMenu Btn_cola;
+    private javax.swing.JButton Btn_Mostrar_Cola;
+    private javax.swing.JButton Btn_Registrar_Usuario;
+    private javax.swing.JButton Btn_Salir;
     private javax.swing.JLabel Fondo;
-    private javax.swing.JMenuItem Registrar_Usuario;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }

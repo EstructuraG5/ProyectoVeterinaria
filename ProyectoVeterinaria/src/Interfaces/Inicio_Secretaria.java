@@ -34,108 +34,77 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Btn_Salir = new javax.swing.JButton();
+        Btn_Registrar_Cliente = new javax.swing.JButton();
+        Btn_Factura = new javax.swing.JButton();
+        Btn_Mostrar_Cola = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        Btn_cerrar_sesion = new javax.swing.JMenu();
-        Btn_registro = new javax.swing.JMenu();
-        Btn_buscar = new javax.swing.JMenu();
-        Btn_cola = new javax.swing.JMenu();
-        Btn_factura = new javax.swing.JMenu();
 
+        setMaximumSize(new java.awt.Dimension(800, 600));
+        setMinimumSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Inicio_secretaria.png"))); // NOI18N
+        Btn_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_Salir.png"))); // NOI18N
+        Btn_Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_SalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, 100, 100));
+
+        Btn_Registrar_Cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_Registrar1.png"))); // NOI18N
+        Btn_Registrar_Cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_Registrar_ClienteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_Registrar_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 110, 190));
+
+        Btn_Factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_Factura.png"))); // NOI18N
+        Btn_Factura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_FacturaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 110, 190));
+
+        Btn_Mostrar_Cola.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Bt_dog.png"))); // NOI18N
+        Btn_Mostrar_Cola.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_Mostrar_ColaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_Mostrar_Cola, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 110, 190));
+
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo-Secretaria1.png"))); // NOI18N
         Fondo.setAlignmentY(0.0F);
-        getContentPane().add(Fondo, java.awt.BorderLayout.CENTER);
-
-        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
-        jMenuBar1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        Btn_cerrar_sesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_Salir.png"))); // NOI18N
-        Btn_cerrar_sesion.setText("CERRAR SESIÓN");
-        Btn_cerrar_sesion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Btn_cerrar_sesion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        Btn_cerrar_sesion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Btn_cerrar_sesionMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(Btn_cerrar_sesion);
-
-        Btn_registro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_Registrar.png"))); // NOI18N
-        Btn_registro.setText("REGISTRO");
-        Btn_registro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Btn_registro.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        Btn_registro.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Btn_registroMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(Btn_registro);
-
-        Btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_Buscar.png"))); // NOI18N
-        Btn_buscar.setText("BUSCAR");
-        Btn_buscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Btn_buscar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        Btn_buscar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Btn_buscarMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(Btn_buscar);
-
-        Btn_cola.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_Cola.png"))); // NOI18N
-        Btn_cola.setText("COLA");
-        Btn_cola.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Btn_cola.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        Btn_cola.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Btn_colaMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(Btn_cola);
-
-        Btn_factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Factura.png"))); // NOI18N
-        Btn_factura.setText("FACTURA");
-        Btn_factura.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Btn_factura.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        Btn_factura.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Btn_facturaMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(Btn_factura);
-
-        setJMenuBar(jMenuBar1);
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 799, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Btn_cerrar_sesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_cerrar_sesionMouseClicked
+    private void Btn_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_SalirActionPerformed
         // TODO add your handling code here:
         this.dispose();
         new Login().setVisible(true);
-    }//GEN-LAST:event_Btn_cerrar_sesionMouseClicked
+    }//GEN-LAST:event_Btn_SalirActionPerformed
 
-    private void Btn_registroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_registroMouseClicked
+    private void Btn_Registrar_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Registrar_ClienteActionPerformed
         // TODO add your handling code here:
         new NuevoCliente().setVisible(true);
-    }//GEN-LAST:event_Btn_registroMouseClicked
+    }//GEN-LAST:event_Btn_Registrar_ClienteActionPerformed
 
-    private void Btn_colaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_colaMouseClicked
-        ColaSecretaria cola = new ColaSecretaria();
-        cola.setVisible(true);
-    }//GEN-LAST:event_Btn_colaMouseClicked
-
-    private void Btn_facturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_facturaMouseClicked
+    private void Btn_FacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_FacturaActionPerformed
         // TODO add your handling code here:
         new Factura().setVisible(true);
-    }//GEN-LAST:event_Btn_facturaMouseClicked
+    }//GEN-LAST:event_Btn_FacturaActionPerformed
 
-    private void Btn_buscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_buscarMouseClicked
+    private void Btn_Mostrar_ColaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Mostrar_ColaActionPerformed
         // TODO add your handling code here:
-        new ConsultaCliente().setVisible(true);
-    }//GEN-LAST:event_Btn_buscarMouseClicked
+        new ColaSecretaria().setVisible(true);
+    }//GEN-LAST:event_Btn_Mostrar_ColaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,12 +143,10 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu Btn_buscar;
-    private javax.swing.JMenu Btn_cerrar_sesion;
-    private javax.swing.JMenu Btn_cola;
-    private javax.swing.JMenu Btn_factura;
-    private javax.swing.JMenu Btn_registro;
+    private javax.swing.JButton Btn_Factura;
+    private javax.swing.JButton Btn_Mostrar_Cola;
+    private javax.swing.JButton Btn_Registrar_Cliente;
+    private javax.swing.JButton Btn_Salir;
     private javax.swing.JLabel Fondo;
-    private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
