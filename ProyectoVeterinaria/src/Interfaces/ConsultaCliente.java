@@ -48,8 +48,6 @@ public class ConsultaCliente extends javax.swing.JFrame {
         tablaCliente = new javax.swing.JTable();
         btnAtender = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Consultar Cliente"));
 
         buttonGroup1.add(btrApellido);

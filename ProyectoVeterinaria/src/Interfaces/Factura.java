@@ -72,8 +72,6 @@ public class Factura extends javax.swing.JFrame implements Printable {
         Salir_Btn = new javax.swing.JButton();
         Imprimir_Btn = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         Cliente_Lbl.setText("CLIENTE:");
 
         NombreCliente_Lbl.setText("NOMBRE:");

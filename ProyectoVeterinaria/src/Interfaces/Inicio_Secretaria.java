@@ -42,14 +42,13 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
         Btn_cola = new javax.swing.JMenu();
         Btn_factura = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Inicio_secretaria.png"))); // NOI18N
         Fondo.setAlignmentY(0.0F);
         getContentPane().add(Fondo, java.awt.BorderLayout.CENTER);
 
-        jMenuBar1.setBackground(new java.awt.Color(255, 255, 102));
+        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
         jMenuBar1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         Btn_cerrar_sesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_Salir.png"))); // NOI18N

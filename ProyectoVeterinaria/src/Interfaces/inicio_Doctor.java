@@ -37,7 +37,6 @@ public class inicio_Doctor extends javax.swing.JFrame {
         Btn_administrador = new javax.swing.JMenu();
         Registrar_Usuario = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Inicio_administrador.png"))); // NOI18N
