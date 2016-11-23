@@ -80,19 +80,11 @@ public class ColaDoctor extends javax.swing.JFrame {
 
         jLabel3.setText("CLIENTE");
         getContentPane().add(jLabel3);
-<<<<<<< HEAD
-        jLabel3.setBounds(20, 230, 70, 14);
-
-        jLabel4.setText("PACIENTE");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(20, 260, 60, 14);
-=======
         jLabel3.setBounds(70, 230, 70, 14);
 
         jLabel4.setText("PACIENTE");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(70, 260, 60, 14);
->>>>>>> 1331e308203b83de8fc3f0835e06e8c959e22e97
 
         ClienteTxt.setEditable(false);
         getContentPane().add(ClienteTxt);
@@ -138,11 +130,7 @@ public class ColaDoctor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAtender);
-<<<<<<< HEAD
-        btnAtender.setBounds(360, 80, 120, 23);
-=======
         btnAtender.setBounds(360, 80, 120, 30);
->>>>>>> 1331e308203b83de8fc3f0835e06e8c959e22e97
 
         tablaPacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
