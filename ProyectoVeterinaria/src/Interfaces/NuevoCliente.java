@@ -227,6 +227,7 @@ public class NuevoCliente extends javax.swing.JFrame {
                     Logger.getLogger(NuevoCliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+            this.dispose();
         }
         
         
