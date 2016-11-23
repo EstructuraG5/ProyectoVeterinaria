@@ -32,7 +32,7 @@ public class Db_Usuarios {
                 + " VALUES ('"+usuario+"','"+password+"','"+Nombres+"','"+ApPaterno+"','"+ApMaterno+"','"+TipoUsuario+"')";
         
             st.executeUpdate(sql);
-            JOptionPane.showMessageDialog(null,"Los datos se registraron correctamente");
+            JOptionPane.showMessageDialog(null,"El usuario se registró correctamente");
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,ex);
         }

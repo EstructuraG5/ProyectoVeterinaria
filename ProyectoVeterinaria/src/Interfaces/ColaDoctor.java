@@ -199,8 +199,10 @@ public class ColaDoctor extends javax.swing.JFrame {
       
             FileReader fr=new FileReader(ruta);
             BufferedReader br = new BufferedReader(fr);
+            String linea;
             while((texto=br.readLine())!=null){
-                    historial_medico_ventana.Historial_Area.setText(texto);
+                   // historial_medico_ventana.Historial_Area.setText(texto);
+                    historial_medico_ventana.Historial_Area.append(texto+"\n");
             }
             br.close();
             fr.close();
