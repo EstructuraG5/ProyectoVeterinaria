@@ -113,6 +113,7 @@
     <Component class="javax.swing.JButton" name="btnTerminar">
       <Properties>
         <Property name="text" type="java.lang.String" value="TERMINAR ATENCION"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTerminarActionPerformed"/>
@@ -126,6 +127,7 @@
     <Component class="javax.swing.JButton" name="btnAbrir">
       <Properties>
         <Property name="text" type="java.lang.String" value="ABRIR HISTORIAL MEDICO"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAbrirActionPerformed"/>
