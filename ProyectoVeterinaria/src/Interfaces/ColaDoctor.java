@@ -94,6 +94,7 @@ public class ColaDoctor extends javax.swing.JFrame {
         PacienteTxt.setBounds(140, 250, 270, 30);
 
         btnTerminar.setText("TERMINAR ATENCION");
+        btnTerminar.setEnabled(false);
         btnTerminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTerminarActionPerformed(evt);
@@ -103,6 +104,7 @@ public class ColaDoctor extends javax.swing.JFrame {
         btnTerminar.setBounds(150, 330, 180, 40);
 
         btnAbrir.setText("ABRIR HISTORIAL MEDICO");
+        btnAbrir.setEnabled(false);
         btnAbrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAbrirActionPerformed(evt);
@@ -146,27 +148,30 @@ public class ColaDoctor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminarActionPerformed
+        btnTerminar.setEnabled(false);
+        btnAbrir.setEnabled(false);
+        btnAtender.setEnabled(true);
         ClienteTxt.setText(null);
         PacienteTxt.setText(null);
         
         Cliente cliente=new Cliente();
         Db_Cliente db_cliente = new Db_Cliente();
-        String campo_cliente=ClienteTxt.getText();
-        String delimitadores="[ .,;?!¡¿\'\"\\[\\]]+";
-        String[] palabrasSeparadas = campo_cliente.split(delimitadores);
-        String nombre=palabrasSeparadas[0];
-        String apPaterno=palabrasSeparadas[1];
-        String apMaterno=palabrasSeparadas[2];
         
-        
-        
-        
+        try{
+            String campo_cliente=ClienteTxt.getText();
+            String delimitadores="[ .,;?!¡¿\'\"\\[\\]]+";
+            String[] palabrasSeparadas = campo_cliente.split(delimitadores);
+            String nombre=palabrasSeparadas[0];
+            String apPaterno=palabrasSeparadas[1];
+            String apMaterno=palabrasSeparadas[2];
+        }
+        catch(ArrayIndexOutOfBoundsException e){
+            
+        }
         //Eliminar de la base de datos
     }//GEN-LAST:event_btnTerminarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        inicio_Doctor doctor = new inicio_Doctor();
-        doctor.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
@@ -205,6 +210,9 @@ public class ColaDoctor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAbrirActionPerformed
 
     private void btnAtenderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtenderMouseClicked
+        btnAtender.setEnabled(false);
+        btnTerminar.setEnabled(true);
+        btnAbrir.setEnabled(true);
         ClienteTxt.setText((String) tablaPacientes.getValueAt(0, 0));
         PacienteTxt.setText((String) tablaPacientes.getValueAt(0, 1));
         DefaultTableModel modelo = (DefaultTableModel)tablaPacientes.getModel(); 
