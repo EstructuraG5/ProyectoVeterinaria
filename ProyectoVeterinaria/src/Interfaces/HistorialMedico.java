@@ -47,21 +47,27 @@ public class HistorialMedico extends javax.swing.JFrame {
         Btn_Registrar_Diagnostico = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Historial_Area.setEditable(false);
         Historial_Area.setColumns(20);
         Historial_Area.setRows(5);
         Historial_Txt.setViewportView(Historial_Area);
 
+        getContentPane().add(Historial_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 49, 496, 141));
+
         Diagnostico_Area.setColumns(20);
         Diagnostico_Area.setRows(5);
         Diagnostico_Txt.setViewportView(Diagnostico_Area);
+
+        getContentPane().add(Diagnostico_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 246, 496, -1));
 
         Btn_Registrar_Diagnostico.setText("REGISTRAR DIAGNOSTICO");
         Btn_Registrar_Diagnostico.addActionListener(new java.awt.event.ActionListener() {
@@ -69,52 +75,16 @@ public class HistorialMedico extends javax.swing.JFrame {
                 Btn_Registrar_DiagnosticoActionPerformed(evt);
             }
         });
+        getContentPane().add(Btn_Registrar_Diagnostico, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 347, 179, 52));
 
         jLabel1.setText("HISTORIAL MEDICO");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 12, -1, -1));
 
         jLabel2.setText("DIAGNOSTICO");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 218, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(167, 167, 167)
-                                .addComponent(Btn_Registrar_Diagnostico, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(201, 201, 201)
-                                .addComponent(jLabel1)))
-                        .addGap(0, 162, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Historial_Txt)
-                            .addComponent(Diagnostico_Txt, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(21, 21, 21)
-                .addComponent(Historial_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Diagnostico_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Btn_Registrar_Diagnostico, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 520, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -205,6 +175,7 @@ public class HistorialMedico extends javax.swing.JFrame {
     private javax.swing.JScrollPane Historial_Txt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 
     /**

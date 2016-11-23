@@ -38,11 +38,10 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
         Btn_Registrar_Cliente = new javax.swing.JButton();
         Btn_Factura = new javax.swing.JButton();
         Btn_Mostrar_Cola = new javax.swing.JButton();
+        Btn_Factura1 = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(800, 600));
         setMinimumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -60,7 +59,7 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
                 Btn_Registrar_ClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Registrar_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 110, 190));
+        getContentPane().add(Btn_Registrar_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 110, 190));
 
         Btn_Factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Btn_Factura.png"))); // NOI18N
         Btn_Factura.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +67,7 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
                 Btn_FacturaActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 110, 190));
+        getContentPane().add(Btn_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 110, 190));
 
         Btn_Mostrar_Cola.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Bt_dog.png"))); // NOI18N
         Btn_Mostrar_Cola.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +75,15 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
                 Btn_Mostrar_ColaActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Mostrar_Cola, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 110, 190));
+        getContentPane().add(Btn_Mostrar_Cola, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, 110, 190));
+
+        Btn_Factura1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/BuscarCliente.png"))); // NOI18N
+        Btn_Factura1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_Factura1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_Factura1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 110, 190));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo-Secretaria1.png"))); // NOI18N
         Fondo.setAlignmentY(0.0F);
@@ -105,6 +112,11 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
         // TODO add your handling code here:
         new ColaSecretaria().setVisible(true);
     }//GEN-LAST:event_Btn_Mostrar_ColaActionPerformed
+
+    private void Btn_Factura1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Factura1ActionPerformed
+        // TODO add your handling code here:
+        new ConsultaCliente().setVisible(true);
+    }//GEN-LAST:event_Btn_Factura1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,6 +156,7 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_Factura;
+    private javax.swing.JButton Btn_Factura1;
     private javax.swing.JButton Btn_Mostrar_Cola;
     private javax.swing.JButton Btn_Registrar_Cliente;
     private javax.swing.JButton Btn_Salir;

@@ -48,7 +48,6 @@ public class Db_Cliente {
             
             ResultSet result=st.executeQuery(sql);
             if(result.next()){
-                JOptionPane.showMessageDialog(null,"Se encontro un cliente");
                     //Dependiendo del tipo de usuario , ver que tipo de 
                 id_cliente=result.getInt("idCliente");
             }

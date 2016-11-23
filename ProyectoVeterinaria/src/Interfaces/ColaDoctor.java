@@ -57,8 +57,9 @@ public class ColaDoctor extends javax.swing.JFrame {
         btnAtender = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaPacientes = new javax.swing.JTable();
+        labelFondo = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(500, 400));
+        setPreferredSize(new java.awt.Dimension(530, 420));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -79,37 +80,47 @@ public class ColaDoctor extends javax.swing.JFrame {
 
         jLabel3.setText("CLIENTE");
         getContentPane().add(jLabel3);
+<<<<<<< HEAD
         jLabel3.setBounds(20, 230, 70, 14);
 
         jLabel4.setText("PACIENTE");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(20, 260, 60, 14);
+=======
+        jLabel3.setBounds(70, 230, 70, 14);
+
+        jLabel4.setText("PACIENTE");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(70, 260, 60, 14);
+>>>>>>> 1331e308203b83de8fc3f0835e06e8c959e22e97
 
         ClienteTxt.setEditable(false);
         getContentPane().add(ClienteTxt);
-        ClienteTxt.setBounds(140, 220, 270, 30);
+        ClienteTxt.setBounds(190, 220, 270, 30);
 
         PacienteTxt.setEditable(false);
         getContentPane().add(PacienteTxt);
-        PacienteTxt.setBounds(140, 250, 270, 30);
+        PacienteTxt.setBounds(190, 250, 270, 30);
 
         btnTerminar.setText("TERMINAR ATENCION");
+        btnTerminar.setEnabled(false);
         btnTerminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTerminarActionPerformed(evt);
             }
         });
         getContentPane().add(btnTerminar);
-        btnTerminar.setBounds(150, 330, 180, 40);
+        btnTerminar.setBounds(200, 330, 180, 40);
 
         btnAbrir.setText("ABRIR HISTORIAL MEDICO");
+        btnAbrir.setEnabled(false);
         btnAbrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAbrirActionPerformed(evt);
             }
         });
         getContentPane().add(btnAbrir);
-        btnAbrir.setBounds(150, 290, 180, 30);
+        btnAbrir.setBounds(200, 290, 180, 30);
 
         btnSalir.setText("SALIR");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +138,11 @@ public class ColaDoctor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAtender);
+<<<<<<< HEAD
         btnAtender.setBounds(360, 80, 120, 23);
+=======
+        btnAtender.setBounds(360, 80, 120, 30);
+>>>>>>> 1331e308203b83de8fc3f0835e06e8c959e22e97
 
         tablaPacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -142,31 +157,38 @@ public class ColaDoctor extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(20, 60, 330, 120);
 
+        labelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo.png"))); // NOI18N
+        getContentPane().add(labelFondo);
+        labelFondo.setBounds(0, 0, 530, 410);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminarActionPerformed
+        btnTerminar.setEnabled(false);
+        btnAbrir.setEnabled(false);
+        btnAtender.setEnabled(true);
         ClienteTxt.setText(null);
         PacienteTxt.setText(null);
         
         Cliente cliente=new Cliente();
         Db_Cliente db_cliente = new Db_Cliente();
-        String campo_cliente=ClienteTxt.getText();
-        String delimitadores="[ .,;?!¡¿\'\"\\[\\]]+";
-        String[] palabrasSeparadas = campo_cliente.split(delimitadores);
-        String nombre=palabrasSeparadas[0];
-        String apPaterno=palabrasSeparadas[1];
-        String apMaterno=palabrasSeparadas[2];
         
-        
-        
-        
+        try{
+            String campo_cliente=ClienteTxt.getText();
+            String delimitadores="[ .,;?!¡¿\'\"\\[\\]]+";
+            String[] palabrasSeparadas = campo_cliente.split(delimitadores);
+            String nombre=palabrasSeparadas[0];
+            String apPaterno=palabrasSeparadas[1];
+            String apMaterno=palabrasSeparadas[2];
+        }
+        catch(ArrayIndexOutOfBoundsException e){
+            
+        }
         //Eliminar de la base de datos
     }//GEN-LAST:event_btnTerminarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        inicio_Doctor doctor = new inicio_Doctor();
-        doctor.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
@@ -205,6 +227,9 @@ public class ColaDoctor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAbrirActionPerformed
 
     private void btnAtenderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtenderMouseClicked
+        btnAtender.setEnabled(false);
+        btnTerminar.setEnabled(true);
+        btnAbrir.setEnabled(true);
         ClienteTxt.setText((String) tablaPacientes.getValueAt(0, 0));
         PacienteTxt.setText((String) tablaPacientes.getValueAt(0, 1));
         DefaultTableModel modelo = (DefaultTableModel)tablaPacientes.getModel(); 
@@ -259,6 +284,7 @@ public class ColaDoctor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel labelFondo;
     private javax.swing.JTable tablaPacientes;
     // End of variables declaration//GEN-END:variables
 }
