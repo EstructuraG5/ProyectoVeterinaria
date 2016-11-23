@@ -6,7 +6,9 @@
 package Interfaces;
 
 import Database.Db_Cliente;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -136,8 +138,14 @@ public class HistorialMedico extends javax.swing.JFrame {
             int id=db_cliente.buscar_idCliente(nombre, ApellidoPaterno, ApellidoMaterno);
             String ruta="D:/Historiales/DOC"+id+".txt";
             FileWriter fw =  new FileWriter(ruta);
+            FileReader fr = new FileReader(ruta);
+            BufferedReader br = new BufferedReader(fr);
             String diagnostico=Diagnostico_Area.getText();
             BufferedWriter bw = new BufferedWriter(fw);
+            String leer;
+            while((leer=br.readLine())!=null){
+                
+            }
             bw.write(fecha+":  \n"+diagnostico);
             
             bw.close();

@@ -26,7 +26,7 @@ Icon icono = new ImageIcon(getClass().getResource("/Recursos/like.png"));
         try {
             
             Class.forName("com.mysql.jdbc.Driver");
-            setConexion((Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","1234"));
+            setConexion((Connection) DriverManager.getConnection("jdbc:mysql://192.168.0.17/","root","1234"));
             JOptionPane.showMessageDialog(null, "Se ha iniciado la conexión con el servidor de forma exitosa","CONEXION",JOptionPane.PLAIN_MESSAGE,icono);
         } catch (ClassNotFoundException ex) {
              JOptionPane.showMessageDialog(null, "No se ha iniciado la conexión con el servidor de forma exitosa","SIN CONEXION",JOptionPane.ERROR_MESSAGE);
