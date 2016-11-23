@@ -31,7 +31,7 @@ public class Login extends javax.swing.JFrame {
         Toolkit mipantalla = Toolkit.getDefaultToolkit(); // nos dice el medio donde esta compilando el programa
         Dimension tampantalla = mipantalla.getScreenSize(); // devuelve la dimension de la pantalla
         int altura = tampantalla.height, ancho = tampantalla.width;
-        setLocation(ancho/4, altura/8);
+        setLocation(ancho/3, altura/8);
         
         
     }
@@ -58,7 +58,6 @@ public class Login extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(600, 330));
         setMinimumSize(new java.awt.Dimension(600, 330));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(600, 330));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -99,7 +98,7 @@ public class Login extends javax.swing.JFrame {
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         // TODO add your handling code here:
-        dispose();
+        this.dispose();
     }//GEN-LAST:event_salirActionPerformed
 
     private void textContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textContraseñaActionPerformed
