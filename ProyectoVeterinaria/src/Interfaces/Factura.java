@@ -71,14 +71,21 @@ public class Factura extends javax.swing.JFrame implements Printable {
         Total_Txt = new javax.swing.JTextField();
         Salir_Btn = new javax.swing.JButton();
         Imprimir_Btn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Cliente_Lbl.setText("CLIENTE:");
+        getContentPane().add(Cliente_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, -1, -1));
 
         NombreCliente_Lbl.setText("NOMBRE:");
+        getContentPane().add(NombreCliente_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 42, -1, -1));
 
         Nombre_Txt.setEditable(false);
+        getContentPane().add(Nombre_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 40, 130, -1));
 
         ApPaterno_Lbl.setText("APELLIDO PATERNO:");
+        getContentPane().add(ApPaterno_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 42, -1, -1));
 
         ApPaterno_Txt.setEditable(false);
         ApPaterno_Txt.addActionListener(new java.awt.event.ActionListener() {
@@ -86,58 +93,87 @@ public class Factura extends javax.swing.JFrame implements Printable {
                 ApPaterno_TxtActionPerformed(evt);
             }
         });
+        getContentPane().add(ApPaterno_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 40, 130, -1));
 
         ApMaterno_Lbl.setText("APELLIDO MATERNO:");
+        getContentPane().add(ApMaterno_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(498, 42, -1, -1));
 
         ApMaterno_Txt.setEditable(false);
+        getContentPane().add(ApMaterno_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 40, 130, -1));
 
         Dni_Lbl.setText("DNI:");
+        getContentPane().add(Dni_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 74, -1, -1));
 
         Dni_Txt.setEditable(false);
+        getContentPane().add(Dni_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 72, 130, -1));
 
         Direccion_Lbl.setText("DIRECCION:");
+        getContentPane().add(Direccion_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 74, -1, -1));
 
         Direccion_Txt.setEditable(false);
+        getContentPane().add(Direccion_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 72, 177, -1));
 
         TelCel_Lbl.setText("TELEFONO/CELULAR:");
+        getContentPane().add(TelCel_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(498, 74, -1, -1));
 
         TelCel_Txt.setEditable(false);
+        getContentPane().add(TelCel_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(629, 72, 136, -1));
 
         Mascota_Lbl.setText("MASCOTA:");
+        getContentPane().add(Mascota_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 104, -1, -1));
 
         NombreMascota_Lbl.setText("NOMBRE:");
+        getContentPane().add(NombreMascota_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 134, -1, -1));
 
         NombreMascota_Txt.setEditable(false);
+        getContentPane().add(NombreMascota_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 132, 123, -1));
 
         Especie_Lbl.setText("ESPECIE:");
+        getContentPane().add(Especie_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 134, -1, -1));
 
         Especie_Txt.setEditable(false);
+        getContentPane().add(Especie_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 132, 131, -1));
 
         Raza_Lbl.setText("RAZA:");
+        getContentPane().add(Raza_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(438, 134, -1, -1));
 
         Raza_Txt.setEditable(false);
+        getContentPane().add(Raza_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 132, 125, -1));
 
         Sexo_Lbl.setText("SEXO:");
+        getContentPane().add(Sexo_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(617, 134, -1, -1));
 
         Sexo_Txt.setEditable(false);
+        getContentPane().add(Sexo_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 132, 101, -1));
 
         Id_Lbl.setText("ID:");
+        getContentPane().add(Id_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 172, -1, -1));
 
         Id_Txt.setEditable(false);
+        getContentPane().add(Id_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 170, 123, -1));
 
         FechaNac_Lbl.setText("FECHA DE NACIMIENTO:");
+        getContentPane().add(FechaNac_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 172, -1, -1));
 
         FechNacimiento_Txt.setEditable(false);
+        getContentPane().add(FechNacimiento_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 170, 114, -1));
 
         DesAtencion_Lbl.setText("DESCRIPCION DE ATENCION:");
+        getContentPane().add(DesAtencion_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 208, -1, -1));
 
         DesAtencion_TxtArea.setColumns(20);
         DesAtencion_TxtArea.setRows(5);
         jScrollPane1.setViewportView(DesAtencion_TxtArea);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 230, 490, -1));
+
         Precio_Lbl.setText("PRECIO");
+        getContentPane().add(Precio_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(617, 208, -1, -1));
+        getContentPane().add(Precio_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(624, 253, 72, -1));
 
         Total_Lbl.setText("TOTAL:");
+        getContentPane().add(Total_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(568, 326, -1, -1));
+        getContentPane().add(Total_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(617, 324, 72, -1));
 
         Salir_Btn.setText("SALIR");
         Salir_Btn.addActionListener(new java.awt.event.ActionListener() {
@@ -145,6 +181,7 @@ public class Factura extends javax.swing.JFrame implements Printable {
                 Salir_BtnActionPerformed(evt);
             }
         });
+        getContentPane().add(Salir_Btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, -1, -1));
 
         Imprimir_Btn.setText("IMPRIMIR");
         Imprimir_Btn.addActionListener(new java.awt.event.ActionListener() {
@@ -152,164 +189,10 @@ public class Factura extends javax.swing.JFrame implements Printable {
                 Imprimir_BtnActionPerformed(evt);
             }
         });
+        getContentPane().add(Imprimir_Btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(657, 370, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(NombreCliente_Lbl)
-                                            .addComponent(Dni_Lbl))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(Nombre_Txt)
-                                            .addComponent(Dni_Txt, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(NombreMascota_Lbl)
-                                            .addComponent(Cliente_Lbl)
-                                            .addComponent(Mascota_Lbl)
-                                            .addComponent(Id_Lbl))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(NombreMascota_Txt, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
-                                            .addComponent(Id_Txt))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(ApPaterno_Lbl)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(ApPaterno_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(Direccion_Lbl)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(Direccion_Txt)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(ApMaterno_Lbl)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(ApMaterno_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(TelCel_Lbl)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(TelCel_Txt))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(FechaNac_Lbl)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(FechNacimiento_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                        .addComponent(Especie_Lbl)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(Especie_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(Raza_Lbl)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(Raza_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addComponent(Total_Lbl, javax.swing.GroupLayout.Alignment.TRAILING))
-                                                .addGap(8, 8, 8))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(Salir_Btn)
-                                                .addGap(19, 19, 19)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(Sexo_Lbl)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(Sexo_Txt))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(Precio_Lbl)
-                                                    .addComponent(Total_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(Imprimir_Btn)
-                                                .addGap(21, 21, 21))))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(DesAtencion_Lbl)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                        .addComponent(Precio_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(81, 81, 81))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Cliente_Lbl)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NombreCliente_Lbl)
-                    .addComponent(Nombre_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ApPaterno_Lbl)
-                    .addComponent(ApPaterno_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ApMaterno_Lbl)
-                    .addComponent(ApMaterno_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Dni_Lbl)
-                    .addComponent(Dni_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Direccion_Lbl)
-                    .addComponent(Direccion_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TelCel_Lbl)
-                    .addComponent(TelCel_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Mascota_Lbl)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NombreMascota_Lbl)
-                    .addComponent(NombreMascota_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Especie_Lbl)
-                    .addComponent(Especie_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Raza_Lbl)
-                    .addComponent(Raza_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Sexo_Lbl)
-                    .addComponent(Sexo_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Id_Lbl)
-                    .addComponent(Id_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FechaNac_Lbl)
-                    .addComponent(FechNacimiento_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(DesAtencion_Lbl)
-                            .addComponent(Precio_Lbl))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(Precio_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Total_Lbl)
-                    .addComponent(Total_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Salir_Btn)
-                    .addComponent(Imprimir_Btn))
-                .addContainerGap())
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo-mediano.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -415,6 +298,7 @@ public class Factura extends javax.swing.JFrame implements Printable {
     private javax.swing.JTextField TelCel_Txt;
     private javax.swing.JLabel Total_Lbl;
     private javax.swing.JTextField Total_Txt;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
