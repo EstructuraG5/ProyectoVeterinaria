@@ -5,6 +5,7 @@
  */
 package Database;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -33,4 +34,28 @@ public class Db_Mascota {
         }
         
     }
+     public String devolver_mascota(int idCliente) throws SQLException, Exception{
+         Conexion con=new Conexion();
+        String nombre_mascota=null;
+        con.conectar();
+        Statement st=con.getConexion().createStatement();
+        String sql="SELECT * FROM vet.mascota WHERE Cliente_idCliente='"+idCliente+"'";
+        ResultSet rs=st.executeQuery(sql);
+        if(rs.next()){
+            nombre_mascota=rs.getString("nombreMascota");
+        }
+        return nombre_mascota;
+     }
+     public String devolver_historial(int idCliente) throws SQLException, Exception{
+         Conexion con=new Conexion();
+        String historial=null;
+        con.conectar();
+        Statement st=con.getConexion().createStatement();
+        String sql="SELECT * FROM vet.mascota WHERE Cliente_idCliente='"+idCliente+"'";
+        ResultSet rs=st.executeQuery(sql);
+        if(rs.next()){
+            historial=rs.getString("historial");
+        }
+        return historial;
+     }
 }

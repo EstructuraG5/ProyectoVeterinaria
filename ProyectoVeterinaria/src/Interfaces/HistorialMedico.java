@@ -107,7 +107,7 @@ public class HistorialMedico extends javax.swing.JFrame {
         String fecha=""+day+"-"+month+"-"+year+"";
         try {
             int id=db_cliente.buscar_idCliente(nombre, ApellidoPaterno, ApellidoMaterno);
-            String ruta="D:/Historiales/DOC"+id+".txt";
+            String ruta="D:/Historiales/Historial"+id+".txt";
             FileWriter fw =  new FileWriter(ruta,true);
             FileReader fr = new FileReader(ruta);
             BufferedReader br = new BufferedReader(fr);

@@ -24,4 +24,6 @@ public class Db_Atencion {
         st.executeUpdate
         (sql);
     }
+    
+    
 }
