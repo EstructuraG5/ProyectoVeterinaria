@@ -154,8 +154,11 @@ public class ConsultaCliente extends javax.swing.JFrame {
                 String apellidoPaterno=buscar.get(1);
                 String apellidoMaterno=buscar.get(2);
                 int idCliente=db_cliente.buscar_idCliente(nombre, apellidoPaterno, apellidoMaterno);
+                
                 String mascota=db_mascota.devolver_mascota(idCliente);
+                
                 String historial=db_mascota.devolver_historial(idCliente);
+                
                 cola_atencion.Insertar_cola(nombre, apellidoPaterno, apellidoMaterno,mascota, historial);
                 
             } catch (Exception ex) {

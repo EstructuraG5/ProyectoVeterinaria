@@ -35,12 +35,12 @@ public class Db_Mascota {
         
     }
      public String devolver_mascota(int idCliente) throws SQLException, Exception{
-         Conexion con=new Conexion();
+        Conexion con=new Conexion();
         String nombre_mascota=null;
         con.conectar();
         Statement st=con.getConexion().createStatement();
         String sql="SELECT * FROM vet.mascota WHERE Cliente_idCliente='"+idCliente+"'";
-        ResultSet rs=st.executeQuery(sql);
+                ResultSet rs=st.executeQuery(sql);
         if(rs.next()){
             nombre_mascota=rs.getString("nombreMascota");
         }

@@ -45,8 +45,8 @@ public class DB_ColaSecretaria {
         ResultSet resultado = st.executeQuery(sql);
         if(resultado.next()){
             datos.add(resultado.getString("nombreCliente"));
-            datos.add("apPaterno");
-            datos.add("apMaterno");
+            datos.add(resultado.getString("apPaterno"));
+            datos.add(resultado.getString("apMaterno"));
         }
         return datos;
     }
