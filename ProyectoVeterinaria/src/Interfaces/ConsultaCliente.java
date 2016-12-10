@@ -6,7 +6,10 @@
 package Interfaces;
 
 import Clases.Cliente;
+import Database.DB_ColaSecretaria;
+import Database.Db_Atencion;
 import Database.Db_Cliente;
+import Database.Db_Mascota;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -137,6 +140,31 @@ public class ConsultaCliente extends javax.swing.JFrame {
 
     private void btnAtenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtenderActionPerformed
         // TODO add your handling code here:
+        String combo=(String)Buscar_ComboBox.getSelectedItem();
+        DB_ColaSecretaria cola_secretaria=new DB_ColaSecretaria();
+        Db_Atencion cola_atencion=new Db_Atencion();
+        Db_Cliente db_cliente=new Db_Cliente();
+        Db_Mascota db_mascota=new Db_Mascota();
+        ArrayList<String> buscar=new ArrayList<String>();
+        if(combo=="DNI"){
+            int dni=Integer.parseInt(BuscaTxt.getText());
+            try {
+                buscar=cola_secretaria.seleccionar_cliente(dni);
+                String nombre=buscar.get(0);
+                String apellidoPaterno=buscar.get(1);
+                String apellidoMaterno=buscar.get(2);
+                int idCliente=db_cliente.buscar_idCliente(nombre, apellidoPaterno, apellidoMaterno);
+                
+                String mascota=db_mascota.devolver_mascota(idCliente);
+                
+                String historial=db_mascota.devolver_historial(idCliente);
+                
+                cola_atencion.Insertar_cola(nombre, apellidoPaterno, apellidoMaterno,mascota, historial);
+                
+            } catch (Exception ex) {
+                Logger.getLogger(ConsultaCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_btnAtenderActionPerformed
 
     /**

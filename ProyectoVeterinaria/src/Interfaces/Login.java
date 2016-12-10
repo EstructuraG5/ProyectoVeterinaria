@@ -9,6 +9,7 @@ import Database.Conexion;
 import Database.Db_Usuarios;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -62,11 +63,21 @@ public class Login extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         textUsuario.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        textUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                textUsuarioKeyPressed(evt);
+            }
+        });
         getContentPane().add(textUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 240, 30));
 
         textContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textContraseñaActionPerformed(evt);
+            }
+        });
+        textContraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                textContraseñaKeyPressed(evt);
             }
         });
         getContentPane().add(textContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 240, 30));
@@ -152,6 +163,22 @@ public class Login extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_iniciarSesionActionPerformed
+
+    private void textUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textUsuarioKeyPressed
+        // TODO add your handling code here:
+        char cTeclaPresionada =evt.getKeyChar();
+        if(cTeclaPresionada==KeyEvent.VK_ENTER){
+            iniciarSesion.doClick();
+        }
+    }//GEN-LAST:event_textUsuarioKeyPressed
+
+    private void textContraseñaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textContraseñaKeyPressed
+        // TODO add your handling code here:
+         char cTeclaPresionada =evt.getKeyChar();
+        if(cTeclaPresionada==KeyEvent.VK_ENTER){
+            iniciarSesion.doClick();
+        }
+    }//GEN-LAST:event_textContraseñaKeyPressed
 
     /**
      * @param args the command line arguments

@@ -1,7 +1,9 @@
 package Database;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -31,4 +33,24 @@ public class Db_ColaDoctor {
     }
     
     //falta eliminra luego de terminar atencion
+    public ArrayList datos_factura() throws SQLException, Exception{
+        ArrayList datos =new ArrayList();
+        Conexion con=new Conexion();
+        con.conectar();
+        Statement st=con.getConexion().createStatement();
+        String sql = "SELECT * FROM vet.atencion";
+        ResultSet rs=st.executeQuery(sql);
+        
+        if(rs.next()){
+            datos.add(rs.getString("nombreCliente"));
+            datos.add(rs.getString("apPaternoCliente"));
+            datos.add(rs.getString("apMaternoCliente"));
+            datos.add(rs.getString("paciente"));
+            
+        }
+        
+        
+        
+        return datos;
+    }
 }

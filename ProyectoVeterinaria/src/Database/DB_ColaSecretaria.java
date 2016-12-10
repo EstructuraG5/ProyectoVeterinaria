@@ -7,6 +7,7 @@ package Database;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -33,5 +34,20 @@ public class DB_ColaSecretaria {
         }
         con.cerrarConexion();
         return dtm;
+    }
+    
+    public ArrayList<String> seleccionar_cliente(int DNI) throws Exception{
+        Conexion con=new Conexion();
+        ArrayList<String> datos=new ArrayList<String>();
+        con.conectar();
+        Statement st = con.getConexion().createStatement();
+        String sql="SELECT * FROM vet.cliente WHERE DNI='"+DNI+"'";
+        ResultSet resultado = st.executeQuery(sql);
+        if(resultado.next()){
+            datos.add(resultado.getString("nombreCliente"));
+            datos.add(resultado.getString("apPaterno"));
+            datos.add(resultado.getString("apMaterno"));
+        }
+        return datos;
     }
 }

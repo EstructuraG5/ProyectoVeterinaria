@@ -6,13 +6,16 @@
 package Interfaces;
 
 import Database.Db_Cliente;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -104,17 +107,23 @@ public class HistorialMedico extends javax.swing.JFrame {
         String fecha=""+day+"-"+month+"-"+year+"";
         try {
             int id=db_cliente.buscar_idCliente(nombre, ApellidoPaterno, ApellidoMaterno);
-            String ruta="D:/Historiales/DOC"+id+".txt";
-            FileWriter fw =  new FileWriter(ruta);
+            String ruta="D:/Historiales/Historial"+id+".txt";
+            FileWriter fw =  new FileWriter(ruta,true);
+            FileReader fr = new FileReader(ruta);
+            BufferedReader br = new BufferedReader(fr);
             String diagnostico=Diagnostico_Area.getText();
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(fecha+":  \n"+diagnostico);
+            String leer;
+            bw.write(fecha+":  \r\n"+diagnostico+"\n");
+
             
             bw.close();
             fw.close();
             } catch (Exception ex) {
             Logger.getLogger(HistorialMedico.class.getName()).log(Level.SEVERE, null, ex);
         }
+        JOptionPane.showMessageDialog(null,"Diagnostico registrado con éxito");
+        this.dispose();
  
         
     }//GEN-LAST:event_Btn_Registrar_DiagnosticoActionPerformed

@@ -21,7 +21,8 @@ public class Db_Atencion {
                 + "VALUES ('"+nombreCliente+"','"+apPaternoCliente+"','"+apMaternoCliente+"','"+paciente_mascota+"','"
                 +ruta_historial+"')";
         
-        st.executeUpdate
-        (sql);
+        st.executeUpdate(sql);
     }
+    
+    
 }

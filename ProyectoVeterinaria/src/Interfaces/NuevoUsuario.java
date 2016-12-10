@@ -9,6 +9,7 @@ import Clases.Usuario;
 import Database.Db_Usuarios;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -107,12 +108,19 @@ public class NuevoUsuario extends javax.swing.JFrame {
         user.setPassword(password);
         user.setTipoUsuario(jComboBox1.getSelectedItem().toString());
         
-        try {
-            db_usuario.insertar_Usuarios(user.getUsuario(),user.getPassword(),user.getNombre(),
+        if(user.getNombre().length()==0 || user.getApPaterno().length()== 0 || user.getApMaterno().length()==0 ||
+                user.getUsuario().length()==0 || user.getPassword().length()==0){
+            JOptionPane.showMessageDialog(null,"Uno de los campos esta vacío, por favor complete todos los campos.");
+        }else{
+            try {
+                db_usuario.insertar_Usuarios(user.getUsuario(),user.getPassword(),user.getNombre(),
                     user.getApPaterno(),user.getApMaterno(),user.getTipoUsuario());
-        } catch (Exception ex) {
-            Logger.getLogger(NuevoUsuario.class.getName()).log(Level.SEVERE, null, ex);
+                this.dispose();
+            }catch (Exception ex) {
+                Logger.getLogger(NuevoUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            } 
         }
+  
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**

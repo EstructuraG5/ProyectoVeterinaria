@@ -91,10 +91,22 @@ public class NuevoCliente extends javax.swing.JFrame {
 
         DniLbl.setText("DNI:");
         getContentPane().add(DniLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 136, 70, -1));
+
+        DniTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                DniTxtKeyTyped(evt);
+            }
+        });
         getContentPane().add(DniTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 136, 264, 30));
 
         TelCelLbl.setText("TELEFONO/CELULAR:");
         getContentPane().add(TelCelLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 170, 130, -1));
+
+        TelCelTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TelCelTxtKeyTyped(evt);
+            }
+        });
         getContentPane().add(TelCelTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 168, 265, 30));
 
         DireccionLbl.setText("DIRECCION:");
@@ -156,9 +168,9 @@ public class NuevoCliente extends javax.swing.JFrame {
         cliente.setNombre(NombrePropTxt.getText());
         cliente.setApellidoPaterno(ApPaternoTxt.getText());
         cliente.setApellidoMaterno(ApMaternoTxt.getText());
-        cliente.setDNI(Integer.parseInt(DniTxt.getText()));
+        cliente.setDNI(Integer.parseInt(DniTxt.getText().trim()));
         cliente.setDireccion(DireccionTxt.getText());
-        cliente.setTelefono(Integer.parseInt(TelCelTxt.getText()));
+        cliente.setTelefono(Integer.parseInt(TelCelTxt.getText().trim()));
         
         //Mascota
         mascota.setNombre(NombreMascotaTxt.getText());
@@ -172,50 +184,88 @@ public class NuevoCliente extends javax.swing.JFrame {
         int anio = sdf.getCalendar().get(Calendar.YEAR);
         String fecha = dia+"-"+mes+"-"+anio;
         mascota.setFecha(fecha);
-      
+    
         int id_cliente;
         String ruta=null;
-        try {
-            db_cliente.insertar_Cliente(cliente.getNombre(),cliente.getApellidoPaterno(),
-                    cliente.getApellidoMaterno(),cliente.getDNI(),cliente.getDireccion(),cliente.getTelefono());
-            id_cliente = db_cliente.buscar_idCliente(cliente.getNombre(),cliente.getApellidoPaterno(),cliente.getApellidoMaterno());
-            String codigo_mascota=id.Generar(mascota.getEspecie(), id_cliente);
-            String id_fichero=String.valueOf(id_cliente);
-            ruta = "D://Historiales/DOC"+id_fichero+".txt";
-            db_mascota.insertar_Mascota(codigo_mascota,id_cliente, mascota.getNombre(),mascota.getEspecie(),
-                mascota.getRaza(),mascota.getSexo(),mascota.getFecha(),ruta);
-                
-            File historial = new File(ruta);
-            try (BufferedWriter bw = new BufferedWriter(new FileWriter(historial))) {
-                bw.write("HISTORIAL MEDICO \n"
-                        + "Cliente:"+id_cliente+"");
-                
-                bw.close();
-                
-            }
-            
-            
-            
-        } catch (Exception ex) {
-            Logger.getLogger(NuevoCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        Db_Atencion db_atencion=new Db_Atencion();
-        int resp=JOptionPane.showConfirmDialog(null, "¿Desea agregar al cliente registrado a la cola?");
-        if(resp==0){
+        if(cliente.getNombre().length()==0 || cliente.getApellidoPaterno().length()==0 || cliente.getApellidoMaterno().length()==0 ||
+                cliente.getDNI()==0 || cliente.getDireccion().length()==0 || cliente.getTelefono()==0){
+                JOptionPane.showMessageDialog(null,"Uno de los campos se encuentra vacío , complete todos los campos");
+        }else{
             try {
-                db_atencion.Insertar_cola(cliente.getNombre(),cliente.getApellidoPaterno(),cliente.getApellidoMaterno(),
-                        mascota.getNombre(),ruta);
+                db_cliente.insertar_Cliente(cliente.getNombre(),cliente.getApellidoPaterno(),
+                        cliente.getApellidoMaterno(),cliente.getDNI(),cliente.getDireccion(),cliente.getTelefono());
+                id_cliente = db_cliente.buscar_idCliente(cliente.getNombre(),cliente.getApellidoPaterno(),cliente.getApellidoMaterno());
+                
+                String codigo_mascota=id.Generar(mascota.getEspecie(), id_cliente);
+                String id_fichero=String.valueOf(id_cliente);
+                ruta = "D://Historiales/Historial"+id_fichero+".txt";
+                db_mascota.insertar_Mascota(codigo_mascota,id_cliente, mascota.getNombre(),mascota.getEspecie(),
+                    mascota.getRaza(),mascota.getSexo(),mascota.getFecha(),ruta);
+
+                File historial = new File(ruta);
+                try (BufferedWriter bw = new BufferedWriter(new FileWriter(historial))) {
+                    bw.write("HISTORIAL MEDICO \n"
+                            + "Cliente:"+id_cliente+"");
+
+                        bw.close();
+                
+                }
+            
+
+
             } catch (Exception ex) {
                 Logger.getLogger(NuevoCliente.class.getName()).log(Level.SEVERE, null, ex);
             }
+        
+            Db_Atencion db_atencion=new Db_Atencion();
+            int resp=JOptionPane.showConfirmDialog(null, "¿Desea agregar al cliente registrado a la cola?");
+            if(resp==0){
+                try {
+                    db_atencion.Insertar_cola(cliente.getNombre(),cliente.getApellidoPaterno(),cliente.getApellidoMaterno(),
+                            mascota.getNombre(),ruta);
+                } catch (Exception ex) {
+                    Logger.getLogger(NuevoCliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            this.dispose();
         }
+        
         
 
         
         
         
     }//GEN-LAST:event_RegistrarBtnActionPerformed
+
+    private void DniTxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DniTxtKeyTyped
+        // TODO add your handling code here:
+        char c=evt.getKeyChar(); 
+             
+         
+          if(Character.isLetter(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+               
+              JOptionPane.showMessageDialog(null,"Los datos del DNI que ingresas no son validos");
+               
+          } 
+    }//GEN-LAST:event_DniTxtKeyTyped
+
+    private void TelCelTxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TelCelTxtKeyTyped
+        // TODO add your handling code here:
+          char c=evt.getKeyChar(); 
+             
+         
+          if(Character.isLetter(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+               
+              JOptionPane.showMessageDialog(null,"Los datos del Telefono que ingresas no son validos");
+               
+          } 
+    }//GEN-LAST:event_TelCelTxtKeyTyped
 
     /**
      * @param args the command line arguments

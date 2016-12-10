@@ -35,7 +35,7 @@ public class Db_Factura {
         Conexion con= new Conexion();
         con.conectar();
         Statement st=con.getConexion().createStatement();
-        String sql="SELECT * FROM vet.factura WHERE=";
+        String sql="SELECT * FROM vet.factura";
         ResultSet resultado=st.executeQuery(sql);
         if(resultado.next()){
             datos_factura.add(resultado.getInt("idCliente"));
