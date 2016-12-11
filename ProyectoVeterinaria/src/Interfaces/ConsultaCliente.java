@@ -48,7 +48,6 @@ public class ConsultaCliente extends javax.swing.JFrame {
         btnAtender = new javax.swing.JButton();
         labelFondo = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(525, 375));
         getContentPane().setLayout(null);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Consultar Cliente"));
@@ -60,7 +59,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
             }
         });
 
-        Buscar_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apellido", "DNI", "ID MASCOTA" }));
+        Buscar_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apellido", "DNI", "NombreMascota" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -103,7 +102,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tablaCliente);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 140, 452, 89);
+        jScrollPane1.setBounds(20, 140, 453, 89);
 
         btnAtender.setText("ATENDER CLIENTE");
         btnAtender.addActionListener(new java.awt.event.ActionListener() {
@@ -131,7 +130,12 @@ public class ConsultaCliente extends javax.swing.JFrame {
         if(opcion.equals("DNI")){
             int DNI=Integer.parseInt(BuscaTxt.getText());
             try {
-                db_cliente.tabla_Clientes(DNI,tablaCliente);
+//                db_cliente.tabla_Clientes(DNI,tablaCliente);
+                    ArrayList<ResultadosBusqueda> lista_coincidencia = new ArrayList();
+                    lista_coincidencia = db_cliente.Busqueda_por_DNI(DNI);
+                    
+                    Consulta consulta = new Consulta();
+                    consulta.llenarTabla(tablaCliente, lista_coincidencia);
                 
             } catch (Exception ex) {
                 Logger.getLogger(ConsultaCliente.class.getName()).log(Level.SEVERE, null, ex);
@@ -148,6 +152,19 @@ public class ConsultaCliente extends javax.swing.JFrame {
                     
                 }catch (Exception ex) {
                 Logger.getLogger(ConsultaCliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }else{
+                if(opcion.equals("NombreMascota")){
+                    try{
+                        ArrayList<ResultadosBusqueda> lista_coincidencia = new ArrayList();
+                        lista_coincidencia = db_cliente.Busqueda_nombre_mascota(BuscaTxt.getText());
+
+                        Consulta consulta = new Consulta();
+                        consulta.llenarTabla(tablaCliente, lista_coincidencia);
+
+                    }catch (Exception ex) {
+                    Logger.getLogger(ConsultaCliente.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             }
         

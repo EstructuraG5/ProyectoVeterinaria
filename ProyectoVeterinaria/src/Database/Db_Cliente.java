@@ -83,6 +83,7 @@ public class Db_Cliente {
      }
      
      
+     
      //SIRVE PARA LA BUSQUEDA POR APELLIDOS,TOMO LA DATA DEL CLIENTE PARA BUSCAR LA MASCOTA CORRESPONDIENTE
       public ArrayList<String> Devolver_datos_mascota(int idCliente) throws Exception{
         ArrayList<String> mascota=new ArrayList<>();
@@ -103,7 +104,47 @@ public class Db_Cliente {
         
         return mascota;
     }
-     
+     public ArrayList<ResultadosBusqueda> Busqueda_por_DNI(int DNI_Cliente) throws Exception{
+        ArrayList<ResultadosBusqueda> Clientes_DNI=new ArrayList();
+        ResultadosBusqueda resultado=new ResultadosBusqueda();
+        Conexion connect=new Conexion();
+        connect.conectar();
+         
+         try{
+            Statement st =connect.getConexion().createStatement();
+            String sql="SELECT * FROM vet.cliente WHERE"
+                     + " DNI='"+DNI_Cliente+"'";
+            ResultSet rs=st.executeQuery(sql);
+            
+            while(rs.next()){
+                String nombre=rs.getString("nombreCliente");
+                String apellido_paterno=rs.getString("apPaterno");
+                String apellido_materno=rs.getString("apMaterno");
+                int DNI=rs.getInt("DNI");
+                
+                resultado.setCliente_nombre(nombre);
+                resultado.setCliente_apellidoPaterno(apellido_paterno);
+                resultado.setCliente_apellidoMaterno(apellido_materno);
+                resultado.setDNI(DNI);
+                
+                int id_cliente=buscar_idCliente(nombre,apellido_paterno,apellido_materno);
+                
+                
+                ArrayList<String> mascota=Devolver_datos_mascota(id_cliente);
+                
+                resultado.setMascota_nombre(mascota.get(0));
+                resultado.setCliente_historial(mascota.get(1));
+                
+                Clientes_DNI.add(resultado);
+            }
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,ex);
+        }
+        connect.cerrarConexion();
+        Ordenar ord = new Ordenar();
+        ord.ordenarSeleccion(Clientes_DNI);
+        return Clientes_DNI;
+    }
       
       //BUSQUEDA POR APELLIDO PATERNO
         public ArrayList<ResultadosBusqueda> Busqueda_por_Apellido(String ApPaterno) throws Exception{
@@ -206,7 +247,7 @@ public class Db_Cliente {
                 resultado.setCliente_historial(historial);
                 
                 Mascotas.add(resultado);
-                
+       
             }
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,ex);

@@ -83,7 +83,7 @@
               <StringArray count="3">
                 <StringItem index="0" value="Apellido"/>
                 <StringItem index="1" value="DNI"/>
-                <StringItem index="2" value="ID MASCOTA"/>
+                <StringItem index="2" value="NombreMascota"/>
               </StringArray>
             </Property>
           </Properties>
