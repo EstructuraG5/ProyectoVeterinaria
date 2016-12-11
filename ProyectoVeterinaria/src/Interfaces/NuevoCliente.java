@@ -72,83 +72,71 @@ public class NuevoCliente extends javax.swing.JFrame {
 
         setPreferredSize(new java.awt.Dimension(420, 500));
         setResizable(false);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         DatosPropietarioLbl.setText("DATOS DEL PROPIETARIO:");
-        getContentPane().add(DatosPropietarioLbl);
-        DatosPropietarioLbl.setBounds(12, 12, 180, 14);
+        getContentPane().add(DatosPropietarioLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, 180, -1));
 
         NombrePropLbl.setText("NOMBRES:");
-        getContentPane().add(NombrePropLbl);
-        NombrePropLbl.setBounds(12, 42, 100, 14);
-        getContentPane().add(NombrePropTxt);
-        NombrePropTxt.setBounds(142, 40, 266, 30);
+        getContentPane().add(NombrePropLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 42, 100, -1));
+        getContentPane().add(NombrePropTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 40, 266, 30));
 
         ApPaternoLbl.setText("APELLIDO PATERNO:");
-        getContentPane().add(ApPaternoLbl);
-        ApPaternoLbl.setBounds(12, 74, 130, 14);
-        getContentPane().add(ApPaternoTxt);
-        ApPaternoTxt.setBounds(142, 72, 266, 30);
+        getContentPane().add(ApPaternoLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 74, 130, -1));
+        getContentPane().add(ApPaternoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 72, 266, 30));
 
         ApMaternoLbl.setText("APELLIDO MATERNO:");
-        getContentPane().add(ApMaternoLbl);
-        ApMaternoLbl.setBounds(12, 106, 130, 14);
-        getContentPane().add(ApMaternoTxt);
-        ApMaternoTxt.setBounds(144, 104, 264, 30);
+        getContentPane().add(ApMaternoLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 106, 130, -1));
+        getContentPane().add(ApMaternoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 104, 264, 30));
 
         DniLbl.setText("DNI:");
-        getContentPane().add(DniLbl);
-        DniLbl.setBounds(12, 136, 70, 14);
-        getContentPane().add(DniTxt);
-        DniTxt.setBounds(144, 136, 264, 30);
+        getContentPane().add(DniLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 136, 70, -1));
+
+        DniTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                DniTxtKeyTyped(evt);
+            }
+        });
+        getContentPane().add(DniTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 136, 264, 30));
 
         TelCelLbl.setText("TELEFONO/CELULAR:");
-        getContentPane().add(TelCelLbl);
-        TelCelLbl.setBounds(12, 170, 130, 14);
-        getContentPane().add(TelCelTxt);
-        TelCelTxt.setBounds(143, 168, 265, 30);
+        getContentPane().add(TelCelLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 170, 130, -1));
+
+        TelCelTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TelCelTxtKeyTyped(evt);
+            }
+        });
+        getContentPane().add(TelCelTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 168, 265, 30));
 
         DireccionLbl.setText("DIRECCION:");
-        getContentPane().add(DireccionLbl);
-        DireccionLbl.setBounds(12, 202, 100, 14);
-        getContentPane().add(DireccionTxt);
-        DireccionTxt.setBounds(143, 200, 265, 30);
-        getContentPane().add(Separador);
-        Separador.setBounds(10, 230, 396, 10);
+        getContentPane().add(DireccionLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 202, 100, -1));
+        getContentPane().add(DireccionTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 200, 265, 30));
+        getContentPane().add(Separador, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 396, 10));
 
         DatosMascotaLbl.setText("DATOS DE LA MASCOTA:");
-        getContentPane().add(DatosMascotaLbl);
-        DatosMascotaLbl.setBounds(12, 248, 160, 14);
+        getContentPane().add(DatosMascotaLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 248, 160, -1));
 
         EspecieLbl.setText("ESPECIE:");
-        getContentPane().add(EspecieLbl);
-        EspecieLbl.setBounds(12, 278, 60, 14);
+        getContentPane().add(EspecieLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 278, 60, -1));
 
         RazaLbl.setText("RAZA:");
-        getContentPane().add(RazaLbl);
-        RazaLbl.setBounds(221, 278, 50, 14);
-        getContentPane().add(RazaTxt);
-        RazaTxt.setBounds(270, 270, 135, 30);
+        getContentPane().add(RazaLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 278, 50, -1));
+        getContentPane().add(RazaTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 135, 30));
 
         NombreMascotaLbl.setText("NOMBRE:");
-        getContentPane().add(NombreMascotaLbl);
-        NombreMascotaLbl.setBounds(12, 312, 80, 14);
-        getContentPane().add(NombreMascotaTxt);
-        NombreMascotaTxt.setBounds(83, 310, 120, 30);
+        getContentPane().add(NombreMascotaLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 312, 80, -1));
+        getContentPane().add(NombreMascotaTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 310, 120, 30));
 
         SexoLbl.setText("SEXO:");
-        getContentPane().add(SexoLbl);
-        SexoLbl.setBounds(221, 312, 50, 14);
+        getContentPane().add(SexoLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 312, 50, -1));
 
         SexoComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HEMBRA", "MACHO" }));
-        getContentPane().add(SexoComBox);
-        SexoComBox.setBounds(274, 308, 100, 30);
+        getContentPane().add(SexoComBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 308, 100, 30));
 
         FechaNacimientoLbl.setText("FECHA DE NACIMIENTO:");
-        getContentPane().add(FechaNacimientoLbl);
-        FechaNacimientoLbl.setBounds(12, 345, 150, 14);
-        getContentPane().add(FechNaciDataChooser);
-        FechNaciDataChooser.setBounds(156, 345, 127, 30);
+        getContentPane().add(FechaNacimientoLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 345, 150, -1));
+        getContentPane().add(FechNaciDataChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 345, 127, 30));
 
         RegistrarBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/registro_opt.png"))); // NOI18N
         RegistrarBtn.setText("REGISTRAR");
@@ -157,14 +145,13 @@ public class NuevoCliente extends javax.swing.JFrame {
                 RegistrarBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(RegistrarBtn);
-        RegistrarBtn.setBounds(229, 388, 170, 53);
+        getContentPane().add(RegistrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 388, 170, -1));
 
         EspecieComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PERRO", "GATO", "CONEJO", "HAMSTER", "TORTUGA", "IGUANA" }));
-        getContentPane().add(EspecieComBox);
-        EspecieComBox.setBounds(80, 270, 120, 30);
-        getContentPane().add(Fondo);
-        Fondo.setBounds(0, -4, 440, 510);
+        getContentPane().add(EspecieComBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 120, 30));
+
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo.png"))); // NOI18N
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 440, 510));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -181,9 +168,9 @@ public class NuevoCliente extends javax.swing.JFrame {
         cliente.setNombre(NombrePropTxt.getText());
         cliente.setApellidoPaterno(ApPaternoTxt.getText());
         cliente.setApellidoMaterno(ApMaternoTxt.getText());
-        cliente.setDNI(Integer.parseInt(DniTxt.getText()));
+        cliente.setDNI(Integer.parseInt(DniTxt.getText().trim()));
         cliente.setDireccion(DireccionTxt.getText());
-        cliente.setTelefono(Integer.parseInt(TelCelTxt.getText()));
+        cliente.setTelefono(Integer.parseInt(TelCelTxt.getText().trim()));
         
         //Mascota
         mascota.setNombre(NombreMascotaTxt.getText());
@@ -197,50 +184,88 @@ public class NuevoCliente extends javax.swing.JFrame {
         int anio = sdf.getCalendar().get(Calendar.YEAR);
         String fecha = dia+"-"+mes+"-"+anio;
         mascota.setFecha(fecha);
-      
+    
         int id_cliente;
         String ruta=null;
-        try {
-            db_cliente.insertar_Cliente(cliente.getNombre(),cliente.getApellidoPaterno(),
-                    cliente.getApellidoMaterno(),cliente.getDNI(),cliente.getDireccion(),cliente.getTelefono());
-            id_cliente = db_cliente.buscar_idCliente(cliente.getNombre(),cliente.getApellidoPaterno(),cliente.getApellidoMaterno());
-            String codigo_mascota=id.Generar(mascota.getEspecie(), id_cliente);
-            String id_fichero=String.valueOf(id_cliente);
-            ruta = "D://Historiales/DOC"+id_fichero+".txt";
-            db_mascota.insertar_Mascota(codigo_mascota,id_cliente, mascota.getNombre(),mascota.getEspecie(),
-                mascota.getRaza(),mascota.getSexo(),mascota.getFecha(),ruta);
-                
-            File historial = new File(ruta);
-            try (BufferedWriter bw = new BufferedWriter(new FileWriter(historial))) {
-                bw.write("HISTORIAL MEDICO \n"
-                        + "Cliente:"+id_cliente+"");
-                
-                bw.close();
-                
-            }
-            
-            
-            
-        } catch (Exception ex) {
-            Logger.getLogger(NuevoCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        Db_Atencion db_atencion=new Db_Atencion();
-        int resp=JOptionPane.showConfirmDialog(null, "¿Desea agregar al cliente registrado a la cola?");
-        if(resp==0){
+        if(cliente.getNombre().length()==0 || cliente.getApellidoPaterno().length()==0 || cliente.getApellidoMaterno().length()==0 ||
+                cliente.getDNI()==0 || cliente.getDireccion().length()==0 || cliente.getTelefono()==0){
+                JOptionPane.showMessageDialog(null,"Uno de los campos se encuentra vacío , complete todos los campos");
+        }else{
             try {
-                db_atencion.Insertar_cola(cliente.getNombre(),cliente.getApellidoPaterno(),cliente.getApellidoMaterno(),
-                        mascota.getNombre(),ruta);
+                db_cliente.insertar_Cliente(cliente.getNombre(),cliente.getApellidoPaterno(),
+                        cliente.getApellidoMaterno(),cliente.getDNI(),cliente.getDireccion(),cliente.getTelefono());
+                id_cliente = db_cliente.buscar_idCliente(cliente.getNombre(),cliente.getApellidoPaterno(),cliente.getApellidoMaterno());
+                
+                String codigo_mascota=id.Generar(mascota.getEspecie(), id_cliente);
+                String id_fichero=String.valueOf(id_cliente);
+                ruta = "D://Historiales/Historial"+id_fichero+".txt";
+                db_mascota.insertar_Mascota(codigo_mascota,id_cliente, mascota.getNombre(),mascota.getEspecie(),
+                    mascota.getRaza(),mascota.getSexo(),mascota.getFecha(),ruta);
+
+                File historial = new File(ruta);
+                try (BufferedWriter bw = new BufferedWriter(new FileWriter(historial))) {
+                    bw.write("HISTORIAL MEDICO \n"
+                            + "Cliente:"+id_cliente+"");
+
+                        bw.close();
+                
+                }
+            
+
+
             } catch (Exception ex) {
                 Logger.getLogger(NuevoCliente.class.getName()).log(Level.SEVERE, null, ex);
             }
+        
+            Db_Atencion db_atencion=new Db_Atencion();
+            int resp=JOptionPane.showConfirmDialog(null, "¿Desea agregar al cliente registrado a la cola?");
+            if(resp==0){
+                try {
+                    db_atencion.Insertar_cola(cliente.getNombre(),cliente.getApellidoPaterno(),cliente.getApellidoMaterno(),
+                            mascota.getNombre(),ruta);
+                } catch (Exception ex) {
+                    Logger.getLogger(NuevoCliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            this.dispose();
         }
+        
         
 
         
         
         
     }//GEN-LAST:event_RegistrarBtnActionPerformed
+
+    private void DniTxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DniTxtKeyTyped
+        // TODO add your handling code here:
+        char c=evt.getKeyChar(); 
+             
+         
+          if(Character.isLetter(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+               
+              JOptionPane.showMessageDialog(null,"Los datos del DNI que ingresas no son validos");
+               
+          } 
+    }//GEN-LAST:event_DniTxtKeyTyped
+
+    private void TelCelTxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TelCelTxtKeyTyped
+        // TODO add your handling code here:
+          char c=evt.getKeyChar(); 
+             
+         
+          if(Character.isLetter(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+               
+              JOptionPane.showMessageDialog(null,"Los datos del Telefono que ingresas no son validos");
+               
+          } 
+    }//GEN-LAST:event_TelCelTxtKeyTyped
 
     /**
      * @param args the command line arguments

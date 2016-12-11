@@ -47,6 +47,10 @@ public class ColaSecretaria extends javax.swing.JFrame {
         tablaPacientes = new javax.swing.JTable();
         labelFondo = new javax.swing.JLabel();
 
+        setMaximumSize(new java.awt.Dimension(450, 350));
+        setMinimumSize(new java.awt.Dimension(450, 350));
+        setPreferredSize(new java.awt.Dimension(450, 350));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N

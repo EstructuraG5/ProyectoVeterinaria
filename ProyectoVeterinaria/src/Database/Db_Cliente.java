@@ -5,6 +5,8 @@
  */
 package Database;
 
+import Clases.Ordenar;
+import Clases.ResultadosBusqueda;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -48,7 +50,6 @@ public class Db_Cliente {
             
             ResultSet result=st.executeQuery(sql);
             if(result.next()){
-                JOptionPane.showMessageDialog(null,"Se encontro un cliente");
                     //Dependiendo del tipo de usuario , ver que tipo de 
                 id_cliente=result.getInt("idCliente");
             }
@@ -80,4 +81,137 @@ public class Db_Cliente {
          con.cerrarConexion();
          return dtm;
      }
+     
+     
+     //SIRVE PARA LA BUSQUEDA POR APELLIDOS,TOMO LA DATA DEL CLIENTE PARA BUSCAR LA MASCOTA CORRESPONDIENTE
+      public ArrayList<String> Devolver_datos_mascota(int idCliente) throws Exception{
+        ArrayList<String> mascota=new ArrayList<>();
+        Conexion connect=new Conexion();
+        connect.conectar();
+        try{
+            Statement st=connect.getConexion().createStatement();
+            String sql="SELECT * FROM vet.mascota WHERE"
+                    + " Cliente_idCliente='"+idCliente;
+            ResultSet rs=st.executeQuery(sql);
+            if(rs.next()){
+                mascota.add(rs.getString("nombreMascota"));
+                mascota.add(rs.getString("historial"));
+            }
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,ex);
+        }
+        
+        return mascota;
+    }
+     
+      
+      //BUSQUEDA POR APELLIDO PATERNO
+        public ArrayList<ResultadosBusqueda> Busqueda_por_Apellido(String ApPaterno) throws Exception{
+        ArrayList<ResultadosBusqueda> Clientes_apellidos=new ArrayList();
+        ResultadosBusqueda resultado=new ResultadosBusqueda();
+        Conexion connect=new Conexion();
+        connect.conectar();
+         
+         try{
+            Statement st =connect.getConexion().createStatement();
+            String sql="SELECT * FROM vet.cliente WHERE"
+                     + " apellidoPaterno='"+ApPaterno+"'";
+            ResultSet rs=st.executeQuery(sql);
+            
+            while(rs.next()){
+                String nombre=rs.getString("nombre");
+                String apellido_paterno=rs.getString("apellidoPaterno");
+                String apellido_materno=rs.getString("apellidoMaterno");
+                int DNI=rs.getInt("DNI");
+                
+                resultado.setCliente_nombre(nombre);
+                resultado.setCliente_apellidoPaterno(apellido_paterno);
+                resultado.setCliente_apellidoMaterno(apellido_materno);
+                resultado.setDNI(DNI);
+                
+                int id_cliente=buscar_idCliente(nombre,apellido_paterno,apellido_materno);
+                
+                
+                ArrayList<String> mascota=Devolver_datos_mascota(id_cliente);
+                
+                resultado.setMascota_nombre(mascota.get(0));
+                resultado.setCliente_historial(mascota.get(1));
+                
+                Clientes_apellidos.add(resultado);
+            }
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,ex);
+        }
+        connect.cerrarConexion();
+        Ordenar ord = new Ordenar();
+        ord.ordenarSeleccion(Clientes_apellidos);
+        return Clientes_apellidos;
+    }
+        
+    //SIRVE PARA BUSCAR EL DUEÑO A PARTIR DE LA MASCOTA Y SU ID , DEVUELVE EL CLIENTE CORRESPONDINTE ,DUEÑO DE LA MASCOTA
+        //BUSQUEDA POR MASCOTA
+    public ArrayList Devolver_duenio(int Cliente_idCliente) throws Exception{
+        ArrayList cliente=new ArrayList();
+        Conexion connect=new Conexion();
+        connect.conectar();
+        try{
+            Statement st=connect.getConexion().createStatement();
+            String sql="SELECT * FROM vet.cliente WHERE"
+                    + " idCliente='"+Cliente_idCliente;
+            ResultSet rs=st.executeQuery(sql);
+            if(rs.next()){
+                cliente.add(rs.getString("nombre"));
+                cliente.add(rs.getString("apPaterno"));
+                cliente.add(rs.getString("apMaterno"));
+                cliente.add(rs.getInt("DNI"));
+            }
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,ex);
+        }
+        
+        connect.cerrarConexion();
+        return cliente;
+    }
+    
+    //BUSQUEDA POR NOMBRE DE MASCOTA
+    public ArrayList<ResultadosBusqueda> Busqueda_nombre_mascota(String mascota) throws Exception{
+        ArrayList<ResultadosBusqueda> Mascotas=new ArrayList<ResultadosBusqueda>();
+        ResultadosBusqueda resultado=new ResultadosBusqueda();
+        
+        Conexion connect=new Conexion();
+        connect.conectar();
+        try{
+            Statement st =connect.getConexion().createStatement();
+            String sql="SELECT * FROM vet.mascota WHERE"
+                     + " nombreMascota='"+mascota+"'";
+            ResultSet rs=st.executeQuery(sql);
+            while(rs.next()){
+                String nombre_mascota=rs.getString("nombreMascota");
+                String historial=rs.getString("historial");
+                int Cliente_idCliente=rs.getInt("Cliente_idCliente");
+                
+                
+                ArrayList cliente=Devolver_duenio(Cliente_idCliente);
+                
+                String nombre=(String) cliente.get(0);
+                String apellidoPaterno=(String) cliente.get(1);
+                String apellidoMaterno=(String) cliente.get(2);
+                int DNI=(int) cliente.get(3);
+                
+                resultado.setCliente_nombre(nombre);
+                resultado.setCliente_apellidoPaterno(apellidoPaterno);
+                resultado.setCliente_apellidoMaterno(apellidoMaterno);
+                resultado.setDNI(DNI);
+                resultado.setMascota_nombre(nombre_mascota);
+                resultado.setCliente_historial(historial);
+                
+                Mascotas.add(resultado);
+                
+            }
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,ex);
+        }
+        
+        return Mascotas;
+    }    
 }
