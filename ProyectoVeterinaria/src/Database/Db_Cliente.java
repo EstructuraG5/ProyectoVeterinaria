@@ -5,6 +5,7 @@
  */
 package Database;
 
+import Clases.Ordenar;
 import Clases.ResultadosBusqueda;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -141,7 +142,12 @@ public class Db_Cliente {
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,ex);
         }
+<<<<<<< HEAD
         connect.cerrarConexion();
+=======
+        Ordenar ord = new Ordenar();
+        ord.ordenarSeleccion(Clientes_apellidos);
+>>>>>>> f3f9d138629cb994a9545b036a3ececb774d3238
         return Clientes_apellidos;
     }
         

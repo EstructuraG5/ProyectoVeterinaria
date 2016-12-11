@@ -164,7 +164,10 @@ public class ConsultaCliente extends javax.swing.JFrame {
             } catch (Exception ex) {
                 Logger.getLogger(ConsultaCliente.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+        }else
+            if(combo=="Apellido"){
+                
+            }
     }//GEN-LAST:event_btnAtenderActionPerformed
 
     /**
