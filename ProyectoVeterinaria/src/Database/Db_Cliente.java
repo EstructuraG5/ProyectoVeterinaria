@@ -106,7 +106,7 @@ public class Db_Cliente {
     }
      public ArrayList<ResultadosBusqueda> Busqueda_por_DNI(int DNI_Cliente) throws Exception{
         ArrayList<ResultadosBusqueda> Clientes_DNI=new ArrayList();
-        ResultadosBusqueda resultado=new ResultadosBusqueda();
+        
         Conexion connect=new Conexion();
         connect.conectar();
          
@@ -117,6 +117,8 @@ public class Db_Cliente {
             ResultSet rs=st.executeQuery(sql);
             
             while(rs.next()){
+                ResultadosBusqueda resultado=new ResultadosBusqueda();
+                
                 String nombre=rs.getString("nombreCliente");
                 String apellido_paterno=rs.getString("apPaterno");
                 String apellido_materno=rs.getString("apMaterno");
@@ -149,7 +151,7 @@ public class Db_Cliente {
       //BUSQUEDA POR APELLIDO PATERNO
         public ArrayList<ResultadosBusqueda> Busqueda_por_Apellido(String ApPaterno) throws Exception{
         ArrayList<ResultadosBusqueda> Clientes_apellidos=new ArrayList();
-        ResultadosBusqueda resultado=new ResultadosBusqueda();
+        
         Conexion connect=new Conexion();
         connect.conectar();
          
@@ -160,6 +162,8 @@ public class Db_Cliente {
             ResultSet rs=st.executeQuery(sql);
             
             while(rs.next()){
+                ResultadosBusqueda resultado=new ResultadosBusqueda();
+                
                 String nombre=rs.getString("nombreCliente");
                 String apellido_paterno=rs.getString("apPaterno");
                 String apellido_materno=rs.getString("apMaterno");
@@ -217,8 +221,7 @@ public class Db_Cliente {
     //BUSQUEDA POR NOMBRE DE MASCOTA
     public ArrayList<ResultadosBusqueda> Busqueda_nombre_mascota(String mascota) throws Exception{
         ArrayList<ResultadosBusqueda> Mascotas=new ArrayList<ResultadosBusqueda>();
-        ResultadosBusqueda resultado=new ResultadosBusqueda();
-        
+
         Conexion connect=new Conexion();
         connect.conectar();
         try{
@@ -227,6 +230,8 @@ public class Db_Cliente {
                      + " nombreMascota='"+mascota+"'";
             ResultSet rs=st.executeQuery(sql);
             while(rs.next()){
+                ResultadosBusqueda resultado=new ResultadosBusqueda();
+                
                 String nombre_mascota=rs.getString("nombreMascota");
                 String historial=rs.getString("historial");
                 int Cliente_idCliente=rs.getInt("Cliente_idCliente");
