@@ -32,7 +32,7 @@ public class Db_Mascota {
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,ex);
         }
-        
+        con.cerrarConexion();
     }
      public String devolver_mascota(int idCliente) throws SQLException, Exception{
         Conexion con=new Conexion();
@@ -47,7 +47,7 @@ public class Db_Mascota {
         return nombre_mascota;
      }
      public String devolver_historial(int idCliente) throws SQLException, Exception{
-         Conexion con=new Conexion();
+        Conexion con=new Conexion();
         String historial=null;
         con.conectar();
         Statement st=con.getConexion().createStatement();
@@ -56,6 +56,7 @@ public class Db_Mascota {
         if(rs.next()){
             historial=rs.getString("historial");
         }
+        con.cerrarConexion();
         return historial;
      }
 }

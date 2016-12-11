@@ -48,9 +48,7 @@ public class Db_ColaDoctor {
             datos.add(rs.getString("paciente"));
             
         }
-        
-        
-        
+        con.cerrarConexion();
         return datos;
     }
 }

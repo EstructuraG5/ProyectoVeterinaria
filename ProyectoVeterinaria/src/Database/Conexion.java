@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  */
 public class Conexion {
     private Connection conexion; 
-Icon icono = new ImageIcon(getClass().getResource("/Recursos/like.png"));
+    Icon icono = new ImageIcon(getClass().getResource("/Recursos/like.png"));
     public void conectar() throws Exception {
         try {
             

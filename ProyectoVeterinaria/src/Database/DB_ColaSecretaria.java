@@ -48,6 +48,7 @@ public class DB_ColaSecretaria {
             datos.add(resultado.getString("apPaterno"));
             datos.add(resultado.getString("apMaterno"));
         }
+        con.cerrarConexion();
         return datos;
     }
 }

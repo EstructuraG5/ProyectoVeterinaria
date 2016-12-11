@@ -36,7 +36,7 @@ public class Db_Usuarios {
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,ex);
         }
-        
+        con.cerrarConexion();
     }
     
     public boolean buscar_Usuarios_login(String usuario,String password) throws Exception{
@@ -65,6 +65,7 @@ public class Db_Usuarios {
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, ex);
         }
+        connect.cerrarConexion();
         return respuesta;
     }
     
@@ -83,7 +84,7 @@ public class Db_Usuarios {
         }catch(SQLException ex){
             
         }
-        
+        connect.cerrarConexion();
         return tipo;
     }
     

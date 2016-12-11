@@ -48,6 +48,8 @@ public class ConsultaCliente extends javax.swing.JFrame {
         btnAtender = new javax.swing.JButton();
         labelFondo = new javax.swing.JLabel();
 
+        setMaximumSize(new java.awt.Dimension(525, 375));
+        setPreferredSize(new java.awt.Dimension(520, 370));
         getContentPane().setLayout(null);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Consultar Cliente"));
@@ -90,19 +92,19 @@ public class ConsultaCliente extends javax.swing.JFrame {
 
         tablaCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPane1.setViewportView(tablaCliente);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 140, 453, 89);
+        jScrollPane1.setBounds(20, 140, 452, 89);
 
         btnAtender.setText("ATENDER CLIENTE");
         btnAtender.addActionListener(new java.awt.event.ActionListener() {

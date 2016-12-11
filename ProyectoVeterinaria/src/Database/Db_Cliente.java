@@ -36,7 +36,7 @@ public class Db_Cliente {
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,ex);
         }
-        
+        con.cerrarConexion();
     }
      
      public int buscar_idCliente(String nombre,String ApPaterno, String ApMaterno) throws Exception{
@@ -53,6 +53,7 @@ public class Db_Cliente {
                     //Dependiendo del tipo de usuario , ver que tipo de 
                 id_cliente=result.getInt("idCliente");
             }
+        connect.cerrarConexion();
         return id_cliente;
      }
 
@@ -101,7 +102,7 @@ public class Db_Cliente {
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,ex);
         }
-        
+        connect.cerrarConexion();
         return mascota;
     }
      public ArrayList<ResultadosBusqueda> Busqueda_por_DNI(int DNI_Cliente) throws Exception{
@@ -257,7 +258,7 @@ public class Db_Cliente {
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,ex);
         }
-        
+        connect.cerrarConexion();
         return Mascotas;
     }    
 }

@@ -22,6 +22,7 @@ public class Db_Atencion {
                 +ruta_historial+"')";
         
         st.executeUpdate(sql);
+        con.cerrarConexion();
     }
     
     
