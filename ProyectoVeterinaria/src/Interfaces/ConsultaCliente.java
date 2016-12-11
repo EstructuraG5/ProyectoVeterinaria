@@ -48,7 +48,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
         btnAtender = new javax.swing.JButton();
         labelFondo = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(525, 375));
+        setMaximumSize(new java.awt.Dimension(520, 370));
         setPreferredSize(new java.awt.Dimension(520, 370));
         getContentPane().setLayout(null);
 
@@ -90,6 +90,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(20, 40, 455, 90);
 
+        tablaCliente.setBackground(new java.awt.Color(255, 255, 204));
         tablaCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -101,6 +102,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
 
             }
         ));
+        tablaCliente.setFocusable(false);
         jScrollPane1.setViewportView(tablaCliente);
 
         getContentPane().add(jScrollPane1);
