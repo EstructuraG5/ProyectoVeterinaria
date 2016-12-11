@@ -6,6 +6,8 @@
 package Interfaces;
 
 import Clases.Cliente;
+import Clases.ResultadosBusqueda;
+import Database.Consulta;
 import Database.DB_ColaSecretaria;
 import Database.Db_Atencion;
 import Database.Db_Cliente;
@@ -134,7 +136,20 @@ public class ConsultaCliente extends javax.swing.JFrame {
             } catch (Exception ex) {
                 Logger.getLogger(ConsultaCliente.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+        }else
+            if(opcion.equals("Apellido")){
+                cliente.setApellidoPaterno(BuscaTxt.getText());
+                try{
+                    ArrayList<ResultadosBusqueda> lista_coincidencia = new ArrayList();
+                    lista_coincidencia = db_cliente.Busqueda_por_Apellido(cliente.getApellidoPaterno());
+                    
+                    Consulta consulta = new Consulta();
+                    consulta.llenarTabla(tablaCliente, lista_coincidencia);
+                    
+                }catch (Exception ex) {
+                Logger.getLogger(ConsultaCliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -164,10 +179,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
             } catch (Exception ex) {
                 Logger.getLogger(ConsultaCliente.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }else
-            if(combo=="Apellido"){
-                
-            }
+        }
     }//GEN-LAST:event_btnAtenderActionPerformed
 
     /**
