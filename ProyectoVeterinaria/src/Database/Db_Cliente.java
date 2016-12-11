@@ -91,7 +91,7 @@ public class Db_Cliente {
         try{
             Statement st=connect.getConexion().createStatement();
             String sql="SELECT * FROM vet.mascota WHERE"
-                    + " Cliente_idCliente='"+idCliente;
+                    + " Cliente_idCliente='"+idCliente+"'";
             ResultSet rs=st.executeQuery(sql);
             if(rs.next()){
                 mascota.add(rs.getString("nombreMascota"));
@@ -115,13 +115,13 @@ public class Db_Cliente {
          try{
             Statement st =connect.getConexion().createStatement();
             String sql="SELECT * FROM vet.cliente WHERE"
-                     + " apellidoPaterno='"+ApPaterno+"'";
+                     + " apPaterno='"+ApPaterno+"'";
             ResultSet rs=st.executeQuery(sql);
             
             while(rs.next()){
-                String nombre=rs.getString("nombre");
-                String apellido_paterno=rs.getString("apellidoPaterno");
-                String apellido_materno=rs.getString("apellidoMaterno");
+                String nombre=rs.getString("nombreCliente");
+                String apellido_paterno=rs.getString("apPaterno");
+                String apellido_materno=rs.getString("apMaterno");
                 int DNI=rs.getInt("DNI");
                 
                 resultado.setCliente_nombre(nombre);
@@ -157,10 +157,10 @@ public class Db_Cliente {
         try{
             Statement st=connect.getConexion().createStatement();
             String sql="SELECT * FROM vet.cliente WHERE"
-                    + " idCliente='"+Cliente_idCliente;
+                    + " idCliente='"+Cliente_idCliente+"'";
             ResultSet rs=st.executeQuery(sql);
             if(rs.next()){
-                cliente.add(rs.getString("nombre"));
+                cliente.add(rs.getString("nombreCliente"));
                 cliente.add(rs.getString("apPaterno"));
                 cliente.add(rs.getString("apMaterno"));
                 cliente.add(rs.getInt("DNI"));

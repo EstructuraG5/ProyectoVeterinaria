@@ -129,19 +129,19 @@ public class ConsultaCliente extends javax.swing.JFrame {
         String opcion=(String) Buscar_ComboBox.getSelectedItem();
         
         if(opcion.equals("DNI")){
-            cliente.setDNI(Integer.parseInt(BuscaTxt.getText()));
+            int DNI=Integer.parseInt(BuscaTxt.getText());
             try {
-                db_cliente.tabla_Clientes(cliente.getDNI(),tablaCliente);
+                db_cliente.tabla_Clientes(DNI,tablaCliente);
                 
             } catch (Exception ex) {
                 Logger.getLogger(ConsultaCliente.class.getName()).log(Level.SEVERE, null, ex);
             }
         }else
             if(opcion.equals("Apellido")){
-                cliente.setApellidoPaterno(BuscaTxt.getText());
+                
                 try{
                     ArrayList<ResultadosBusqueda> lista_coincidencia = new ArrayList();
-                    lista_coincidencia = db_cliente.Busqueda_por_Apellido(cliente.getApellidoPaterno());
+                    lista_coincidencia = db_cliente.Busqueda_por_Apellido(BuscaTxt.getText());
                     
                     Consulta consulta = new Consulta();
                     consulta.llenarTabla(tablaCliente, lista_coincidencia);
