@@ -13,6 +13,7 @@ public class ResultadosBusqueda {
     private String cliente_nombre;
     private String cliente_apellidoPaterno;
     private String cliente_apellidoMaterno;
+    private int DNI;
     private String cliente_historial;
     private String mascota_nombre;
 
@@ -84,6 +85,20 @@ public class ResultadosBusqueda {
      */
     public void setMascota_nombre(String mascota_nombre) {
         this.mascota_nombre = mascota_nombre;
+    }
+
+    /**
+     * @return the DNI
+     */
+    public int getDNI() {
+        return DNI;
+    }
+
+    /**
+     * @param DNI the DNI to set
+     */
+    public void setDNI(int DNI) {
+        this.DNI = DNI;
     }
     
 }
