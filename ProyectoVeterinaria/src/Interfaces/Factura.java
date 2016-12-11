@@ -5,27 +5,58 @@
  */
 package Interfaces;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.print.PageFormat;
-import java.awt.print.Printable;
-import static java.awt.print.Printable.NO_SUCH_PAGE;
-import static java.awt.print.Printable.PAGE_EXISTS;
-import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
+import Database.Conexion_Factura;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
+
 
 /**
  *
  * @author User
  */
-public class Factura extends javax.swing.JFrame implements Printable {
+public class Factura extends javax.swing.JFrame{
 
     /**
      * Creates new form Factura
      */
+    Conexion_Factura con = new Conexion_Factura();
+    Connection cn = con.conexion();
     public Factura() {
         initComponents();
     }
+    
+    void calcular(){
+        String pre;
+        double igv = 0;
+        double total = 0;
+        double precio;
+        pre = Precio_Txt.getText();
+        precio = Double.parseDouble(pre);
+        igv = precio*0.18;
+        total = precio + igv;
+        IGV_Txt.setText(""+igv);
+        Total_Txt.setText(""+total);
+    }
+    
+    public void deletePersona(){  
+            try {                
+                PreparedStatement pstm = cn.prepareStatement("DELETE FROM vetfinak.factura");            
+                pstm.execute();
+                pstm.close();            
+            }catch(SQLException e){
+            System.out.println(e);
+            }            
+   }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,19 +80,6 @@ public class Factura extends javax.swing.JFrame implements Printable {
         Direccion_Txt = new javax.swing.JTextField();
         TelCel_Lbl = new javax.swing.JLabel();
         TelCel_Txt = new javax.swing.JTextField();
-        Mascota_Lbl = new javax.swing.JLabel();
-        NombreMascota_Lbl = new javax.swing.JLabel();
-        NombreMascota_Txt = new javax.swing.JTextField();
-        Especie_Lbl = new javax.swing.JLabel();
-        Especie_Txt = new javax.swing.JTextField();
-        Raza_Lbl = new javax.swing.JLabel();
-        Raza_Txt = new javax.swing.JTextField();
-        Sexo_Lbl = new javax.swing.JLabel();
-        Sexo_Txt = new javax.swing.JTextField();
-        Id_Lbl = new javax.swing.JLabel();
-        Id_Txt = new javax.swing.JTextField();
-        FechaNac_Lbl = new javax.swing.JLabel();
-        FechNacimiento_Txt = new javax.swing.JTextField();
         DesAtencion_Lbl = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         DesAtencion_TxtArea = new javax.swing.JTextArea();
@@ -71,109 +89,76 @@ public class Factura extends javax.swing.JFrame implements Printable {
         Total_Txt = new javax.swing.JTextField();
         Salir_Btn = new javax.swing.JButton();
         Imprimir_Btn = new javax.swing.JButton();
+        IGV_Lbl = new javax.swing.JLabel();
+        IGV_Txt = new javax.swing.JTextField();
+        Buscar_Btn = new javax.swing.JButton();
+        Calcular_Btn = new javax.swing.JButton();
+        Guardar_Btn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(850, 350));
+        setPreferredSize(new java.awt.Dimension(850, 350));
+        setResizable(false);
+        setSize(new java.awt.Dimension(850, 350));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Cliente_Lbl.setText("CLIENTE:");
-        getContentPane().add(Cliente_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, -1, -1));
+        getContentPane().add(Cliente_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         NombreCliente_Lbl.setText("NOMBRE:");
-        getContentPane().add(NombreCliente_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 42, -1, -1));
+        getContentPane().add(NombreCliente_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
         Nombre_Txt.setEditable(false);
-        getContentPane().add(Nombre_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 40, 130, -1));
+        getContentPane().add(Nombre_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 130, -1));
 
         ApPaterno_Lbl.setText("APELLIDO PATERNO:");
-        getContentPane().add(ApPaterno_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 42, -1, -1));
+        getContentPane().add(ApPaterno_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, -1, -1));
 
         ApPaterno_Txt.setEditable(false);
-        ApPaterno_Txt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ApPaterno_TxtActionPerformed(evt);
-            }
-        });
-        getContentPane().add(ApPaterno_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 40, 130, -1));
+        getContentPane().add(ApPaterno_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 130, -1));
 
         ApMaterno_Lbl.setText("APELLIDO MATERNO:");
-        getContentPane().add(ApMaterno_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(498, 42, -1, -1));
+        getContentPane().add(ApMaterno_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, -1, -1));
 
         ApMaterno_Txt.setEditable(false);
-        getContentPane().add(ApMaterno_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 40, 130, -1));
+        getContentPane().add(ApMaterno_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 70, 130, -1));
 
         Dni_Lbl.setText("DNI:");
-        getContentPane().add(Dni_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 74, -1, -1));
+        getContentPane().add(Dni_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         Dni_Txt.setEditable(false);
-        getContentPane().add(Dni_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 72, 130, -1));
+        getContentPane().add(Dni_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 130, -1));
 
         Direccion_Lbl.setText("DIRECCION:");
-        getContentPane().add(Direccion_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 74, -1, -1));
+        getContentPane().add(Direccion_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, -1));
 
         Direccion_Txt.setEditable(false);
-        getContentPane().add(Direccion_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 72, 177, -1));
+        getContentPane().add(Direccion_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 177, -1));
 
         TelCel_Lbl.setText("TELEFONO/CELULAR:");
-        getContentPane().add(TelCel_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(498, 74, -1, -1));
+        getContentPane().add(TelCel_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, -1, -1));
 
         TelCel_Txt.setEditable(false);
-        getContentPane().add(TelCel_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(629, 72, 136, -1));
-
-        Mascota_Lbl.setText("MASCOTA:");
-        getContentPane().add(Mascota_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 104, -1, -1));
-
-        NombreMascota_Lbl.setText("NOMBRE:");
-        getContentPane().add(NombreMascota_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 134, -1, -1));
-
-        NombreMascota_Txt.setEditable(false);
-        getContentPane().add(NombreMascota_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 132, 123, -1));
-
-        Especie_Lbl.setText("ESPECIE:");
-        getContentPane().add(Especie_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 134, -1, -1));
-
-        Especie_Txt.setEditable(false);
-        getContentPane().add(Especie_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 132, 131, -1));
-
-        Raza_Lbl.setText("RAZA:");
-        getContentPane().add(Raza_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(438, 134, -1, -1));
-
-        Raza_Txt.setEditable(false);
-        getContentPane().add(Raza_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 132, 125, -1));
-
-        Sexo_Lbl.setText("SEXO:");
-        getContentPane().add(Sexo_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(617, 134, -1, -1));
-
-        Sexo_Txt.setEditable(false);
-        getContentPane().add(Sexo_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 132, 101, -1));
-
-        Id_Lbl.setText("ID:");
-        getContentPane().add(Id_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 172, -1, -1));
-
-        Id_Txt.setEditable(false);
-        getContentPane().add(Id_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 170, 123, -1));
-
-        FechaNac_Lbl.setText("FECHA DE NACIMIENTO:");
-        getContentPane().add(FechaNac_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 172, -1, -1));
-
-        FechNacimiento_Txt.setEditable(false);
-        getContentPane().add(FechNacimiento_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 170, 114, -1));
+        getContentPane().add(TelCel_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 136, -1));
 
         DesAtencion_Lbl.setText("DESCRIPCION DE ATENCION:");
-        getContentPane().add(DesAtencion_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 208, -1, -1));
+        getContentPane().add(DesAtencion_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
         DesAtencion_TxtArea.setColumns(20);
         DesAtencion_TxtArea.setRows(5);
         jScrollPane1.setViewportView(DesAtencion_TxtArea);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 230, 490, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 490, -1));
 
-        Precio_Lbl.setText("PRECIO");
-        getContentPane().add(Precio_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(617, 208, -1, -1));
-        getContentPane().add(Precio_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(624, 253, 72, -1));
+        Precio_Lbl.setText("PRECIO:");
+        getContentPane().add(Precio_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 170, -1, -1));
+        getContentPane().add(Precio_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 170, 72, -1));
 
         Total_Lbl.setText("TOTAL:");
-        getContentPane().add(Total_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(568, 326, -1, -1));
-        getContentPane().add(Total_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(617, 324, 72, -1));
+        getContentPane().add(Total_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 250, -1, -1));
+
+        Total_Txt.setEditable(false);
+        getContentPane().add(Total_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 250, 72, -1));
 
         Salir_Btn.setText("SALIR");
         Salir_Btn.addActionListener(new java.awt.event.ActionListener() {
@@ -181,7 +166,7 @@ public class Factura extends javax.swing.JFrame implements Printable {
                 Salir_BtnActionPerformed(evt);
             }
         });
-        getContentPane().add(Salir_Btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, -1, -1));
+        getContentPane().add(Salir_Btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 290, -1, -1));
 
         Imprimir_Btn.setText("IMPRIMIR");
         Imprimir_Btn.addActionListener(new java.awt.event.ActionListener() {
@@ -189,10 +174,40 @@ public class Factura extends javax.swing.JFrame implements Printable {
                 Imprimir_BtnActionPerformed(evt);
             }
         });
-        getContentPane().add(Imprimir_Btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(657, 370, -1, -1));
+        getContentPane().add(Imprimir_Btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo-mediano.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 410));
+        IGV_Lbl.setText("I.G.V.:");
+        getContentPane().add(IGV_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 200, -1, -1));
+
+        IGV_Txt.setEditable(false);
+        getContentPane().add(IGV_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 200, 70, -1));
+
+        Buscar_Btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/BuscarCliente_Factura.JPG"))); // NOI18N
+        Buscar_Btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Buscar_BtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Buscar_Btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 12, 50, -1));
+
+        Calcular_Btn.setText("CALCULAR");
+        Calcular_Btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Calcular_BtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Calcular_Btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(707, 159, -1, -1));
+
+        Guardar_Btn.setText("GUARDAR");
+        Guardar_Btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Guardar_BtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Guardar_Btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 290, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo-Factura.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 870, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -202,22 +217,64 @@ public class Factura extends javax.swing.JFrame implements Printable {
         this.setVisible(false);
     }//GEN-LAST:event_Salir_BtnActionPerformed
 
+    private void Buscar_BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Buscar_BtnActionPerformed
+        // TODO add your handling code here:
+        BuscarCliente bc = new BuscarCliente();
+        bc.setVisible(true);
+    }//GEN-LAST:event_Buscar_BtnActionPerformed
+
+    private void Calcular_BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Calcular_BtnActionPerformed
+        // TODO add your handling code here:
+        calcular();
+    }//GEN-LAST:event_Calcular_BtnActionPerformed
+
+    private void Guardar_BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Guardar_BtnActionPerformed
+        // TODO add your handling code here:
+        String nom, pater, mater, dni, telCel, direc, descrip, total;
+        
+        nom = Nombre_Txt.getText();
+        pater = ApPaterno_Txt.getText();
+        mater = ApMaterno_Txt.getText();
+        dni = Dni_Txt.getText();
+        telCel = TelCel_Txt.getText();
+        direc = Direccion_Txt.getText();
+        descrip = DesAtencion_TxtArea.getText();
+        total = Total_Txt.getText();
+        String SQL = "INSERT INTO vetfinak.factura (nombre,apPaterno,apMaterno,DNI,direccion,TelCel,"
+                + "DescripcionAtencion,Costo) VALUES (?,?,?,?,?,?,?,?)";
+        try{
+            PreparedStatement pst = cn.prepareStatement(SQL);
+            pst.setString(1, nom);
+            pst.setString(2, pater);
+            pst.setString(3, mater);
+            pst.setString(4, dni); 
+            pst.setString(5, direc);
+            pst.setString(6, telCel);
+            pst.setString(7, descrip);
+            pst.setString(8, total);
+            int n = pst.executeUpdate();
+            if(n > 0){
+                JOptionPane.showMessageDialog(null, "DATOS FACTURADOS");
+            }else{
+                JOptionPane.showMessageDialog(null, "NO SE GUARDARON LOS DATOS");
+            }
+        }catch(Exception e){
+            Logger.getLogger(Factura.class.getName()).log(Level.SEVERE, null, e);            
+        }
+    }//GEN-LAST:event_Guardar_BtnActionPerformed
+
     private void Imprimir_BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Imprimir_BtnActionPerformed
         // TODO add your handling code here:
-        PrinterJob imprimir = PrinterJob.getPrinterJob();
-        imprimir.setPrintable(this);
-        if(imprimir.printDialog()){
-            try{
-                imprimir.print();
-            }catch(PrinterException ex){
-                System.out.println("ERROR" + ex);
-            }
+        try{
+            JasperReport reporte = JasperCompileManager.compileReport("Factura_Reporte.jrxml");
+            JasperPrint imprimir = JasperFillManager.fillReport(reporte, null, this.cn);
+            JasperViewer ver = new JasperViewer(imprimir,false);
+            ver.setVisible(true);
+            deletePersona();
+        }catch(JRException e){
+            Logger.getLogger(Factura.class.getName()).log(Level.SEVERE, null, e);
         }
     }//GEN-LAST:event_Imprimir_BtnActionPerformed
-
-    private void ApPaterno_TxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApPaterno_TxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ApPaterno_TxtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,49 +310,32 @@ public class Factura extends javax.swing.JFrame implements Printable {
             }
         });
     }
-     public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException{
-        if(pageIndex == 0){
-            Graphics2D g2D = (Graphics2D) graphics;
-            g2D.translate(pageFormat.getImageableX()+30, pageFormat.getImageableY()+30);
-            g2D.scale(0.5, 0.5);
-            this.printAll(graphics);
-            return PAGE_EXISTS;
-        }else return NO_SUCH_PAGE;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ApMaterno_Lbl;
-    private javax.swing.JTextField ApMaterno_Txt;
+    public static javax.swing.JTextField ApMaterno_Txt;
     private javax.swing.JLabel ApPaterno_Lbl;
-    private javax.swing.JTextField ApPaterno_Txt;
+    public static javax.swing.JTextField ApPaterno_Txt;
+    private javax.swing.JButton Buscar_Btn;
+    private javax.swing.JButton Calcular_Btn;
     private javax.swing.JLabel Cliente_Lbl;
     private javax.swing.JLabel DesAtencion_Lbl;
     private javax.swing.JTextArea DesAtencion_TxtArea;
     private javax.swing.JLabel Direccion_Lbl;
-    private javax.swing.JTextField Direccion_Txt;
+    public static javax.swing.JTextField Direccion_Txt;
     private javax.swing.JLabel Dni_Lbl;
-    private javax.swing.JTextField Dni_Txt;
-    private javax.swing.JLabel Especie_Lbl;
-    private javax.swing.JTextField Especie_Txt;
-    private javax.swing.JTextField FechNacimiento_Txt;
-    private javax.swing.JLabel FechaNac_Lbl;
-    private javax.swing.JLabel Id_Lbl;
-    private javax.swing.JTextField Id_Txt;
+    public static javax.swing.JTextField Dni_Txt;
+    private javax.swing.JButton Guardar_Btn;
+    private javax.swing.JLabel IGV_Lbl;
+    private javax.swing.JTextField IGV_Txt;
     private javax.swing.JButton Imprimir_Btn;
-    private javax.swing.JLabel Mascota_Lbl;
     private javax.swing.JLabel NombreCliente_Lbl;
-    private javax.swing.JLabel NombreMascota_Lbl;
-    private javax.swing.JTextField NombreMascota_Txt;
-    private javax.swing.JTextField Nombre_Txt;
+    public static javax.swing.JTextField Nombre_Txt;
     private javax.swing.JLabel Precio_Lbl;
     private javax.swing.JTextField Precio_Txt;
-    private javax.swing.JLabel Raza_Lbl;
-    private javax.swing.JTextField Raza_Txt;
     private javax.swing.JButton Salir_Btn;
-    private javax.swing.JLabel Sexo_Lbl;
-    private javax.swing.JTextField Sexo_Txt;
     private javax.swing.JLabel TelCel_Lbl;
-    private javax.swing.JTextField TelCel_Txt;
+    public static javax.swing.JTextField TelCel_Txt;
     private javax.swing.JLabel Total_Lbl;
     private javax.swing.JTextField Total_Txt;
     private javax.swing.JLabel jLabel1;
