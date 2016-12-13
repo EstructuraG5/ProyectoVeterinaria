@@ -114,7 +114,7 @@ public class HistorialMedico extends javax.swing.JFrame {
             String diagnostico=Diagnostico_Area.getText();
             BufferedWriter bw = new BufferedWriter(fw);
             String leer;
-            bw.write(fecha+":  \r\n"+diagnostico+"\n");
+            bw.write("\r\n"+fecha+":  \r\n"+diagnostico+"\n");
 
             
             bw.close();

@@ -59,6 +59,7 @@ public class ColaDoctor extends javax.swing.JFrame {
         tablaPacientes = new javax.swing.JTable();
         labelFondo = new javax.swing.JLabel();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(530, 420));
         setResizable(false);
         getContentPane().setLayout(null);
@@ -194,7 +195,7 @@ public class ColaDoctor extends javax.swing.JFrame {
         try {
 
             int id=db_cliente.buscar_idCliente(nombre, ApPaterno, ApMaterno);
-            String ruta="D:/Historiales/DOC"+id+".txt";
+            String ruta="D:/Historiales/Historial"+id+".txt";
             String texto;
       
             FileReader fr=new FileReader(ruta);

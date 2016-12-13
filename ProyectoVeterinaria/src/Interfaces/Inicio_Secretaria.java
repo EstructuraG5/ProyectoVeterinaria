@@ -42,6 +42,7 @@ public class Inicio_Secretaria extends javax.swing.JFrame {
         Fondo = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(800, 600));
+        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

@@ -205,7 +205,8 @@ public class NuevoCliente extends javax.swing.JFrame {
                 File historial = new File(ruta);
                 try (BufferedWriter bw = new BufferedWriter(new FileWriter(historial))) {
                     bw.write("HISTORIAL MEDICO \n"
-                            + "Cliente:"+id_cliente+"");
+                            + "Cliente:"+cliente.getNombre()+" "+cliente.getApellidoPaterno()+" "+cliente.getApellidoMaterno()+"\n"
+                    +"Nombre mascota :"+mascota.getNombre()+"\n");
 
                         bw.close();
                 

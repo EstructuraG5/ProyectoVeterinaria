@@ -10,6 +10,7 @@ import Database.Db_Usuarios;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -212,6 +213,13 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                String ruta="D:/Historiales";
+                File directorio = new File(ruta);
+                if(directorio.exists()){
+                    
+                }else{
+                    directorio.mkdir();
+                }
                 Login nuevo = new Login();
                 nuevo.setVisible(true);
                 nuevo.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
