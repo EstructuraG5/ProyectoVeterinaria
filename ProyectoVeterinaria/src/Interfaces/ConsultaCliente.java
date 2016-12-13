@@ -15,6 +15,7 @@ import Database.Db_Mascota;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,7 +39,8 @@ public class ConsultaCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         btnBuscar = new javax.swing.JButton();
         Buscar_ComboBox = new javax.swing.JComboBox<>();
@@ -48,9 +50,16 @@ public class ConsultaCliente extends javax.swing.JFrame {
         btnAtender = new javax.swing.JButton();
         labelFondo = new javax.swing.JLabel();
 
+        jMenuItem1.setText("Enviar Datos");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem1);
+
         setMaximumSize(new java.awt.Dimension(520, 370));
-        setPreferredSize(new java.awt.Dimension(520, 370));
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Consultar Cliente"));
 
@@ -87,8 +96,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
                 .addGap(36, 36, 36))
         );
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(20, 40, 455, 90);
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, 90));
 
         tablaCliente.setBackground(new java.awt.Color(255, 255, 204));
         tablaCliente.setModel(new javax.swing.table.DefaultTableModel(
@@ -105,8 +113,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
         tablaCliente.setFocusable(false);
         jScrollPane1.setViewportView(tablaCliente);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 140, 452, 89);
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, 89));
 
         btnAtender.setText("ATENDER CLIENTE");
         btnAtender.addActionListener(new java.awt.event.ActionListener() {
@@ -114,12 +121,10 @@ public class ConsultaCliente extends javax.swing.JFrame {
                 btnAtenderActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAtender);
-        btnAtender.setBounds(340, 250, 142, 43);
+        getContentPane().add(btnAtender, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 142, 43));
 
         labelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo.png"))); // NOI18N
-        getContentPane().add(labelFondo);
-        labelFondo.setBounds(0, 0, 520, 370);
+        getContentPane().add(labelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -134,7 +139,6 @@ public class ConsultaCliente extends javax.swing.JFrame {
         if(opcion.equals("DNI")){
             int DNI=Integer.parseInt(BuscaTxt.getText());
             try {
-//                db_cliente.tabla_Clientes(DNI,tablaCliente);
                     ArrayList<ResultadosBusqueda> lista_coincidencia = new ArrayList();
                     lista_coincidencia = db_cliente.Busqueda_por_DNI(DNI);
                     
@@ -176,32 +180,75 @@ public class ConsultaCliente extends javax.swing.JFrame {
 
     private void btnAtenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtenderActionPerformed
         // TODO add your handling code here:
-        String combo=(String)Buscar_ComboBox.getSelectedItem();
-        DB_ColaSecretaria cola_secretaria=new DB_ColaSecretaria();
-        Db_Atencion cola_atencion=new Db_Atencion();
-        Db_Cliente db_cliente=new Db_Cliente();
-        Db_Mascota db_mascota=new Db_Mascota();
-        ArrayList<String> buscar=new ArrayList<String>();
-        if(combo=="DNI"){
-            int dni=Integer.parseInt(BuscaTxt.getText());
+         int fil = tablaCliente.getSelectedRow();
+        String nombre, apPaterno, apMaterno, historial, mascota_nombre;
+        if(fil == -1 ){
+            JOptionPane.showMessageDialog(null,"NO SELECCIONO NINGUN DATO");
+        }else{
+            nombre=(String) tablaCliente.getValueAt(fil,0);
+            apPaterno = (String) tablaCliente.getValueAt(fil,1);
+            apMaterno = (String) tablaCliente.getValueAt(fil,2);
+            int DNI = (int) tablaCliente.getValueAt(fil,3);
+            mascota_nombre = (String) tablaCliente.getValueAt(fil , 4 );
+            historial = (String) tablaCliente.getValueAt(fil , 5);
+            
+            Db_Atencion db_atencion=new Db_Atencion();
             try {
-                buscar=cola_secretaria.seleccionar_cliente(dni);
-                String nombre=buscar.get(0);
-                String apellidoPaterno=buscar.get(1);
-                String apellidoMaterno=buscar.get(2);
-                int idCliente=db_cliente.buscar_idCliente(nombre, apellidoPaterno, apellidoMaterno);
-                
-                String mascota=db_mascota.devolver_mascota(idCliente);
-                
-                String historial=db_mascota.devolver_historial(idCliente);
-                
-                cola_atencion.Insertar_cola(nombre, apellidoPaterno, apellidoMaterno,mascota, historial);
-                
+                db_atencion.Insertar_cola(nombre, apPaterno, apMaterno, mascota_nombre, historial);
+                JOptionPane.showMessageDialog(null, "El cliente a sido agregado a la cola");
+                this.dispose();
             } catch (Exception ex) {
                 Logger.getLogger(ConsultaCliente.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
     }//GEN-LAST:event_btnAtenderActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        int fil = tablaCliente.getSelectedRow();
+        String nombre, apPaterno, apMaterno, historial, mascota_nombre;
+        if(fil == -1 ){
+            JOptionPane.showMessageDialog(null,"NO SELECCIONO NINGUN DATO");
+        }else{
+            nombre=(String) tablaCliente.getValueAt(fil,0);
+            apPaterno = (String) tablaCliente.getValueAt(fil,1);
+            apMaterno = (String) tablaCliente.getValueAt(fil,2);
+            int DNI = (int) tablaCliente.getValueAt(fil,3);
+            historial = (String) tablaCliente.getValueAt(fil , 4 );
+            mascota_nombre = (String) tablaCliente.getValueAt(fil , 5);
+            
+            Db_Atencion db_atencion=new Db_Atencion();
+            try {
+                db_atencion.Insertar_cola(nombre, apPaterno, apMaterno, mascota_nombre, historial);
+            } catch (Exception ex) {
+                Logger.getLogger(ConsultaCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        /*  String nom = "", pater = "", mater = "", DNI = "", telCel = "", direc = "";
+        int fil = Tabla.getSelectedRow();
+        try{
+            if(fil == -1){
+                JOptionPane.showMessageDialog(null, "NO SELECCIONÓ NINGUN DATO");
+            }else{
+                nom = (String) Tabla.getValueAt(fil, 0);
+                pater = (String) Tabla.getValueAt(fil, 1);
+                mater = (String) Tabla.getValueAt(fil, 2);
+                DNI = (String) Tabla.getValueAt(fil, 3);
+                telCel = (String) Tabla.getValueAt(fil, 4);
+                direc = (String) Tabla.getValueAt(fil, 5);
+                Factura.Nombre_Txt.setText(nom);
+                Factura.ApPaterno_Txt.setText(pater);
+                Factura.ApMaterno_Txt.setText(mater);
+                Factura.Dni_Txt.setText(DNI);
+                Factura.Direccion_Txt.setText(direc);
+                Factura.TelCel_Txt.setText(telCel);
+                this.dispose();
+            }
+        }catch(Exception e){
+            
+        }*/
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -244,8 +291,9 @@ public class ConsultaCliente extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Buscar_ComboBox;
     private javax.swing.JButton btnAtender;
     private javax.swing.JButton btnBuscar;
-    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelFondo;
     private javax.swing.JTable tablaCliente;

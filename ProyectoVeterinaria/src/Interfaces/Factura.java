@@ -50,7 +50,7 @@ public class Factura extends javax.swing.JFrame{
     
     public void deletePersona(){  
             try {                
-                PreparedStatement pstm = cn.prepareStatement("DELETE FROM vetfinak.factura");            
+                PreparedStatement pstm = cn.prepareStatement("DELETE FROM vet.factura");            
                 pstm.execute();
                 pstm.close();            
             }catch(SQLException e){
@@ -240,7 +240,7 @@ public class Factura extends javax.swing.JFrame{
         direc = Direccion_Txt.getText();
         descrip = DesAtencion_TxtArea.getText();
         total = Total_Txt.getText();
-        String SQL = "INSERT INTO vetfinak.factura (nombre,apPaterno,apMaterno,DNI,direccion,TelCel,"
+        String SQL = "INSERT INTO vet.factura (nombre,apPaterno,apMaterno,DNI,direccion,TelCel,"
                 + "DescripcionAtencion,Costo) VALUES (?,?,?,?,?,?,?,?)";
         try{
             PreparedStatement pst = cn.prepareStatement(SQL);

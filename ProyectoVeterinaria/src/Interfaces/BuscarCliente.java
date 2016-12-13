@@ -35,9 +35,9 @@ public class BuscarCliente extends javax.swing.JFrame {
         String [] registro = new String [6];
         String sql = "";
         if(valor.equals("")){
-            sql = "SELECT * FROM vetfinak.cliente";
+            sql = "SELECT * FROM vet.cliente";
         }else{
-            sql = "SELECT * FROM  vetfinak.cliente WHERE CONCAT (DNI, nombreCliente, apPaterno, apMaterno) LIKE '%"+valor+"%'";
+            sql = "SELECT * FROM  vet.cliente WHERE CONCAT (DNI, nombreCliente, apPaterno, apMaterno) LIKE '%"+valor+"%'";
         }
         try{
             Statement st = cn.createStatement();

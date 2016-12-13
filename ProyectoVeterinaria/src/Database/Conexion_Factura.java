@@ -18,7 +18,7 @@ public class Conexion_Factura {
     public Connection conexion(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            conectar=DriverManager.getConnection("jdbc:mysql://localhost:3306/vetfinak?user=root&password=1234");
+            conectar=DriverManager.getConnection("jdbc:mysql://localhost:3306/vet?user=root&password=1234");
         
         }catch(ClassNotFoundException | SQLException e){
            System.out.println(e.getMessage());

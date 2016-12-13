@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -211,7 +212,9 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                Login nuevo = new Login();
+                nuevo.setVisible(true);
+                nuevo.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
             }
         });
     }

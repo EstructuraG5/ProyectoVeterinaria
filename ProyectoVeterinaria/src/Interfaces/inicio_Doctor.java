@@ -14,6 +14,7 @@ public class inicio_Doctor extends javax.swing.JFrame {
      */
     public inicio_Doctor() {
         initComponents();
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         Toolkit mipantalla = Toolkit.getDefaultToolkit(); // nos dice el medio donde esta compilando el programa
         Dimension tampantalla = mipantalla.getScreenSize(); // devuelve la dimension de la pantalla
         int altura = tampantalla.height, ancho = tampantalla.width;

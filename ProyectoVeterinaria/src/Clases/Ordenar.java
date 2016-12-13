@@ -34,6 +34,7 @@ public class Ordenar {
         aux_datos.setCliente_nombre(data.get(indice).getCliente_nombre());
         aux_datos.setCliente_apellidoPaterno(data.get(indice).getCliente_apellidoPaterno());
         aux_datos.setCliente_apellidoMaterno(data.get(indice).getCliente_apellidoMaterno());
+        aux_datos.setDNI((int) data.get(indice).getDNI());
         aux_datos.setMascota_nombre(data.get(indice).getMascota_nombre());
         aux_datos.setCliente_historial(data.get(indice).getCliente_historial());
     }
