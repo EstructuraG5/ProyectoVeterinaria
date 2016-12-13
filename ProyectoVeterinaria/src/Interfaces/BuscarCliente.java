@@ -28,6 +28,7 @@ public class BuscarCliente extends javax.swing.JFrame {
     Connection cn = con.conexion();
     public BuscarCliente() {
         initComponents();
+        setLocationRelativeTo(null);
         mostrarCliente("");
     }
     void mostrarCliente(String valor){

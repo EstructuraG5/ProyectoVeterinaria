@@ -33,6 +33,10 @@ public class Factura extends javax.swing.JFrame{
     Connection cn = con.conexion();
     public Factura() {
         initComponents();
+        setLocationRelativeTo(null);
+        Imprimir_Btn.setEnabled(false);
+        Guardar_Btn.setEnabled(false);
+        Calcular_Btn.setEnabled(false);
     }
     
     void calcular(){
@@ -221,15 +225,20 @@ public class Factura extends javax.swing.JFrame{
         // TODO add your handling code here:
         BuscarCliente bc = new BuscarCliente();
         bc.setVisible(true);
+        Calcular_Btn.setEnabled(true);
+        
     }//GEN-LAST:event_Buscar_BtnActionPerformed
 
     private void Calcular_BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Calcular_BtnActionPerformed
         // TODO add your handling code here:
         calcular();
+        Guardar_Btn.setEnabled(true);
     }//GEN-LAST:event_Calcular_BtnActionPerformed
 
     private void Guardar_BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Guardar_BtnActionPerformed
         // TODO add your handling code here:
+        Imprimir_Btn.setEnabled(true);
+        Guardar_Btn.setEnabled(false);
         String nom, pater, mater, dni, telCel, direc, descrip, total;
         
         nom = Nombre_Txt.getText();
